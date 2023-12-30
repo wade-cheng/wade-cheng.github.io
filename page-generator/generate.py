@@ -61,8 +61,8 @@ def formatText(text: str, file: str) -> str:
 <html>
   <head>
     <meta charset="utf-8">
-    <title>amuffin's corner</title>
-    <meta name="description" content="a personal webbed site">
+    <title>wade!</title>
+    <meta name="description" content="a personal web site">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/style.css" rel="stylesheet" type="text/css">
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/heart16x16.png">

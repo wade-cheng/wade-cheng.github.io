@@ -1,43 +1,77 @@
 <!DOCTYPE html>
 
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>wade!</title>
-    <meta name="description" content="a personal web site">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/style.css" rel="stylesheet" type="text/css">
-    <link rel="icon" type="image/png" sizes="16x16" href="/assets/heart16x16.png">
-  </head>
+<html lang="en">
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Libertinus+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+            rel="stylesheet"
+        />
 
-  <body>
-  <div id=site-container>
-    <script src="/darkmode.js"></script>
-  
-    <div class="left-spacer"></div>
+        <meta charset="utf-8" />
+        <title>wade's home</title>
+        <meta name="description" content="a personal webbed site" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <nav>
-      <a href="/index.html">home</a>
-      <a href="/blog.html">blog</a>
-      <a href="/projects.html">projects</a>
-      <a class="settings-btn" href="/settings.html">settings</a>
-      <img src="/assets/nighttime.png">
-    </nav>
+        <!-- https://css-tricks.com/essential-meta-tags-social-media/ -->
 
-    <h1>home</h1>
-    
-    <p>Hello! I'm Wade. Welcome to my personal site!</p>
-    
-    <h2>who am i</h2>
-    
-    <p>University student at Carnegie Mellon for StatML. Or: A nerd attending nerd school.</p>
-    
-    <p><a href="https://github.com/wade-cheng/">https://github.com/wade-cheng/</a></p>
-    
-    <h2>what's this?</h2>
-    
-    Partially a personal site, yes, but it's pretty barren right now. Call it half personal site, half tech demo. This website is built with a handcrafted python script instead of a conventional static site generator like <a href="https://www.11ty.dev"/>https://www.11ty.dev/</a>, or something.
-    
-  </div>
-  </body>
+        <link href="/style.css" rel="stylesheet" type="text/css" />
+        <link rel="prefetch" href="/assets/nighttime.png" />
+
+        <script>
+            const THEMES = {
+                dark: {
+                    "--bg": "#20384B",
+                    "--text": "#E1F2FF",
+                    "--code-bg": "#E1F2FF",
+                    "--code-text": "#20384B",
+                },
+                light: {
+                    "--bg": "white",
+                    "--text": "black",
+                    "--code-bg": "#363636",
+                    "--code-text": "#E3E3E3",
+                },
+            };
+            function checkDarkmode() {
+                //console.log("got here");
+                let root = document.documentElement.style;
+
+                Object.entries(THEMES[localStorage.getItem("theme")]).forEach(
+                    (propval) => root.setProperty(propval[0], propval[1]),
+                );
+            }
+
+            checkDarkmode();
+        </script>
+    </head>
+
+    <body>
+        <div id="site-container">
+            <nav>
+                <a href="/">home</a>
+                <a href="/blog/">blog</a>
+                <a href="/garden/">garden</a>
+                <!-- <img src="/assets/nighttime.png" alt="" /> -->
+            </nav>
+
+            <header>
+                <h1>home</h1>
+            </header>
+
+            
+<!-- <h1>wade-cheng</h1> -->
+<p>
+    Heyo! I'm Wade. I think coding is pretty cool. Undergrad at Carnegie Mellon.
+    Have a look around :-)
+</p>
+<!-- <ul>
+    <li><a href="./">projects</a></li>
+    <li><a href="./">blog</a></li>
+    <li><a href="./">garden</a></li>
+</ul> -->
+
+        </div>
+    </body>
 </html>

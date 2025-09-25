@@ -1,0 +1,27 @@
+#!/usr/bin/env python3
+"""
+makeblog
+writes a new blog post at the current date to the blog dir
+"""
+
+from datetime import date
+import sys
+import subprocess 
+
+TEMP_TITLE = "NEW--RENAME-ME.njk"
+
+CONTENT = f"""---
+title: 
+tags: blog-post
+date: {date.today().isoformat()}
+description: 
+layout: "blog_post.njk"
+---
+
+"""
+
+print(CONTENT)
+with open(f"src/blog/{TEMP_TITLE}", "w") as f:
+    f.write(CONTENT)
+
+subprocess.run(["code", f"src/blog/{TEMP_TITLE}"])

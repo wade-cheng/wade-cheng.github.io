@@ -28,13 +28,17 @@ eleventyImport:
     <a href="./feed.xml">https://wade-cheng.is-a.dev/blog/feed.xml</a>
 </p>
 
+Isn't the age of the internet so weird? You might not know me, but now you can
+make an effort without our ever meeting. In another life, maybe we would've met,
+and I would've really liked just doing laundry and taxes with you.
+
 <hr />
 
 {%- for post in collections['blog-post'] | reverse -%}
 
 <p>
     <a href="{{post.url}}">{{ post.data.title }}</a>
-    {{ post.data.description | safe }}
+    <span class="date">{{ post.data.date | formatDate }}</span>
 </p>
 
 {%- endfor -%}

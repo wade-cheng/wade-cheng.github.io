@@ -15,6 +15,7 @@ module.exports = function (eleventyConfig) {
         "November",
         "December",
     ];
+    eleventyConfig.addPassthroughCopy("./src/favicon/*");
     eleventyConfig.addPassthroughCopy("./src/CNAME");
     eleventyConfig.addPassthroughCopy("./src/.nojekyll");
     eleventyConfig.addPassthroughCopy("./src/404.html");
@@ -26,7 +27,7 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy("./src/blog/*/*");
     // eleventyConfig.addPassthroughCopy("**/*.pdf");
     eleventyConfig.addFilter("formatDate", function (date) {
-        return `${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`;
+        return `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
     });
 
     eleventyConfig.addPlugin(feedPlugin, {

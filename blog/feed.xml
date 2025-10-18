@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+  <title>wade&#39;s blog</title>
+  <subtitle>various microblogs, ramblings, fun thematic gatherings of links, and other blog posts.</subtitle>
+  <link href="https://wade-cheng.is-a.dev/blog/feed.xml" rel="self" />
+  <link href="https://wade-cheng.is-a.dev/" />
+  <updated>2025-10-18T00:00:00Z</updated>
+  <id>https://wade-cheng.is-a.dev/</id>
+  <author>
+    <name>wade cheng</name>
+  </author>
+  <entry>
+    <title>neeeerd</title>
+    <link href="https://wade-cheng.is-a.dev/blog/neeeerd/" />
+    <updated>2025-10-18T00:00:00Z</updated>
+    <id>https://wade-cheng.is-a.dev/blog/neeeerd/</id>
+    <content type="html">
+&lt;p&gt;
+    I have a habit of, often when gaming, calling someone who knows how to do
+    anything but the most obvious and beginner thing, a nerd. Aw man this guy
+    just killed me by executing the basic combo relevant to their character,
+    their bread and butter? Oh my god this guy&#39;s a nerd :0
+&lt;/p&gt;
+
+&lt;p&gt;
+    The connotation is important, though: it&#39;s not making fun of the person at
+    all, I think it just makes life more happy to be easily impressed. Maybe
+    they came into the game playing that character for the first time, and they
+    had enough prior experience to just get it right with zero effort. Or maybe
+    this is a beginner who spent long hours of practice to now be able to show
+    it off. No matter what, even if it&#39;s something that&#39;s relatively simple to
+    me, now, hey. That was pretty cool, anyways.
+&lt;/p&gt;
+
+&lt;p&gt;Yes, this is about League of Legends.&lt;/p&gt;
+</content>
+  </entry>
+</feed>

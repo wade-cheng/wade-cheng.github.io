@@ -88,7 +88,9 @@
                 {% block subheading %}{% endblock %}
             </header>
 
-            <main>{{ content | safe }}</main>
+            <main>
+                {% block maincontent %}{{ content | safe }}{% endblock %}
+            </main>
         </div>
     </body>
 </html>

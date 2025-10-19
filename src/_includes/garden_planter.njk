@@ -4,8 +4,12 @@
 {% block pagetitle %}wade's garden :: {{ title }} {% endblock %}
 
 <!--  -->
+{% block maincontent %}
+
+<!--  -->
 {{ content | safe }}
 
 <p>
     <small><a href="/garden/">back to garden</a></small>
 </p>
+{% endblock %}

@@ -31,8 +31,14 @@ body {
   line-height: 1.5;
 }
 
+p {
+    margin: 0.6em 0;
+}
+
 .date {
     font-size: 85%;
+    /* font-variant-numeric: proportional-nums oldstyle-nums;
+    font-feature-settings: "onum"; */
 }
 
 #site-container {
@@ -58,11 +64,15 @@ hr {
   margin: 4px 0px 4px;
 }
 
-/* remember to uncomment the google fonts query if you use this
-might be cool to look for a small caps font too.
 .smallcaps {
-    font-family: "Vollkorn SC", "Vollkorn", serif;
-} */
+    font-variant: small-caps;
+    font-feature-settings: "smcp";
+}
+
+.oldstyle {
+    font-variant-numeric: proportional-nums oldstyle-nums;
+    font-feature-settings: "onum";
+}
 
 .spoiler {
   background-color: var(--text);

@@ -4,11 +4,41 @@
   <subtitle>various microblogs, ramblings, fun thematic gatherings of links, and other blog posts.</subtitle>
   <link href="https://wade-cheng.is-a.dev/blog/feed.xml" rel="self" />
   <link href="https://wade-cheng.is-a.dev/" />
-  <updated>2025-10-18T00:00:00Z</updated>
+  <updated>2025-10-19T00:00:00Z</updated>
   <id>https://wade-cheng.is-a.dev/</id>
   <author>
     <name>wade cheng</name>
   </author>
+  <entry>
+    <title>typography</title>
+    <link href="https://wade-cheng.is-a.dev/blog/typography/" />
+    <updated>2025-10-19T00:00:00Z</updated>
+    <id>https://wade-cheng.is-a.dev/blog/typography/</id>
+    <content type="html">
+&lt;p&gt;
+    I love typography!!! Massive fan of making things look nice. I&#39;ve just added
+    lead-in small caps to the start of these content pages and enabled oldstyle
+    figures for when I might want them later. (For now, these are the ones that
+    look like this:
+    &lt;span class=&quot;oldstyle&quot;&gt;1234567890&lt;/span&gt;)
+&lt;/p&gt;
+
+&lt;p&gt;
+    Also, I&#39;ve through this just discovered that EB Garamond actually supports a
+    lot of OpenType features after all. The
+    &lt;a href=&quot;https://googlefonts.github.io/ebgaramond-specimen/&quot;&gt;typography specimen&lt;/a&gt;
+    linked from the Google Fonts page is quite pretty. Unfortunately and
+    ironically, the Google Fonts binary for the font doesn&#39;t actually bundle
+    these features. This site statically hosts the full (&lt;a href=&quot;https://wade-cheng.is-a.dev/assets/eb-garamond/OFL.txt&quot;&gt;OFL-license-licensed&lt;/a&gt;) font from
+    &lt;a href=&quot;https://github.com/octaviopardo/EBGaramond12&quot;&gt;https://github.com/octaviopardo/EBGaramond12&lt;/a&gt;.
+&lt;/p&gt;
+
+&lt;p&gt;
+    A really nice resource on many things typography is Matthew Butterick&#39;s
+    &lt;a href=&quot;https://practicaltypography.com/&quot;&gt;https://practicaltypography.com/&lt;/a&gt;.
+&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <title>neeeerd</title>
     <link href="https://wade-cheng.is-a.dev/blog/neeeerd/" />

@@ -43,13 +43,13 @@ body {
   left: 10vw;
 }
 
-h2 {
+/* h2 {
   border-bottom: 1px solid var(--text);
 }
 
 h2:before {
   content: "~$ ";
-}
+} */
 
 hr {
   border: none;
@@ -125,5 +125,3 @@ pre code {
 .temp {
   display: block;
 }
-
-/*# sourceMappingURL=style.css.map */

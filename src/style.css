@@ -17,6 +17,9 @@
   }
 }
 
+/* ul { list-style-type: "•  "; } */
+/* ul { list-style-type: "◈  "; } */
+
 body {
   font-family: "EB Garamond", serif;
   color: var(--text);
@@ -54,6 +57,12 @@ hr {
   background-color: var(--text);
   margin: 4px 0px 4px;
 }
+
+/* remember to uncomment the google fonts query if you use this
+might be cool to look for a small caps font too.
+.smallcaps {
+    font-family: "Vollkorn SC", "Vollkorn", serif;
+} */
 
 .spoiler {
   background-color: var(--text);

@@ -11,6 +11,7 @@
     "build": "eleventy",
     "fmt": "npx prettier src/**/*.njk --write",
     "check": "npx prettier src/**/*.njk --check",
+    "build-ghpages": "npx @11ty/eleventy",
     "prepare": "husky"
   },
   "keywords": [],

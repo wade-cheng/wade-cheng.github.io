@@ -23,7 +23,7 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy("./src/*.js");
     eleventyConfig.addPassthroughCopy("./src/assets/*");
     eleventyConfig.addPassthroughCopy("./src/assets/*/*");
-    // eleventyConfig.addPassthroughCopy("./src/blog/*")
+    eleventyConfig.addPassthroughCopy("./src/blog/*");
     eleventyConfig.addPassthroughCopy("./src/blog/*/*");
     // eleventyConfig.addPassthroughCopy("**/*.pdf");
     eleventyConfig.addFilter("formatDate", function (date) {

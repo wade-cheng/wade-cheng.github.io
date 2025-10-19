@@ -5,14 +5,9 @@ layout: "base.njk"
 
 <p>
     Welcome to my digital garden, a place where I keep long-running, constantly
-    updated articles, as opposed to one-off blog posts. Read more about digital
-    gardens here:
+    updated articles, as opposed to one-off blog posts.
 </p>
-<p>
-    <a href="https://maggieappleton.com/garden-history">
-        A Brief History & Ethos of the Digital Garden By Maggie Appleton
-    </a>
-</p>
+
 <hr />
 
 {%- for post in collections['garden-planter'] -%}
@@ -24,6 +19,10 @@ layout: "base.njk"
 
 {%- endfor -%}
 
-<script>NekoType="white"</script>
-<div id=nl><script src="https://webneko.net/n20171213.js"></script><a 
-href="https://webneko.net">Neko</a></div>
+<script>
+    NekoType = "white";
+</script>
+<div id="nl">
+    <script src="https://webneko.net/n20171213.js"></script>
+    <a href="https://webneko.net">Neko</a>
+</div>

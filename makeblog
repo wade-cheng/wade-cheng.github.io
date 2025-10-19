@@ -5,14 +5,13 @@ writes a new blog post at the current date to the blog dir
 """
 
 from datetime import date
-import sys
-import subprocess 
+import subprocess
 
 TEMP_TITLE = "NEW--RENAME-ME.njk"
 
 CONTENT = f"""---
 title: 
-tags: blog-post
+tags: ["blog-post"]
 date: {date.today().isoformat()}
 description: 
 layout: "blog_post.njk"

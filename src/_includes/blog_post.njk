@@ -2,7 +2,10 @@
 layout: "base.njk"
 ---
 
-<div class="date">{{ page.date | formatDate }}</div>
+<div class="date">
+    {{ page.date | formatDate }}{% for tag in tags -%} {% if tag !== 'blog-post'
+    %} | #{{ tag }} {% endif %} {%- endfor %}
+</div>
 
 {{ content | safe }}
 

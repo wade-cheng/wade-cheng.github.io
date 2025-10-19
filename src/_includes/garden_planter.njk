@@ -4,6 +4,16 @@
 {% block pagetitle %}wade's garden :: {{ title }} {% endblock %}
 
 <!--  -->
+{% block head %}
+<style>
+    main p:first-of-type::first-line {
+        font-variant: small-caps;
+        font-feature-settings: "smcp";
+    }
+</style>
+{% endblock %}
+
+<!--  -->
 {% block maincontent %}
 
 <!--  -->

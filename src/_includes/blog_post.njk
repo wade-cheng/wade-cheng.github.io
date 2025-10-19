@@ -4,6 +4,16 @@
 {% block pagetitle %}wade's blog :: {{ title }} {% endblock %}
 
 <!--  -->
+{% block head %}
+<style>
+    main p:first-of-type::first-line {
+        font-variant: small-caps;
+        font-feature-settings: "smcp";
+    }
+</style>
+{% endblock %}
+
+<!--  -->
 {% block subheading %}
 <div class="date">
     {{ page.date | formatDate }}

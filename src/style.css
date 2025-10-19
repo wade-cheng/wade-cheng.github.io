@@ -113,15 +113,15 @@ img {
 }
 
 nav {
-  overflow: hidden;
+  overflow: visible;
   max-width: inherit;
 }
 nav a {
   line-height: 1.2;
   display: inline-block;
-  margin-right: 10px;
-  margin-bottom: 10px;
-  margin-top: 10px;
+  padding: 8px;
+  margin-left: -8px;
+  margin-right: 8px;
 }
 nav .settings-btn {
   float: right;

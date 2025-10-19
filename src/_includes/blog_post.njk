@@ -1,12 +1,22 @@
----
-layout: "base.njk"
----
+{% extends "base.njk" %}
 
+<!--  -->
+{% block pagetitle %}wade's blog :: {{ title }} {% endblock %}
+
+<!--  -->
+{% block subheading %}
 <div class="date">
-    {{ page.date | formatDate }}{% for tag in tags -%} {% if tag !== 'blog-post'
-    %} | #{{ tag }} {% endif %} {%- endfor %}
+    {{ page.date | formatDate }}
+    <!--  -->
+    {% for tag in tags -%}
+    <!--  -->
+    {% if tag !== 'blog-post' %} | #{{ tag }} {% endif %}
+    <!--  -->
+    {%- endfor %}
 </div>
+{% endblock %}
 
+<!--  -->
 {{ content | safe }}
 
 <p>

@@ -1,9 +1,9 @@
----
-layout: "base.njk"
----
+{% extends "base.njk" %}
 
-<p>{{ post.data.description | safe }}</p>
+<!--  -->
+{% block pagetitle %}wade's garden :: {{ title }} {% endblock %}
 
+<!--  -->
 {{ content | safe }}
 
 <p>

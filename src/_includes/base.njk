@@ -49,7 +49,7 @@
 
         <!-- standard metadata -->
         <meta charset="utf-8" />
-        <title>wade's {{ title }}</title>
+        <title>{% block pagetitle %}wade's {{ title }}{% endblock %}</title>
         <meta name="description" content="a personal webbed site" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <!-- https://css-tricks.com/essential-meta-tags-social-media/ -->
@@ -84,9 +84,11 @@
 
             <header>
                 <h1>{{ title }}</h1>
+
+                {% block subheading %}{% endblock %}
             </header>
 
-            {{ content | safe }}
+            <main>{{ content | safe }}</main>
         </div>
     </body>
 </html>

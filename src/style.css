@@ -90,6 +90,11 @@ hr {
 hr::before {
  content: "* * *";
 }
+@media (prefers-color-scheme: dark) {
+  hr {
+    color: #8e5eba;
+  }
+}
 
 .smallcaps {
     font-variant: small-caps;

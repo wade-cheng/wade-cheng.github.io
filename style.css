@@ -1,6 +1,8 @@
 :root {
   --max-width: 544px;
   --bg: white;
+  --link-after: #7b31c1;
+  --link-hover: #eeddff;
   --text: black;
   --code-bg: #363636;
   --code-text: #E3E3E3;
@@ -11,10 +13,13 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #20384B;
-    --text: #E1F2FF;
-    --code-bg: #E1F2FF;
-    --code-text: #20384B;
+    /* --bg: #20384B; */
+    --bg: #361a4f;
+    --link-after: #8d5abe;
+    --link-hover: #563570;
+    --text: #eadbf8;
+    --code-bg: #eadbf8;
+    --code-text: #361a4f;
   }
 }
 
@@ -104,7 +109,7 @@ hr::before {
   background-color: var(--bg);
 }
 
-a {
+/* a {
   color: var(--text);
   cursor: pointer;
 }
@@ -113,6 +118,29 @@ a:not(:hover) {
 }
 a:hover {
   text-decoration: none;
+} */
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  transition-property: background;
+  transition-duration: 0.2s;
+  background-color: var(--link-hover);
+  border-radius: 8px;
+}
+
+a::after {
+  position: relative;
+  content: "\FEFF°";
+  margin-left: 0.10em;
+  font-size: 90%;
+  top: -0.10em;
+  color: var(--link-after);
+  font-feature-settings: "caps";
+  font-variant-numeric: normal;
 }
 
 li {
@@ -165,4 +193,38 @@ pre code {
   display: block;
   white-space: pre-wrap;
   padding: 1em;
+}
+
+.links .platform {
+  display: inline-block;
+  width: 5em;
+  position: relative;
+  display: inline-block;
+}
+
+.links [aria-describedby] {
+    display: inline-block;
+}
+
+[role="tooltip"] {
+  visibility: hidden;
+  position: absolute;
+  width: 10em;
+  /* top: 2rem;
+  left: 2rem; */
+  background: rgb(85, 85, 85);
+  color: white;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  z-index: 1000;
+  /* Give some time before hiding so mouse can exit the input
+  and enter the tooltip. Not necessary since it's right below it.*/
+  /* transition: visibility 0.5s; */
+}
+
+[aria-describedby]:hover + [role="tooltip"],
+[aria-describedby]:focus + [role="tooltip"],
+[role="tooltip"]:hover,
+[role="tooltip"]:focus {
+  visibility: visible;
 }

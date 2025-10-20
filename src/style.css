@@ -72,11 +72,13 @@ p {
   padding: 0 1em 1em 1em;
 }
 
+/* dinkify */
 hr {
-  border: none;
-  height: 1px;
-  background-color: var(--text);
-  margin: 4px 0px 4px;
+ border: none;
+ text-align: center;
+}
+hr::before {
+ content: "* * *";
 }
 
 .smallcaps {

@@ -69,6 +69,7 @@ p {
 #site-container {
   width: var(--max-width);
   margin: 0px;
+  padding: 0 1em 1em 1em;
 }
 
 hr {

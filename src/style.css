@@ -194,3 +194,37 @@ pre code {
   white-space: pre-wrap;
   padding: 1em;
 }
+
+.links .platform {
+  display: inline-block;
+  width: 5em;
+  position: relative;
+  display: inline-block;
+}
+
+.links [aria-describedby] {
+    display: inline-block;
+}
+
+[role="tooltip"] {
+  visibility: hidden;
+  position: absolute;
+  width: 10em;
+  /* top: 2rem;
+  left: 2rem; */
+  background: rgb(85, 85, 85);
+  color: white;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  z-index: 1000;
+  /* Give some time before hiding so mouse can exit the input
+  and enter the tooltip. Not necessary since it's right below it.*/
+  /* transition: visibility 0.5s; */
+}
+
+[aria-describedby]:hover + [role="tooltip"],
+[aria-describedby]:focus + [role="tooltip"],
+[role="tooltip"]:hover,
+[role="tooltip"]:focus {
+  visibility: visible;
+}

@@ -50,7 +50,7 @@
 
         <!-- standard metadata -->
         <meta charset="utf-8" />
-        <title>wade's blog :: typography </title>
+        <title>wade's garden :: on web design </title>
         <meta name="description" content="a personal webbed site" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <!-- https://css-tricks.com/essential-meta-tags-social-media/ -->
@@ -92,17 +92,9 @@
             </nav>
 
             <header>
-                <h1>typography</h1>
+                <h1>on web design</h1>
 
                 
-<div class="date">
-    <time datetime="2025-10-19">October 19, 2025</time>
-    <!--  -->
-    <!--  -->
-    
-    <!--  -->
-</div>
-
             </header>
 
             <main>
@@ -111,40 +103,93 @@
 <!--  -->
 
 <p>
-    I love typography!!! Massive fan of making things look nice. I’ve just added
-    lead-in small caps to the start of these content pages and enabled oldstyle
-    figures for when I might want them later. (For now, these are the ones that
-    look like this:
-    <span class="oldstyle">1234567890</span>)
+    I try to make my site both accessible and pretty. Accessiblity is important
+    to me because people should, like, be able to read things. As for my
+    personal stakes, I’m liable to get headaches when things go too “wacko
+    crazy.” Among other things I may have forgotten, I have animations turned
+    off wherever possible, and am peeved by the “astigmatism white on black”
+    thing. People should be able to read things. And pretty is in a typography
+    as well as general design sense. By some definition somewhere, this is also
+    a subset of accessibility.
 </p>
 
 <p>
-    Also, I’ve through this just discovered that EB Garamond actually supports a
-    lot of OpenType features after all. The
-    <a href="https://googlefonts.github.io/ebgaramond-specimen/"
-        >typography specimen</a
-    >
-    linked from the Google Fonts page is quite pretty. Unfortunately and
-    ironically, the Google Fonts binary for the font doesn’t actually bundle
-    these features. This site statically hosts the full (<a
-        href="/assets/eb-garamond/OFL.txt"
-        >OFL-license-licensed</a
-    >) font from
-    <a href="https://github.com/octaviopardo/EBGaramond12"
-        >https://github.com/octaviopardo/EBGaramond12</a
-    >.
+    The rest of this page is a list of ideas or links with ideas that I’ve
+    looked at, if not implemented.
 </p>
 
-<p>
-    A really nice resource on many things typography is Matthew Butterick’s
-    <a href="https://practicaltypography.com/"
-        >https://practicaltypography.com/</a
-    >.
-</p>
+<h2 id="general-accessibility"><a href="#general-accessibility">general accessibility</a></h2>
+
+<ul>
+    <li>semantic HTML</li>
+    <li>use the browser’s “view as mobile device” mode. Resize the viewport like a madman. What happens if someone reads this on, like, a nokia flip phone?</li>
+    <li>
+        <a href="https://seirdy.one/posts/2020/11/23/website-best-practices/"
+            >https://seirdy.one/posts/2020/11/23/website-best-practices/</a
+        >&mdash;so much info
+    </li>
+    <li>
+        actually stepping through the site with a screen reader. It looks like
+        accessibility software for Linux is lacking these days :/ NVDA seems
+        like the industry standard?
+    </li>
+    <li>
+        <a href="https://webaim.org/">https://webaim.org/</a>
+    </li>
+    <ul>
+        <li>
+            <a href="https://wave.webaim.org/">https://wave.webaim.org/</a>
+            generates a pretty cool visualization
+        </li>
+        <li>
+            don’t forget color contrast:
+            <a href="https://webaim.org/resources/contrastchecker/"
+                >https://webaim.org/resources/contrastchecker/</a
+            >
+        </li>
+    </ul>
+</ul>
+
+<h2 id="web-performance"><a href="#web-performance">web performance</a></h2>
+
+<p>This is yet another subset of accessibility, or something.</p>
+
+<ul>
+    <li>profile! both CPU-bound JS and IO-bound network requests. You can throttle network requests in Firefox’s devtools network tab to emulate different network speeds.</li>
+    <li>
+        the tongue-in-cheek
+        <a href="https://motherfuckingwebsite.com/"
+            >https://motherfuckingwebsite.com/</a
+        >
+        and its many spinoffs
+    </li>
+    <li>the <a href="https://www.mcmaster.com/"></a>McMaster Carr website</a></li>
+    <ul>
+        <li><a href="https://youtu.be/-Ln-8QM8KhQ">breakdown on youtube</a></li>
+        <li><a href="https://www.reddit.com/r/programming/comments/1g75r84/how_is_this_website_so_fast_breaking_down_the/">discussion on reddit</a></li>
+    </ul>
+    <li>minimizing IO calls (network requests). Doesn’t this sound familiar? *looks at memory hierarchy*</li>
+    <ul>
+        <li>you can inline small or important bits of JS/CSS code</li>
+    </ul>
+</ul>
+
+<h2 id="typography"><a href="#typography">typography</a></h2>
+
+<ul>
+    <li>
+        <a href="https://practicaltypography.com/"
+            >https://practicaltypography.com/</a
+        >
+    </li>
+    <li>
+        smart quotes are inserted via regex. This may bite me in the future.
+    </li>
+</ul>
 
 
 <p>
-    <small><a href="/blog/">back to blog</a></small>
+    <small><a href="/garden/">back to garden</a></small>
 </p>
 
             </main>

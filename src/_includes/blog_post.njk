@@ -16,7 +16,7 @@
 <!--  -->
 {% block subheading %}
 <div class="date">
-    {{ page.date | formatDate }}
+    {{ page.date | formatDate | safe }}
     <!--  -->
     {% for tag in tags -%}
     <!--  -->
@@ -30,7 +30,7 @@
 {% block maincontent %}
 
 <!--  -->
-{{ content | safe }}
+{{ content | smartquotes | safe }}
 
 <p>
     <small><a href="/blog/">back to blog</a></small>

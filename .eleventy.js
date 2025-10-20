@@ -1,5 +1,16 @@
 const { feedPlugin } = require("@11ty/eleventy-plugin-rss");
 
+// Helper function to generate slug from heading text
+function slugify(text) {
+    return text
+        .toString()
+        .toLowerCase()
+        .trim()
+        .replace(/\s+/g, '-')
+        .replace(/[^\w\-]+/g, '')
+        .replace(/\-\-+/g, '-');
+}
+
 module.exports = function (eleventyConfig) {
     const months = [
         "January",
@@ -27,7 +38,39 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy("./src/blog/*/*");
     // eleventyConfig.addPassthroughCopy("**/*.pdf");
     eleventyConfig.addFilter("formatDate", function (date) {
-        return `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
+        return `<time datetime="${date.toISOString().slice(0, 10)}">${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}</time>`;
+    });
+
+    eleventyConfig.addFilter("smartquotes", (post) => {
+        // Replace straight quotes with smart quotes
+
+        // Handle double quotes
+        post = post.replace(
+            /(\s|>)"([^"]*)"(\s|<|[.,;:!?])/g,
+            "$1\u201C$2\u201D$3",
+        );
+        // Handle single quotes/apostrophes
+        post = post.replace(
+            /(\s|>)'([^']*)'(\s|<|[.,;:!?])/g,
+            "$1\u2018$2\u2019$3",
+        );
+        // Handle apostrophes in contractions
+        post = post.replace(/(\w)'(\w)/g, "$1\u2019$2");
+        // Handle special cases
+        post = post.replace(/Hawai'i/g, "Hawaiʻi");
+        return post;
+    });
+
+    // Add transform to automatically add IDs to headings
+    eleventyConfig.addTransform("addHeadingAnchors", function(content, outputPath) {
+        if (outputPath && outputPath.endsWith(".html")) {
+            // Add id attributes and anchor links to h2, h3, h4 headings
+            content = content.replace(/<h([234])>([^<]+)<\/h\1>/g, (_match, level, text) => {
+                const id = slugify(text);
+                return `<h${level} id="${id}"><a href="#${id}">${text}</a></h${level}>`;
+            });
+        }
+        return content;
     });
 
     eleventyConfig.addPlugin(feedPlugin, {

@@ -27,6 +27,33 @@ body {
   padding: 0;
   font-size: 1.2em;
   line-height: 1.5;
+  display: flex;
+  justify-content: center;
+}
+
+h2, h3, h4, h5, h6 {
+  scroll-margin-top: 0.5em;
+  position: relative;
+}
+
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a {
+  text-decoration: none !important;
+}
+
+h2:hover::before,
+h3:hover::before,
+h4:hover::before,
+h5:hover::before,
+h6:hover::before {
+  content: "#";
+  position: absolute;
+  left: -0.8em;
+  color: var(--text);
+  opacity: 0.5;
 }
 
 p {
@@ -40,20 +67,9 @@ p {
 }
 
 #site-container {
-  max-width: var(--max-width);
+  width: var(--max-width);
   margin: 0px;
-  width: 80vw;
-  position: absolute;
-  left: 10vw;
 }
-
-/* h2 {
-  border-bottom: 1px solid var(--text);
-}
-
-h2:before {
-  content: "~$ ";
-} */
 
 hr {
   border: none;

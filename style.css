@@ -60,6 +60,11 @@ p {
     margin: var(--text-spacing) 0;
 }
 
+p, ol, ul {
+    hyphens: auto;
+    text-align: justify;
+}
+
 .date {
     font-size: 85%;
     /* font-variant-numeric: proportional-nums oldstyle-nums;

@@ -63,6 +63,24 @@ module.exports = function (eleventyConfig) {
         return post;
     });
 
+    // Add transform to automatically add IDs to headings
+    eleventyConfig.addTransform(
+        "addHeadingAnchors",
+        function (content, outputPath) {
+            if (outputPath && outputPath.endsWith(".html")) {
+                // Add id attributes and anchor links to h2, h3, h4 headings
+                content = content.replace(
+                    /<h([23456])>([^<]+)<\/h\1>/g,
+                    (_match, level, text) => {
+                        const id = slugify(text);
+                        return `<h${level} id="${id}"><a href="#${id}">${text}</a></h${level}>`;
+                    },
+                );
+            }
+            return content;
+        },
+    );
+
     eleventyConfig.addPlugin(feedPlugin, {
         type: "atom", // or "rss", "json"
         outputPath: "/blog/feed.xml",

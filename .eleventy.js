@@ -56,6 +56,8 @@ module.exports = function (eleventyConfig) {
         );
         // Handle apostrophes in contractions
         post = post.replace(/(\w)'(\w)/g, "$1\u2019$2");
+        // Handle year contractions, probably
+        post = post.replace(/ '(\d)/g, " \u2019$1");
         // Handle special cases
         post = post.replace(/Hawai'i/g, "Hawaiʻi");
         return post;

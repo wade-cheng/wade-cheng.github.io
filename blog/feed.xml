@@ -2,18 +2,18 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
   <title>wade&#39;s blog</title>
   <subtitle>various microblogs, ramblings, fun thematic gatherings of links, and other blog posts.</subtitle>
-  <link href="https://wade-cheng.is-a.dev/blog/feed.xml" rel="self" />
-  <link href="https://wade-cheng.is-a.dev/" />
+  <link href="https://wade-cheng.com/blog/feed.xml" rel="self" />
+  <link href="https://wade-cheng.com/" />
   <updated>2025-10-21T00:00:00Z</updated>
-  <id>https://wade-cheng.is-a.dev/</id>
+  <id>https://wade-cheng.com/</id>
   <author>
     <name>wade cheng</name>
   </author>
   <entry>
     <title>on hyperlink styling</title>
-    <link href="https://wade-cheng.is-a.dev/blog/on-hyperlink-styling/" />
+    <link href="https://wade-cheng.com/blog/on-hyperlink-styling/" />
     <updated>2025-10-21T00:00:00Z</updated>
-    <id>https://wade-cheng.is-a.dev/blog/on-hyperlink-styling/</id>
+    <id>https://wade-cheng.com/blog/on-hyperlink-styling/</id>
     <content type="html">
 &lt;p&gt;
     I&#39;ve changed my opinion on how hyperlinks should be styled throughout my
@@ -101,9 +101,9 @@
   </entry>
   <entry>
     <title>typography</title>
-    <link href="https://wade-cheng.is-a.dev/blog/typography/" />
+    <link href="https://wade-cheng.com/blog/typography/" />
     <updated>2025-10-19T00:00:00Z</updated>
-    <id>https://wade-cheng.is-a.dev/blog/typography/</id>
+    <id>https://wade-cheng.com/blog/typography/</id>
     <content type="html">
 &lt;p&gt;
     I love typography!!! Massive fan of making things look nice. I&#39;ve just added
@@ -119,7 +119,7 @@
     &lt;a href=&quot;https://googlefonts.github.io/ebgaramond-specimen/&quot;&gt;typography specimen&lt;/a&gt;
     linked from the Google Fonts page is quite pretty. Unfortunately and
     ironically, the Google Fonts binary for the font doesn&#39;t actually bundle
-    these features. This site statically hosts the full (&lt;a href=&quot;https://wade-cheng.is-a.dev/assets/eb-garamond/OFL.txt&quot;&gt;OFL-license-licensed&lt;/a&gt;) font from
+    these features. This site statically hosts the full (&lt;a href=&quot;https://wade-cheng.com/assets/eb-garamond/OFL.txt&quot;&gt;OFL-license-licensed&lt;/a&gt;) font from
     &lt;a href=&quot;https://github.com/octaviopardo/EBGaramond12&quot;&gt;https://github.com/octaviopardo/EBGaramond12&lt;/a&gt;.
 &lt;/p&gt;
 
@@ -131,9 +131,9 @@
   </entry>
   <entry>
     <title>neeeerd</title>
-    <link href="https://wade-cheng.is-a.dev/blog/neeeerd/" />
+    <link href="https://wade-cheng.com/blog/neeeerd/" />
     <updated>2025-10-18T00:00:00Z</updated>
-    <id>https://wade-cheng.is-a.dev/blog/neeeerd/</id>
+    <id>https://wade-cheng.com/blog/neeeerd/</id>
     <content type="html">
 &lt;p&gt;
     I have a habit of, often when gaming, calling someone who knows how to do

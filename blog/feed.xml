@@ -4,11 +4,101 @@
   <subtitle>various microblogs, ramblings, fun thematic gatherings of links, and other blog posts.</subtitle>
   <link href="https://wade-cheng.is-a.dev/blog/feed.xml" rel="self" />
   <link href="https://wade-cheng.is-a.dev/" />
-  <updated>2025-10-19T00:00:00Z</updated>
+  <updated>2025-10-21T00:00:00Z</updated>
   <id>https://wade-cheng.is-a.dev/</id>
   <author>
     <name>wade cheng</name>
   </author>
+  <entry>
+    <title>on hyperlink styling</title>
+    <link href="https://wade-cheng.is-a.dev/blog/on-hyperlink-styling/" />
+    <updated>2025-10-21T00:00:00Z</updated>
+    <id>https://wade-cheng.is-a.dev/blog/on-hyperlink-styling/</id>
+    <content type="html">
+&lt;p&gt;
+    I&#39;ve changed my opinion on how hyperlinks should be styled throughout my
+    life, and I&#39;ve recently been thinking about it again.
+&lt;/p&gt;
+
+&lt;p&gt;
+    First, some history and some context. I like small, cozy, lightweight
+    websites! My first links were probably unstyled, along with the rest of the
+    webpage, but this was probably changed quite quickly. I think the blue on
+    white is tacky, and the clicked-purple on white more so. They then became
+    black to match the rest of the body text in color, in part because I don&#39;t
+    think it really matters if you&#39;ve already visited a page or not, or maybe I
+    just don&#39;t like things changing out from under me. And then set it to
+    un-underline on-hover to boot. Cute!
+&lt;/p&gt;
+
+&lt;p&gt;
+    The most recent development in my link styling steals from Matthew
+    Butterick&#39;s Practical Typography. He
+    &lt;a href=&quot;https://practicaltypography.com/how-to-use.html&quot;&gt;writes&lt;/a&gt;: &quot;But
+    underlining is nothing more than an odious typewriter habit, held over on
+    websites because of inertia. It was tolerable in 1994 when web browsers
+    could do so little. But not today, when they can do so much,&quot; as well as &quot;Of
+    course, the main reason hyperlinks have historically been overstyled is
+    because generating clicks on those links is essential to internet
+    advertising. Here, you will find no advertising&amp;mdash;just us readers. The
+    design is tailored accordingly.&quot;
+&lt;/p&gt;
+
+&lt;p&gt;
+    Well, that&#39;s quite heartwarming. I&#39;m charmed! The current revision of my
+    stylesheet implements his link style&amp;mdash;an indeed unobtrusive hollow
+    circle superscripting the link, where the link body shades to an accent
+    color once hovered&amp;mdash;but with a purple take on the accent color instead
+    of his maroon.
+&lt;/p&gt;
+
+&lt;p&gt;
+    I really do have to reiterate how heartwarming the rationale is behind this
+    style. And I do indeed feel that the resulting text is considerably less
+    noisy than before. And it feels softer! The lazy fade in of the pastel
+    accent color is quite cozy.
+&lt;/p&gt;
+
+&lt;p&gt;
+    But finally, to the downsides. Visibility. Ehhhh, probably not the greatest
+    now. Butterick
+    &lt;a href=&quot;https://practicaltypography.com/underlining.html&quot;&gt;alleges&lt;/a&gt; that
+    plenty large sites no longer use underlining, but this seems mostly only
+    strictly true in the display regions of these sites where links may read as
+    buttons instead. The current
+    &lt;a href=&quot;https://www.scottylabs.org/&quot;&gt;ScottyLabs website&lt;/a&gt; is a clear
+    example. However, when in the body of actual content (see: Wikipedia as a
+    canonical example), these sites instead turn to underlining on hover while
+    maintaining a colored link.
+&lt;/p&gt;
+
+&lt;p&gt;Overall, not sure how I feel.&lt;/p&gt;
+
+&lt;p&gt;
+    I don&#39;t quite like setting links in an accent color, because I enjoy the
+    idea of being able to read my site just fine after running it through a
+    grayscale printer. Much of my undergrad has been morally supported by having
+    paper to leaf through and annotate. It&#39;s grounding.
+&lt;/p&gt;
+
+&lt;p&gt;
+    I&#39;m not sure about the Butterick Method. How does one know where a link
+    starts, if only the end is delimited? Additionally, I&#39;m not convinced of the
+    attractiveness of adding a circle to delimit on the left side. If it&#39;s
+    placed at the same height, it looks a bit like a googly-eyed alien, I&#39;m not
+    sure what to think about if it goes near the baseline (as if like
+    &lt;a href=&quot;https://en.wikipedia.org/wiki/Quotation_mark&quot;&gt;Dutch quotations&lt;/a&gt;), and either way it&#39;s a bit noisy and bubbly and messes up the word
+    spacing and eh.
+&lt;/p&gt;
+
+&lt;p&gt;
+    Maybe I&#39;ll even go back to the original all-black method of styling, clutter
+    be damned.
+&lt;/p&gt;
+
+&lt;p&gt;We&#39;ll see how my tastes change in these coming weeks.&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <title>typography</title>
     <link href="https://wade-cheng.is-a.dev/blog/typography/" />

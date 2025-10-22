@@ -75,7 +75,7 @@ module.exports = function (eleventyConfig) {
             title: "wade's blog",
             subtitle:
                 "various microblogs, ramblings, fun thematic gatherings of links, and other blog posts.",
-            base: "https://wade-cheng.is-a.dev/",
+            base: "https://wade-cheng.com/",
             author: {
                 name: "wade cheng",
                 // email: "", // Optional

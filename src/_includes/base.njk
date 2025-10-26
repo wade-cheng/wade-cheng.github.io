@@ -89,7 +89,7 @@
             </nav>
 
             <header>
-                <h1>{{ title }}</h1>
+                <h1>{{ title | smartquotes | safe }}</h1>
 
                 {% block subheading %}{% endblock %}
             </header>

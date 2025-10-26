@@ -46,12 +46,12 @@ module.exports = function (eleventyConfig) {
 
         // Handle double quotes
         post = post.replace(
-            /(\s|>)"([^"]*)"(\s|<|[.,;:!?])/g,
+            /(\s|>|^|\()"([^"]*)"(\s|<|[.,;:!?]|$|\))/g,
             "$1\u201C$2\u201D$3",
         );
         // Handle single quotes/apostrophes
         post = post.replace(
-            /(\s|>)'([^']*)'(\s|<|[.,;:!?])/g,
+            /(\s|>|^|\()'([^']*)'(\s|<|[.,;:!?]|$|\))/g,
             "$1\u2018$2\u2019$3",
         );
         // Handle apostrophes in contractions

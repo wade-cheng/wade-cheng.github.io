@@ -4,11 +4,79 @@
   <subtitle>various microblogs, ramblings, fun thematic gatherings of links, and other blog posts.</subtitle>
   <link href="https://wade-cheng.com/blog/feed.xml" rel="self" />
   <link href="https://wade-cheng.com/" />
-  <updated>2025-10-21T00:00:00Z</updated>
+  <updated>2025-10-26T00:00:00Z</updated>
   <id>https://wade-cheng.com/</id>
   <author>
     <name>wade cheng</name>
   </author>
+  <entry>
+    <title>the tomato method</title>
+    <link href="https://wade-cheng.com/blog/pomodoro/" />
+    <updated>2025-10-26T00:00:00Z</updated>
+    <id>https://wade-cheng.com/blog/pomodoro/</id>
+    <content type="html">
+&lt;p&gt;
+    I&#39;ve been trying the pomodoro method recently. I believe the canonical set
+    of instructions is
+&lt;/p&gt;
+
+&lt;ol class=&quot;tight&quot;&gt;
+    &lt;li&gt;25 minute work session&lt;/li&gt;
+    &lt;li&gt;5 minute break&lt;/li&gt;
+    &lt;li&gt;repeat, extending the break to 20 minutes every four cycles&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;
+    The idea is to cut down on burnout and be able to dedicate time to full,
+    100% concentration. The name comes from the Italian word for tomato, which
+    is what the original inventor&#39;s kitchen countdown timer was presumably
+    shaped like.
+&lt;/p&gt;
+
+&lt;p&gt;
+    I think the idea is pretty cool. In a vaccum, I have the issue of
+    hyper-focusing when things get interesting, which leaves me feeling drained.
+    Or I don&#39;t want to start work I perceive as stressful. So I usually end up
+    taking long breaks or procrastinating work. With the tomato idea, I can
+    instead tell myself &quot;pspspsps it&#39;s only a short work time it won&#39;t be an
+    extended length of Bad don&#39;t worry you&#39;re so okay&quot; which is helpful for
+    motivation.
+&lt;/p&gt;
+
+&lt;p&gt;
+    There exists another interesting perspective toward this rigid timeline,
+    which I&#39;ll explain via a quick side example. A friend once mentioned to me
+    that they always take the stairs, &lt;em&gt;especially&lt;/em&gt; when an elevator is
+    available, because it&#39;s one less decision they have to make. Wowee! Cool!
+    This principle applies to this work-rest scheduling issue for me. Even if I
+    feel like I want more or less time to work than 25 minutes, or if I feel
+    like I want more or less time to rest than five, I take the predetermined
+    time anyways. There&#39;s some inefficiency where working more or resting less
+    gets more work done, but I gladly trade that for staving off burnout and the
+    mitigating the undesired sections of the contingency table: wanting to work
+    less or rest longer.
+&lt;/p&gt;
+
+&lt;p&gt;
+    I track the time bounds with my analog watch, which is great because I just
+    look for the minute hands reaching the top and bottom of the watch face. I
+    usually skip long breaks or make them 30 minutes long to fit everything into
+    watch-face-compatible blocks. I often also hide the clock widget on my
+    laptop&#39;s taskbar so I&#39;m not peeking at it too often&amp;mdash;I can just look at
+    my watch instead. I find I work best when there&#39;s as few moving parts (not
+    controlled by me) on my screen as possible.
+&lt;/p&gt;
+
+&lt;p&gt;
+    As a final note, I use the Hank Green&#39;s Focus Friend app to additionally
+    motivate me to keep on track. It also helps me get out of an unproductive
+    rut by setting a quick five minute &quot;focus&quot; period and using that to just
+    stand up and start moving. That is, anytime I&#39;m taking a too-long break,
+    perhaps after a meal or before I leave the study lounge to go get ready
+    before bed, etc etc.
+&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <title>on hyperlink styling</title>
     <link href="https://wade-cheng.com/blog/on-hyperlink-styling/" />

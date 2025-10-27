@@ -4,11 +4,108 @@
   <subtitle>various microblogs, ramblings, fun thematic gatherings of links, and other blog posts.</subtitle>
   <link href="https://wade-cheng.com/blog/feed.xml" rel="self" />
   <link href="https://wade-cheng.com/" />
-  <updated>2025-10-26T00:00:00Z</updated>
+  <updated>2025-10-27T00:00:00Z</updated>
   <id>https://wade-cheng.com/</id>
   <author>
     <name>wade cheng</name>
   </author>
+  <entry>
+    <title>The Fetch API</title>
+    <link href="https://wade-cheng.com/blog/the-fetch-api/" />
+    <updated>2025-10-27T00:00:00Z</updated>
+    <id>https://wade-cheng.com/blog/the-fetch-api/</id>
+    <content type="html">
+&lt;p&gt;
+    Javascript can pull data from remote servers by using something called the
+    &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API&quot;&gt;Fetch API&lt;/a&gt;. This has a couple names and concepts associated to it, like fetching, GET
+    requests, or REST APIs. The scope of this blog post will be to
+&lt;/p&gt;
+
+&lt;ul class=&quot;tight&quot;&gt;
+    &lt;li&gt;develop a simple example for how you can use it&lt;/li&gt;
+    &lt;li&gt;to fetch a binary file&lt;/li&gt;
+    &lt;li&gt;as part of a web application.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I&#39;ll start with an empty folder to give us a clean workspace.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;~/fetch-example $ ls --all
+. ..
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;
+    First, we need some binary data. I&#39;ll choose some random numbers (that fit
+    in the range of an unsigned byte), and we can later confirm we&#39;ve
+    successfully fetched the file by looking for those numbers. I&#39;ll use python
+    to write the numbers to a file named &lt;code&gt;bin&lt;/code&gt;, and double check it
+    worked with &lt;code&gt;od&lt;/code&gt;.
+&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;~/fetch-example $ python -c &#39;open(&quot;bin&quot;, &quot;wb&quot;).write(bytearray([24, 100, 3, 1]))&#39;
+~/fetch-example $ od -td1 bin
+0000000   24  100    3    1
+0000004
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;
+    Now, we need our &quot;web application.&quot; Let&#39;s just have a single button, and
+    when it&#39;s pressed, fetch &lt;code&gt;bin&lt;/code&gt; and console-log its contents. I&#39;m
+    putting this HTML code into &lt;code&gt;~/fetch-example/index.html&lt;/code&gt;:
+&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;script&amp;gt;
+    async function log_bin() {
+        const response = await fetch(&#39;bin&#39;);
+        const asbytes = await response.bytes(); 
+        console.log(asbytes);
+    }
+&amp;lt;/script&amp;gt;
+
+&amp;lt;button onclick=&quot;log_bin()&quot; /&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Let&#39;s break down what this is doing.&lt;/p&gt;
+
+&lt;p&gt;
+    We have a function &lt;code&gt;log_bin&lt;/code&gt; to log the binary file. It starts to
+    fetch the file &lt;code&gt;bin&lt;/code&gt;, and awaits its completion. Then, we save
+    that response as bytes, awaiting here as well. Since those
+    &lt;code&gt;await&lt;/code&gt;s are
+    &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Async_JS/Introducing&quot;&gt;async code&lt;/a&gt;, the function containing them (&lt;code&gt;log_bin&lt;/code&gt;) must be marked
+    &lt;code&gt;async&lt;/code&gt; as well. Finally, we log the byte representation. The
+    button just calls this function.
+&lt;/p&gt;
+
+&lt;p&gt;
+    This is our final code! Changing &lt;code&gt;&#39;bin&#39;&lt;/code&gt; will let us fetch any
+    data exposed through REST APIs or other HTTP GET calls. But to be able to
+    test this locally, we need to pretend to be such a server. I prefer to spin
+    up my local servers with python:
+&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;~/fetch-example $ python -m http.server
+Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;
+    Now, visiting the link
+    &lt;a href=&quot;http://0.0.0.0:8000/&quot;&gt;http://0.0.0.0:8000/&lt;/a&gt; and clicking on the
+    button logs the numbers from the start of the blog post. It works!
+&lt;/p&gt;
+
+&lt;img src=&quot;https://wade-cheng.com/blog/the-fetch-api/output.png&quot; alt=&quot;a screenshot of the button and a panel showing the output of the console log, which matches our chosen numbers from the start of the blog post&quot;&gt;
+
+&lt;h2 id=&quot;why-is-this-helpful&quot;&gt;&lt;a href=&quot;#why-is-this-helpful&quot;&gt;why is this helpful?&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;
+    I chose the specific scope of this article because I&#39;m working on a project
+    that plans to roughly follow the above workflow. We control both the client
+    and the server. Some data structure is serialized into binary, and is saved
+    on the server. The client requests it from the server, deserializes it, and
+    uses it to do business logic.
+&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <title>the tomato method</title>
     <link href="https://wade-cheng.com/blog/pomodoro/" />

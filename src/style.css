@@ -37,6 +37,11 @@ body {
     text-align: justify;
 }
 
+h1 {
+    font-weight: normal;
+    font-size: 3em;
+}
+
 h1,
 h2,
 h3,
@@ -226,8 +231,12 @@ pre code {
     color: var(--code-text);
     /* border: 1px solid #999; */
     display: block;
-    white-space: pre-wrap;
+    /* white-space: pre-wrap; */
     padding: 1em;
+    text-align: left;
+    display: block;
+    overflow-x: auto;
+    white-space: pre;
 }
 
 .links .platform {

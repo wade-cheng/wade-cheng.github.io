@@ -11,10 +11,10 @@
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --bg: #361a4f;
+        --bg: #28133a;
         --link-after: #8d5abe;
         --link-hover: #563570;
-        --text: #eadbf8;
+        --text: #e3d4f5;
         --code-bg: #eadbf8;
         --code-text: #361a4f;
     }
@@ -28,7 +28,7 @@ body {
     margin: 0;
     padding: 0;
     font-size: 1.2em;
-    line-height: 1.5;
+    line-height: 1.4;
     display: flex;
     justify-content: center;
     font-variant-numeric: proportional-nums oldstyle-nums;
@@ -103,7 +103,7 @@ p {
 #site-container {
     width: var(--max-width);
     margin: 0px;
-    padding: 0 1em 1em 1em;
+    padding: 2em;
 }
 
 img {
@@ -195,6 +195,7 @@ ol {
 }
 
 img {
+    max-width: 100%;
     image-rendering: pixelated;
 }
 

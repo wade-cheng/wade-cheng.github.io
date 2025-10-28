@@ -225,18 +225,26 @@ nav img {
     height: 94px;
 }
 
+pre {
+    overflow-x: auto;
+    width: 0;
+    min-width: 100%;
+}
+
 pre code {
-    overflow: auto;
     background-color: var(--code-bg);
     color: var(--code-text);
-    /* border: 1px solid #999; */
     display: block;
-    /* white-space: pre-wrap; */
     padding: 1em;
     text-align: left;
-    display: block;
-    overflow-x: auto;
-    white-space: pre;
+    hyphens: none;
+    min-width: 100%;
+}
+
+@media print {
+    pre code {
+        white-space: pre-wrap;
+    }
 }
 
 .links .platform {

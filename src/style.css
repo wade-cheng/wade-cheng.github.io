@@ -170,10 +170,18 @@ a:hover {
     border-radius: 8px;
 }
 
+a::before {
+    content: "『\FEFF";
+    margin-left: -0.5em;
+    font-size: 90%;
+    color: var(--link-after);
+    font-feature-settings: "caps";
+    font-variant-numeric: normal;
+}
+
 a::after {
-    position: relative;
-    content: "\FEFF°";
-    margin-left: 0.1em;
+    content: "\FEFF』";
+    margin-right: -0.5em;
     font-size: 90%;
     top: -0.1em;
     color: var(--link-after);

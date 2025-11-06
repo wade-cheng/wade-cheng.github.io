@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <link rel="stylesheet" href="/assets/eb-garamond/eb-garamond.css">
+      <meta charset="utf-8">
+      <title>wade's garden :: on web design</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link href="/style.css" rel="stylesheet" type="text/css">
+      <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96">
+      <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
+      <link rel="shortcut icon" href="/favicon/favicon.ico">
+      <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+      <meta name="apple-mobile-web-app-title" content="wade's site">
+      <link rel="manifest" href="/favicon/site.webmanifest">
+      <link rel="prefetch" href="https://webneko.net/n20171213.js">
+    </head>
+  <body>
+    
+    <div id="site-container">
+      <nav><a href="/">home</a> <a href="/blog.html">blog</a> <a href="/garden.html">garden</a></nav>
+      <header>
+        <h1>on web design</h1>
+      </header>
+      <main>
+        <style>
+          main > p:first-of-type::first-line { font-variant: small-caps; font-feature-settings: "smcp"; }
+        </style>
+        <p>I try to make my site both accessible and pretty. Accessiblity is important to me because people should, like, be able to read things. As for my personal stakes, I’m liable to get headaches when things go too “wacko crazy.” Among other things I may have forgotten, I have animations turned off wherever possible, and am peeved by the “astigmatism white on black” thing. People should be able to read things. And pretty is in a typography as well as general design sense. By some definition somewhere, this is also a subset of accessibility.</p>
+        <p>The rest of this page is a list of ideas or links with ideas that I’ve looked at, if not implemented.</p>
+        <h2>general accessibility</h2>
+        <p>At the very least, I’d like to make this website accessible to</p>
+        <ul>
+          <li>dark mode users</li>
+          <li>keyboard-only users</li>
+          <li>mobile/tablet/desktop users</li>
+          <li>screen reader users</li>
+        </ul>
+        <p>If you have problems, <a href="https://github.com/wade-cheng/wade-cheng.github.io/issues/new">file an issue</a>!</p>
+        <p>Here’s some stuff related to these goals</p>
+        <ul>
+          <li>
+            <p>semantic HTML</p>
+          </li>
+          <li>
+            <p>use the browser’s “view as mobile device” mode. Resize the viewport like a madman. What happens if someone reads this on, like, a nokia flip phone?</p>
+          </li>
+          <li>
+            <p>accessible hover tooltips: <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/">mdn docs link</a></p>
+          </li>
+          <li>
+            <p><a href="https://dubbot.com/dubblog/2024/a-footnote-on-footnotes-they-need-to-be-accessible.html">https://dubbot.com/dubblog/2024/a-footnote-on-footnotes-they-need-to-be-accessible.html</a></p>
+          </li>
+          <li>
+            <p><a href="https://seirdy.one/posts/2020/11/23/website-best-practices/">https://seirdy.one/posts/2020/11/23/website-best-practices/</a>—so much info</p>
+          </li>
+          <li>
+            <p>actually stepping through the site with a screen reader. It looks like accessibility software for Linux is lacking these days :/ NVDA seems like the industry standard?</p>
+          </li>
+          <li>
+            <p><a href="https://webaim.org/">https://webaim.org/</a></p>
+            <ul>
+              <li><a href="https://wave.webaim.org/">https://wave.webaim.org/</a> generates a pretty cool visualization</li>
+              <li>don’t forget color contrast: <a href="https://webaim.org/resources/contrastchecker/">https://webaim.org/resources/contrastchecker/</a></li>
+            </ul>
+          </li>
+        </ul>
+        <h2>web performance</h2>
+        <p>This is yet another subset of accessibility, or something</p>
+        <ul>
+          <li>
+            <p>profile! both CPU-bound JS and IO-bound network requests. You can throttle network requests in Firefox’s devtools network tab to emulate different network speeds.</p>
+          </li>
+          <li>
+            <p>the tongue-in-cheek <a href="https://motherfuckingwebsite.com/">https://motherfuckingwebsite.com/</a> and its many spinoffs</p>
+          </li>
+          <li>
+            <p>the <a href="https://www.mcmaster.com/">McMaster Carr website</a></p>
+            <ul>
+              <li><a href="https://youtu.be/-Ln-8QM8KhQ">breakdown on youtube</a></li>
+              <li><a href="https://www.reddit.com/r/programming/comments/1g75r84/how_is_this_website_so_fast_breaking_down_the/">discussion on reddit</a></li>
+            </ul>
+          </li>
+          <li>
+            <p>minimizing IO calls (network requests). Doesn’t this sound familiar? *looks at memory hierarchy*</p>
+            <ul>
+              <li>you can inline small or important bits of JS/CSS code</li>
+            </ul>
+          </li>
+        </ul>
+        <h2>typography</h2>
+        <ul>
+          <li>
+            <p><a href="https://practicaltypography.com/">https://practicaltypography.com/</a></p>
+          </li>
+          <li>
+            <p>I think <a href="https://en.wikipedia.org/wiki/Serif#Old-style">old-style</a> fonts are really attractive. At writing, this uses EB Garamond, in part because it’s free. Someone suggested Sabon.</p>
+          </li>
+        </ul>
+        <p><small><a href="/garden.html">back to garden</a></small></p>
+      </main>
+    </div>
+  </body>
+</html>

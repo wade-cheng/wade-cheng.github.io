@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <link rel="stylesheet" href="/assets/eb-garamond/eb-garamond.css">
+      <meta charset="utf-8">
+      <title>wade's blog :: typst blog generation</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link href="/style.css" rel="stylesheet" type="text/css">
+      <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96">
+      <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
+      <link rel="shortcut icon" href="/favicon/favicon.ico">
+      <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+      <meta name="apple-mobile-web-app-title" content="wade's site">
+      <link rel="manifest" href="/favicon/site.webmanifest">
+      <link rel="prefetch" href="https://webneko.net/n20171213.js">
+    </head>
+  <body>
+    
+    <div id="site-container">
+      <nav><a href="/">home</a> <a href="/blog.html">blog</a> <a href="/garden.html">garden</a></nav>
+      <header>
+        <h1>typst blog generation</h1>
+        <div class="date">November 5, 2025</div>
+      </header>
+      <main>
+        <style>
+          main > p:first-of-type::first-line { font-variant: small-caps; font-feature-settings: "smcp"; }
+        </style>
+        <p>Alright, I think I’ve figured out how to make this site render with typst in a reasonably painless way.</p>
+        <p>Before, I was basically hand-writing HTML (with Nunjucks as a templating language), and it wasn’t really too painful? The only really annoying points were</p>
+        <ul>
+          <li>having to type links twice</li>
+          <li>having to type <code>&lt;p></code> manually</li>
+        </ul>
+        <p>But anyways, eleventy didn’t have a way to incrementally compile properly, so I just wrote my own binary that watches for file changes.</p>
+        <p>All it does is call the Typst CLI on every typst file and also pass through files that I specify (like CSS). All templating is done in native typst!</p>
+        <p><small><a href="/blog.html">back to blog</a></small></p>
+      </main>
+    </div>
+  </body>
+</html>

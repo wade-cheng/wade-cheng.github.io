@@ -170,24 +170,23 @@ a:hover {
     border-radius: 8px;
 }
 
-a::after {
-    position: relative;
-    content: "\FEFF°";
-    margin-left: 0.1em;
+a::before {
+    content: "『\FEFF";
+    margin-left: -0.5em;
     font-size: 90%;
-    top: -0.1em;
     color: var(--link-after);
     font-feature-settings: "caps";
     font-variant-numeric: normal;
 }
 
-li {
-    margin-bottom: var(--text-spacing);
-}
-
-ul.tight li,
-ol.tight li {
-    margin-bottom: 0;
+a::after {
+    content: "\FEFF』";
+    margin-right: -0.5em;
+    font-size: 90%;
+    top: -0.1em;
+    color: var(--link-after);
+    font-feature-settings: "caps";
+    font-variant-numeric: normal;
 }
 
 ul {

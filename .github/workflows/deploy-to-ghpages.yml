@@ -8,7 +8,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     permissions:
       contents: write
     concurrency:
@@ -16,30 +16,17 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Setup Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: "18"
+      - name: Install cargo-binstall
+        uses: cargo-bins/cargo-binstall@v1.15.10
 
-      - name: Persist npm cache
-        uses: actions/cache@v3
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package.json') }}
-
-      - name: Persist Eleventy .cache
-        uses: actions/cache@v3
-        with:
-          path: ./.cache
-          key: ${{ runner.os }}-eleventy-fetch-cache
-
-      - run: npm install
-      - run: npm run build
+      - run: cargo binstall --no-confirm --git https://github.com/wade-cheng/compile-typst-site.git compile-typst-site
+      - run: cargo binstall just
+      - run: just build
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         if: github.ref == 'refs/heads/main'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs
+          publish_dir: ./_site
           publish_branch: gh-pages

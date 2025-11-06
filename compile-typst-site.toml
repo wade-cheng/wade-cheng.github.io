@@ -1,0 +1,11 @@
+passthrough_copy = [
+    "*.css",
+    "*.png",
+    "assets/*",
+    "favicon/*",
+    ".nojekyll",
+    "CNAME",
+    "404.html",
+]
+init = ['just', 'list-collections']
+post_processing_typ = ['just', 'post-process']

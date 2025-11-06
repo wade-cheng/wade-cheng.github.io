@@ -21,6 +21,7 @@ jobs:
 
       - run: cargo binstall --no-confirm --git https://github.com/wade-cheng/compile-typst-site.git compile-typst-site
       - run: cargo binstall just
+      - run: cargo binstall typst-cli
       - run: just build
 
       - name: Deploy

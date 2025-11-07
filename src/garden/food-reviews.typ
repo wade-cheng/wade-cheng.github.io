@@ -7,6 +7,22 @@
 The following shall contain lists of food reviews. This is as much for me as
 it is for your entertainment, so uh. Imperative mood incoming.
 
+Yi Fang in Squirrel Hill
+- hot pineapple soy milk tea: was really
+  surprisingly delicious, actually. Their recommendation for 0% sugar was
+  correct, the pineapple supplied all the sugar needed. (These guys's
+  typography is really pretty too, notice how the Taiwanese regular
+  script(?) decorating their wall is hand-painted/sharpied!)
+
+- strawberry latte: I GOT SCAMMED jkjk but yeah it's like, a slushi? I have been
+  informed by my compatriots that it is a latte in the sense of "has milk" and not
+  the coffee sense. It's quirky that something named latte has no "comes hot" option.
+  Tastes really good tbh, but very cold (I am weak to cold). The sugary syrupy
+  after-texture of sugary syrupy stuff is... not the greatest though. Very filling; dense.
+
+- red bean tea: yum, talk about texture and red bean physical inclusion and literally
+  tasting like red bean
+
 Things that are good:
 - Bao on Craig Street is really nice. I especially love their tomato beef
   noodles.
@@ -14,12 +30,6 @@ Things that are good:
 - I'm kinda a sucker for lots of things with tomatoes, actually.
 
 - Chipotle's chicken option is not bad! (At least, the one on Forbes)
-
-- The hot pineapple soy milk tea from Yi Fang in Squirrel Hill was really
-  surprisingly delicious, actually. Their recommendation for 0% sugar was
-  correct, the pineapple supplied all the sugar needed. (These guys's
-  typography is really pretty too, notice how the Taiwanese regular
-  script(?) decorating their wall is hand-painted/sharpied!)
 
 Things that are bad:
 

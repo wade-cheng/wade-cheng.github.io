@@ -17,7 +17,7 @@
   <body>
     
     <div id="site-container">
-      <nav><a href="/">home</a> <a href="/blog.html">blog</a> <a href="/garden.html">garden</a></nav>
+      <nav><a href="/">home</a> <a href="/blog/">blog</a> <a href="/garden/">garden</a></nav>
       <header>
         <h1>typst blog generation</h1>
         <div class="date">November 5, 2025</div>
@@ -26,15 +26,22 @@
         <style>
           main > p:first-of-type::first-line { font-variant: small-caps; font-feature-settings: "smcp"; }
         </style>
-        <p>Alright, I think I’ve figured out how to make this site render with typst in a reasonably painless way.</p>
+        <p>Alright, I think I’ve figured out how to make this site render with Typst in a reasonably painless way.</p>
         <p>Before, I was basically hand-writing HTML (with Nunjucks as a templating language), and it wasn’t really too painful? The only really annoying points were</p>
         <ul>
           <li>having to type links twice</li>
           <li>having to type <code>&lt;p></code> manually</li>
+          <li>I never really worked out a solution to footnotes<a id="loc-1" href="#loc-2" role="doc-noteref"><sup>1</sup></a></li>
         </ul>
         <p>But anyways, eleventy didn’t have a way to incrementally compile properly, so I just wrote my own binary that watches for file changes.</p>
         <p>All it does is call the Typst CLI on every typst file and also pass through files that I specify (like CSS). All templating is done in native typst!</p>
-        <p><small><a href="/blog.html">back to blog</a></small></p>
+        <p><small><a href="/blog/">back to blog</a></small></p>
+            <section role="doc-endnotes">
+        <hr><h2>Notes</h2>
+      <ol style="list-style-type: none">
+        <li id="loc-2"><a href="#loc-1" role="doc-backlink"><sup>1</sup></a>But we do have footnotes now!</li>
+      </ol>
+          </section>
       </main>
     </div>
   </body>

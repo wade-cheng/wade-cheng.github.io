@@ -20,60 +20,7 @@ blog:
 	code src/blog/NEW_BLOG_POST.typ
 
 list-collections:
-    #!/usr/bin/env python
-    print("listing collections")
-    import subprocess
-    import glob
-    import json
-    from concurrent.futures import ThreadPoolExecutor
-
-    def process_post(kind, path):
-        print(path)
-        query = lambda label: json.loads(subprocess.run(
-            ["typst", "query", path, f"<{label}>", "--root", ".", "--features", "html"],
-            capture_output=True
-        ).stdout.decode("utf-8"))[0]["value"]
-        
-        # we can double our concurrency by computing these in
-        # separate threads, but this is fine for now. 
-        # O(2n) vs O(n) span ykyk.
-        pagetitle = query("page-title")
-        date = query("date")
-        print(pagetitle, date)
-        
-        path = path.removeprefix("src").removesuffix("typ") + "html"
-        return kind, {"path": path, "pagetitle": pagetitle, "date": date}
-
-    posts = {"blog": [], "garden": []}
-    items = [("blog", p) for p in glob.glob("src/blog/*.typ")] + \
-            [("garden", p) for p in glob.glob("src/garden/*.typ")]
-
-    with ThreadPoolExecutor() as executor:
-        for kind, post in executor.map(lambda x: process_post(*x), items):
-            posts[kind].append(post)
-
-    posts["blog"].sort(key=lambda p: p["date"], reverse=True)
-    posts["garden"].sort(key=lambda p: p["date"], reverse=True)
-    print(posts)
-
-    with open("posts.json", "w") as f:
-        json.dump(posts, f)
+    python scripts/list-collections.py
 
 post-process:
-    #!/usr/bin/env python
-    import sys
-    import re
-
-    input_data = sys.stdin.buffer.read()
-
-    # Find all head tags
-    heads = re.findall(rb'<head>.*?</head>', input_data, flags=re.DOTALL)
-
-    # Replace first head with second head, then remove the original second head
-    # We need to remove the second one first to avoid issues
-    replaced = input_data.replace(heads[1], b'', 1)  # Remove second head
-    replaced = replaced.replace(heads[0], heads[1], 1)  # Replace first with second
-
-    # TODO: add heading anchors back in"
-
-    sys.stdout.buffer.write(replaced)
+    python scripts/post-process.py

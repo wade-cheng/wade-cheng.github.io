@@ -20,5 +20,5 @@
 
   doc
 
-  html.p[#html.small[#link("/garden.html")[back to garden]]]
+  html.p[#html.small[#link("/garden/")[back to garden]]]
 }

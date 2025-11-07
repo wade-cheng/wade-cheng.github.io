@@ -22,6 +22,6 @@
 
   doc
 
-  html.p[#html.small[#link("/blog.html")[back to blog]]]
+  html.p[#html.small[#link("/blog/")[back to blog]]]
 }
 

@@ -228,16 +228,16 @@ pre {
     overflow-x: auto;
     width: 0;
     min-width: 100%;
+    background-color: var(--code-bg);
 }
 
 pre code {
-    background-color: var(--code-bg);
     color: var(--code-text);
     display: block;
     padding: 1em;
     text-align: left;
     hyphens: none;
-    min-width: 100%;
+    /* min-width: 100%; */
 }
 
 @media print {

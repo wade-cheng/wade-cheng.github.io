@@ -4,19 +4,14 @@ import glob
 import json
 from concurrent.futures import ThreadPoolExecutor
 
-import os
-
-# Hack from when this was in the justfile a directory up. possibly TODO: refactor to do it "properly"
-os.chdir("..")
-
 print("listing collections")
 
 
 def process_post(kind, path):
     print(path)
 
-    def query(label):
-        json.loads(
+    def query(label) -> str:
+        return json.loads(
             subprocess.run(
                 [
                     "typst",
@@ -54,7 +49,6 @@ with ThreadPoolExecutor() as executor:
 
 posts["blog"].sort(key=lambda p: p["date"], reverse=True)
 posts["garden"].sort(key=lambda p: p["date"], reverse=True)
-print(posts)
 
 with open("posts.json", "w") as f:
     json.dump(posts, f)

@@ -39,7 +39,7 @@ Things that are bad:
   time. Do you crave flavors right now? Or if you consumed flavors, would
   you curl up and pass away?
 
-- coconut flavor: DO NOT DRINK THE COCONUT FLAVOR. eat CAN work BUT BE
+- coconut flavor: hi this is second future Wade with another disclaimer. This was about off-brand artificially flavored coconut drink. I have now quite convinced myself that a good, high-quality consumable containing coconut will also provide a high-quality flavor. On to the rest. DO NOT DRINK THE COCONUT FLAVOR. eat CAN work BUT BE
   VERY CAREFUL!!!!! DO NOT DRINK THE COCONUT FLAVOR!!!! (Hi this is future
   wade here to elaborate. This is the coconut artifical flavor. It's like
   some people's aversion to artificial grape or cherry. (I looove

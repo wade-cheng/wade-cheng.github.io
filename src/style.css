@@ -189,6 +189,10 @@ a::after {
     font-variant-numeric: normal;
 }
 
+sup {
+    vertical-align: top;
+}
+
 ul {
     list-style-type: "•  ";
 }

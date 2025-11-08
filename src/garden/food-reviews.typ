@@ -7,6 +7,17 @@
 The following shall contain lists of food reviews. This is as much for me as
 it is for your entertainment, so uh. Imperative mood incoming.
 
+La Prima (CMU Campus)
+- really nice hot chocolates, comes with milk foam
+
+- mmmmm strawberry lemonade
+
+- canned San Pellegrino Italian sparkling drinks
+
+  - limonada: by golly is this sour. drink to get punched (maybe you're into the taste)
+  
+  - aranciata rossa (sparkling orange/blood orange): reasonably! Tastes like blood orange, what do you expect
+
 Yi Fang in Squirrel Hill
 - hot pineapple soy milk tea: was really
   surprisingly delicious, actually. Their recommendation for 0% sugar was

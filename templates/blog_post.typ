@@ -5,9 +5,15 @@
   page-title: "",
   date: "",
   doc,
-) = {
+) = context {
   [#metadata(page-title) <page-title>]
   [#metadata(date) <date>]
+  
+  if target() == "paged" {
+    doc
+    return
+  }
+  
   show: base.conf.with(
     page-title: page-title,
     title-override: "wade's blog :: " + page-title,

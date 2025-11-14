@@ -1,4 +1,4 @@
-#import "../../templates/blog_post.typ": conf
+#import "../../../templates/blog_post.typ": conf
 
 #show: conf.with(
   page-title: "“7”", // ah hell, we don't get smart quotes because we have to use the python preprocessing trick
@@ -18,7 +18,7 @@ that one, not the one written "ahh!"
 and takes inflection from higher to low. Listen to me now, "aaaaah."
 
 // <!-- figure out how to hyperlink with the image without borking styling -->
-#image("./7/7.png", alt: "todo alt text")
+#html.img(src: "./7.png", alt: "a cropped screenshot to the page https://ageofempires.fandom.com/wiki/Taunt. It shows a table that lists the following entries. Number: 7. Result: Ahh! Audio: a button that would play the audio clip. Description: Exclamation used when something has become clear, for instance when a miscommunication has been cleared up or if the user of the taunt (finally) understands an explanation. ")
 #html.div(class: "figure-caption")[_Figure 1:_ "aaaaah."]
 
 This may be enough of a punchline to those who play Age of Empires II, but

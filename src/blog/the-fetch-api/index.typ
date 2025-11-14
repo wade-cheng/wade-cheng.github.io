@@ -1,4 +1,4 @@
-#import "../../templates/blog_post.typ": conf
+#import "../../../templates/blog_post.typ": conf
 
 #show: conf.with(
     page-title: "The Fetch API",
@@ -80,8 +80,8 @@ Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
 
 Now, visiting the link #link("http://0.0.0.0:8000/") and clicking on the button logs the numbers from the start of the blog post. It works!
 
-#image(
-    "the-fetch-api/output.png",
+#html.img(
+    src: "./output.png",
     alt: "a screenshot of the button and a panel showing the output of the console log, which matches our chosen numbers from the start of the blog post"
 )
 

@@ -16,6 +16,7 @@ of one-off blog posts.
     let path = (path
       .split("/garden/")
       .at(-1)
+      .replace(regex("/index\\.typ$"), "/")
       .replace(regex("\\.typ$"), "/"))
     let page = queried.at(0).at("value")
 

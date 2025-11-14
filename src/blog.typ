@@ -36,6 +36,7 @@ I would've really liked just doing laundry and taxes with you.
     let path = (path
       .split("/blog/")
       .at(-1)
+      .replace(regex("/index\\.typ$"), "/")
       .replace(regex("\\.typ$"), "/"))
     let page = queried.at(0).at("value")
 

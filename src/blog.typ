@@ -29,9 +29,22 @@ I would've really liked just doing laundry and taxes with you.
 
 #html.hr()
 
-#let files = json("../files.json")
+#let PLACEHOLDER = (value: (date: "0-0-0"))
 
-#for (path, queried) in files.pairs() [
+#let files = (json("../files.json")
+  .pairs()
+  .sorted(
+    by: (l, r) => l >= r,  // decreasing order
+    key: entry => {
+      let queried = entry.at(1)
+      let date = queried
+        .at(0, default: PLACEHOLDER)
+        .at("value")
+        .at("date")
+      date
+    }))
+
+#for (path, queried) in files [
   #if queried.len() > 0 and path.contains("/blog/"){
     let path = (path
       .split("/blog/")

@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-  pull_request:
 
 jobs:
   deploy:
@@ -19,10 +18,14 @@ jobs:
       - name: Install cargo-binstall
         uses: cargo-bins/cargo-binstall@v1.15.10
 
-      - run: cargo binstall --no-confirm --git https://github.com/wade-cheng/compile-typst-site.git compile-typst-site
-      - run: cargo binstall just
-      - run: cargo binstall typst-cli
-      - run: just build
+      - name: Install dependencies
+        run: |
+          cargo binstall --no-confirm compile-typst-site
+          cargo binstall --no-confirm just
+          cargo binstall --no-confirm typst-cli
+
+      - name: Build
+        run: just build
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3

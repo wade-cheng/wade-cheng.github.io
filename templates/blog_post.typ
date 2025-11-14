@@ -6,13 +6,12 @@
   date: "",
   doc,
 ) = context {
-  [#metadata(page-title) <page-title>]
-  [#metadata(date) <date>]
-  
-  if target() == "paged" {
-    doc
-    return
-  }
+  [#metadata(
+    (
+      "page-title": page-title,
+      "date": date
+    )
+  ) <data>]
   
   show: base.conf.with(
     page-title: page-title,

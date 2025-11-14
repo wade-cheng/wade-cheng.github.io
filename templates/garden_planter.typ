@@ -5,8 +5,12 @@
   date: "",
   doc,
 ) = context {
-  [#metadata(page-title) <page-title>]
-  [#metadata(date) <date>]
+  [#metadata(
+    (
+      "page-title": page-title,
+      "date": date
+    )
+  ) <data>]
   
   if target() == "paged" {
     doc

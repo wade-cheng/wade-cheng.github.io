@@ -35,6 +35,8 @@ Yi Fang in Squirrel Hill
   tasting like red bean
 
 Things that are good:
+- fruit loops.
+
 - I. Think I like pesto? I'm not entirely sure what it is but I'm choosing to believe it's the vaguely green sauce in these wraps and such. I can see myself wearing out the flavor if I eat it too often, though.
 
 - Bao on Craig Street is really nice. I especially love their tomato beef

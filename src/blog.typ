@@ -9,8 +9,6 @@ Isn't the internet so weird? You might not know me, but now you can make an
 effort without our ever meeting. In another life, maybe we would've met, and
 I would've really liked just doing laundry and taxes with you.
 
-The RSS generator is out of commission since the Typst update, until I reimplement it :(
-
 // Subscribe to this blog with RSS #html.span[#html.elem("svg", attrs: (
 //   xmlns: "http://www.w3.org/2000/svg",
 //   style: "transform: translate(0, 3px)",
@@ -31,13 +29,21 @@ The RSS generator is out of commission since the Typst update, until I reimpleme
 
 #html.hr()
 
-#let posts = json("../posts.json")
+#let files = json("../files.json")
 
-#for post in posts.blog {
-  html.p[
-    #html.a(href: post.path)[#post.pagetitle]
-    #html.span(class: "date")[
-      #utils.format-date(post.date)
+#for (path, queried) in files.pairs() [
+  #if queried.len() > 0 and path.contains("/blog/"){
+    let path = (path
+      .split("/blog/")
+      .at(-1)
+      .replace(regex("\\.typ$"), "/"))
+    let page = queried.at(0).at("value")
+
+    html.p[
+      #html.a(href: path)[#page.page-title]
+      #html.span(class: "date")[
+        #utils.format-date(page.date)
+      ]
     ]
-  ]
-}
+  }
+]

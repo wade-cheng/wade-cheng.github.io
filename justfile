@@ -7,7 +7,7 @@ watch:
 build:
     compile-typst-site
 
-export DEFAULT_JUSTFILE := '''
+export DEFAULT_BLOG_POST := '''
 #import "../../templates/blog_post.typ": conf
 
 #show: conf.with(
@@ -16,11 +16,5 @@ export DEFAULT_JUSTFILE := '''
 )
 '''
 blog:
-	printf '%s' "$DEFAULT_JUSTFILE" > src/blog/NEW_BLOG_POST.typ
+	printf '%s' "$DEFAULT_BLOG_POST" > src/blog/NEW_BLOG_POST.typ
 	code src/blog/NEW_BLOG_POST.typ
-
-list-collections:
-    python scripts/list-collections.py
-
-post-process:
-    python scripts/post-process.py

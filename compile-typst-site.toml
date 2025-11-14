@@ -7,5 +7,5 @@ passthrough_copy = [
     "CNAME",
     "404.html",
 ]
-init = ['just', 'list-collections']
-post_processing_typ = ['just', 'post-process']
+post_processing_typ = ['python', 'scripts/post-process.py']
+file_listing = "include-data"

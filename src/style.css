@@ -1,9 +1,9 @@
 :root {
     --max-width: 544px;
-    --bg: white;
+    --bg: #fffff8;
     --link-after: #7b31c1;
     --link-hover: #eeddff;
-    --text: black;
+    --text: #111;
     --code-bg: #363636;
     --code-text: #e3e3e3;
     --text-spacing: 0.6em;
@@ -159,34 +159,13 @@ hr::before {
 }
 
 a {
-    text-decoration: none;
+    text-decoration: underline;
     color: inherit;
 }
 
 a:hover {
-    transition-property: background;
-    transition-duration: 0.2s;
-    background-color: var(--link-hover);
+    text-decoration: none;
     border-radius: 8px;
-}
-
-a::before {
-    content: "『\FEFF";
-    margin-left: -0.5em;
-    font-size: 90%;
-    color: var(--link-after);
-    font-feature-settings: "caps";
-    font-variant-numeric: normal;
-}
-
-a::after {
-    content: "\FEFF』";
-    margin-right: -0.5em;
-    font-size: 90%;
-    top: -0.1em;
-    color: var(--link-after);
-    font-feature-settings: "caps";
-    font-variant-numeric: normal;
 }
 
 sup {

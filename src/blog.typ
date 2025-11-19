@@ -31,33 +31,31 @@ I would've really liked just doing laundry and taxes with you.
 
 #let PLACEHOLDER = (value: (date: "0-0-0"))
 
-#let files = (json("../files.json")
-  .pairs()
-  .sorted(
-    by: (l, r) => l >= r,  // decreasing order
-    key: entry => {
-      let queried = entry.at(1)
-      let date = queried
-        .at(0, default: PLACEHOLDER)
-        .at("value")
-        .at("date")
-      date
-    }))
+#let files = (
+  json("../files.json")
+    .pairs()
+    .sorted(
+      by: (l, r) => l >= r, // decreasing order
+      key: entry => {
+        let queried = entry.at(1)
+        let date = queried.at(0, default: PLACEHOLDER).at("value").at("date")
+        date
+      },
+    )
+)
 
-#for (path, queried) in files [
-  #if queried.len() > 0 and path.contains("/blog/"){
-    let path = (path
-      .split("/blog/")
-      .at(-1)
-      .replace(regex("/index\\.typ$"), "/")
-      .replace(regex("\\.typ$"), "/"))
-    let page = queried.at(0).at("value")
+#html.div(class: "left-align")[
+  #for (path, queried) in files [
+    #if queried.len() > 0 and path.contains("/blog/") {
+      let path = (path.split("/blog/").at(-1).replace(regex("/index\\.typ$"), "/").replace(regex("\\.typ$"), "/"))
+      let page = queried.at(0).at("value")
 
-    html.p[
-      #html.a(href: path)[#page.page-title]
-      #html.span(class: "date")[
-        #utils.format-date(page.date)
+      html.p[
+        #html.a(href: path)[#page.page-title]
+        #html.span(class: "date")[
+          #utils.format-date(page.date)
+        ]
       ]
-    ]
-  }
+    }
+  ]
 ]

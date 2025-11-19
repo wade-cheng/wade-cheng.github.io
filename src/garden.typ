@@ -11,19 +11,17 @@ of one-off blog posts.
 
 #let files = json("../files.json")
 
-#for (path, queried) in files.pairs() [
-  #if queried.len() > 0 and path.contains("/garden/"){
-    let path = (path
-      .split("/garden/")
-      .at(-1)
-      .replace(regex("/index\\.typ$"), "/")
-      .replace(regex("\\.typ$"), "/"))
-    let page = queried.at(0).at("value")
+#html.div(class: "left-align")[
+  #for (path, queried) in files.pairs() [
+    #if queried.len() > 0 and path.contains("/garden/") {
+      let path = (path.split("/garden/").at(-1).replace(regex("/index\\.typ$"), "/").replace(regex("\\.typ$"), "/"))
+      let page = queried.at(0).at("value")
 
-    html.p[
-      #html.a(href: path)[#page.page-title]
-    ]
-  }
+      html.p[
+        #html.a(href: path)[#page.page-title]
+      ]
+    }
+  ]
 ]
 
 #html.script("NekoType = 'white';")

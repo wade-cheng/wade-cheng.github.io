@@ -1,6 +1,6 @@
 passthrough_copy = [
     "*.css",
-    "*.png",
+    "**/*.png",
     "assets/**/*",
     "favicon/*",
     ".nojekyll",

@@ -14,6 +14,9 @@ replaced = replaced.replace(heads[0], heads[1], 1)  # Replace first with second
 
 # TODO: add heading anchors back in"
 
+# Add lang attribute to html tag for hyphenation support
+replaced = re.sub(r"<html>", '<html lang="en">', replaced)
+
 # Extract the endnotes section content
 endnotes_match = re.search(
     r'<section role="doc-endnotes">(.*?)</section>', replaced, re.DOTALL

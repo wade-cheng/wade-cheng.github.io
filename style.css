@@ -94,6 +94,10 @@ p {
     margin: var(--text-spacing) 0;
 }
 
+.left-align {
+    text-align: left;
+}
+
 .stdnums {
     font-variant-numeric: initial;
     font-feature-settings: normal;

@@ -20,7 +20,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          cargo binstall --no-confirm compile-typst-site
+          cargo binstall --no-confirm compile-typst-site@2.0.3
           cargo binstall --no-confirm just
           cargo binstall --no-confirm typst-cli
 

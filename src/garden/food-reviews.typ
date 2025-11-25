@@ -7,7 +7,22 @@
 The following shall contain lists of food reviews. This is as much for me as
 it is for your entertainment, so uh. Imperative mood incoming.
 
-La Prima (CMU Campus)
+= Loose leaf tea
+Yum! I got a small sampler pack from #link("https://verdanttea.com"). They have a 5 for \$5, no shipping to U.S., deal for new customers. It looks like they aggregate tea leaves from "small business" farmers, and their package came with a handwritten card. Overall really nice purchasing experience, super appreciate their vibes. 
+
+I'll fill this out as I, y'know, sample them. In chronological order or tasting:
+
++ He Family Laoshan Green Tea 5g Sample: harvested "Autumn," consumed in November. Really nice! I guess green tea is the kind Chinese restaurants use. Warm and nostalgic in that regard. I like the "warm fuzzy" flavors more than the sweet ones, as you might gather from this page, so I'm very excited at the idea of more tea going forward.
+
++ He Family Laoshan Black Tea 5g Sample
+
++ Qianjiazhai Wild Arbor Tea 5g Sample
+
++ Li Family Wuyi Oolong 5g Sample
+
++ Master Zhang Anxi Oolong 5g Sample
+
+= La Prima (CMU Campus)
 - really nice hot chocolates, comes with milk foam
 
 - mmmmm strawberry lemonade
@@ -18,7 +33,7 @@ La Prima (CMU Campus)
   
   - aranciata rossa (sparkling orange/blood orange): reasonably! Tastes like blood orange, what do you expect
 
-Yi Fang in Squirrel Hill
+= Yi Fang in Squirrel Hill
 - hot pineapple soy milk tea: was really
   surprisingly delicious, actually. Their recommendation for 0% sugar was
   correct, the pineapple supplied all the sugar needed. (These guys's
@@ -34,7 +49,7 @@ Yi Fang in Squirrel Hill
 - red bean tea: yum, talk about texture and red bean physical inclusion and literally
   tasting like red bean
 
-Things that are good:
+= Misc. things that are good
 - fruit loops.
 
 - I. Think I like pesto? I'm not entirely sure what it is but I'm choosing to believe it's the vaguely green sauce in these wraps and such. I can see myself wearing out the flavor if I eat it too often, though.
@@ -46,7 +61,7 @@ Things that are good:
 
 - Chipotle's chicken option is not bad! (At least, the one on Forbes)
 
-Things that are bad:
+= Misc. things that are bad
 
 - Overall, try to understand what you want, because it will vary through
   time. Do you crave flavors right now? Or if you consumed flavors, would

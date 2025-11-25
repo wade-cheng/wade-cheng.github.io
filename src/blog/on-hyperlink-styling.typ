@@ -5,7 +5,7 @@
   date: "2025-10-21",
 )
 
-I've changed my opinion on how hyperlinks should be styled throughout my life, and I've recently been thinking about it again.
+#smallcaps[I've changed my opinion on how hyperlinks should be styled throughout my life], and I've recently been thinking about it again.
 
 First, some history and some context. I like small, cozy, lightweight websites! My first links were probably unstyled, along with the rest of the webpage, but this was probably changed quite quickly. I think the blue on white is tacky, and the clicked-purple on white more so. They then became black to match the rest of the body text in color, in part because I don't think it really matters if you've already visited a page or not, or maybe I just don't like things changing out from under me. And then set it to un-underline on-hover to boot. Cute!
 

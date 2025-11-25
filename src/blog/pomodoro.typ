@@ -5,7 +5,7 @@
   date: "2025-10-26",
 )
 
-I've been trying the pomodoro method recently. I believe the canonical set
+#smallcaps[I've been trying the pomodoro method recently.] I believe the canonical set
 of instructions is
 
 - 25 minute work session

@@ -1,11 +1,11 @@
-#import "../../templates/blog_post.typ": conf
+#import "../../../templates/blog_post.typ": conf
 
 #show: conf.with(
   page-title: "keyboards",
   date: "2025-11-07",
 )
 
-My daily driver is pretty cute! It's an ANSI layout 60%#footnote[60% denotes the size of the keyboard---it has about 60% of the keys of one that's"full-size." Search up the Anne Pro 2 to see what I mean. The ANSI layout denotes how those keys are laid out. For example, my Tab, Caps Lock, and Left Shift keys are of increasing width,  while ISO has a narrow LShift, giving it an extra key on that row: #link("https://commons.wikimedia.org/wiki/File:Physical_keyboard_layouts_comparison_ANSI_ISO_KS_ABNT_JIS.png")[wikimedia.org example image].] with off brand keycaps: purple, decals on non-alphanumeric keys in the style of those ink(?) paintings of lush Chinese mountains, with the symbols written on the front side instead of top. I think they're doubleshot PBT. I had to keep the stock shift, enter, and space keys because the manafacturing tolerances were bad enough that they don't fit on the stems---I think it gives it character :3 My messed up little item \<3
+#smallcaps[My daily driver is pretty cute!] It's an ANSI layout 60%#footnote[60% denotes the size of the keyboard---it has about 60% of the keys of one that's"full-size." Search up the Anne Pro 2 to see what I mean. The ANSI layout denotes how those keys are laid out. For example, my Tab, Caps Lock, and Left Shift keys are of increasing width,  while ISO has a narrow LShift, giving it an extra key on that row: #link("https://commons.wikimedia.org/wiki/File:Physical_keyboard_layouts_comparison_ANSI_ISO_KS_ABNT_JIS.png")[wikimedia.org example image].] with off brand keycaps: purple, decals on non-alphanumeric keys in the style of those ink(?) paintings of lush Chinese mountains, with the symbols written on the front side instead of top. I think they're doubleshot PBT. I had to keep the stock shift, enter, and space keys because the manafacturing tolerances were bad enough that they don't fit on the stems---I think it gives it character :3 My messed up little item \<3
 
 Talk about HK/Celeste keybinds? about link hints? wanting a split keyboard and to build one myself? Wacky bluetooth?
 

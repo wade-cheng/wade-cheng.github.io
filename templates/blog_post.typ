@@ -18,12 +18,6 @@
     title-override: "wade's blog :: " + page-title,
     subtitle: [#html.div(class: "date")[#utils.format-date(date)]],
   )
-  html.style[
-    main > p:first-of-type::first-line {
-        font-variant: small-caps;
-        font-feature-settings: \"smcp\";
-    }
-  ]
 
   doc
 

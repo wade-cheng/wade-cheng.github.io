@@ -5,7 +5,7 @@
   date: "2025-11-14",
 )
 
-When you set text to align flush against the left margin, you get a ragged right margin. This kind of alignment is also called ragged right alignment after the ragged right side.
+#smallcaps[When you set text to align flush against the left margin], you get a ragged right margin. This kind of alignment is also called ragged right alignment after the ragged right side.
 
 This means you have a body with a center mass that isn't the geographic centner of the body. Since there's white space created by having a ragged right margin, the center mass of such a paragraph is a bit to the left of the center of the box you would draw around the paragraph.
 

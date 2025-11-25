@@ -21,12 +21,6 @@
     page-title: page-title,
     title-override: "wade's garden :: " + page-title,
   )
-  html.style[
-    main > p:first-of-type::first-line {
-        font-variant: small-caps;
-        font-feature-settings: \"smcp\";
-    }
-  ]
 
   doc
 

@@ -7,8 +7,8 @@
 
 
 
-Javascript can pull data from remote servers by using something called the
-#link("https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API")[Fetch API]. This has a couple names and concepts associated to it, like fetching, GET
+#smallcaps[Javascript can pull data from remote servers by using something called the
+#link("https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API")[Fetch API]]. This has a couple names and concepts associated to it, like fetching, GET
 requests, or REST APIs. The scope of this blog post will be to
 
 - develop a simple example for how you can use it

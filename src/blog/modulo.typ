@@ -5,7 +5,7 @@
   date: "2025-11-19",
 )
 
-One pattern that exists as part of the English language goes along the lines of "this is true, minus x." Minus is the interesting part here: it expresses the equivalent of "except x," which makes sense, because the mathematical subtraction operator, y'know, takes away things.
+#smallcaps[One pattern that exists as part of the English language] goes along the lines of "this is true, minus x." Minus is the interesting part here: it expresses the equivalent of "except x," which makes sense, because the mathematical subtraction operator, y'know, takes away things.
 
 Some time ago, I watched a short video by #link("https://www.etymologynerd.com/")[etymologynerd], who talked about how there's some kind of subdialect, or at least, special vocabulary used among math and CS nerds---how people at institutions like Carnegie Mellon disproportionately end up saying words like such that, nonzero, or subset. Similarly to this idea, I occasionally see people on programming forums and such say "this is true, modulo x" as another turn of phrase. 
 

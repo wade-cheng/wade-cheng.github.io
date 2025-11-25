@@ -7,7 +7,7 @@
 
 // TODO: webm files?
 
-I need to be very very explicit about this.
+#smallcaps[I need to be very very explicit about this.]
 
 There is a mannerism I partake in. The sound of understanding, "aaaaah,"
 // <!-- footnote: at least two a's-->

@@ -5,7 +5,7 @@
     date: "2025-11-05",
 )
 
-Alright, I think I've figured out how to make this site render with Typst in a reasonably painless way.
+#smallcaps[Alright, I think I've figured out how to make this site render with Typst in a reasonably painless way.]
 
 Before, I was basically hand-writing HTML (with Nunjucks as a templating language), and it wasn't really too painful? The only really annoying points were 
 

@@ -174,6 +174,8 @@ a:hover {
 
 sup {
     vertical-align: top;
+    font-variant-numeric: initial;
+    font-feature-settings: normal;
 }
 
 ul {
@@ -242,6 +244,10 @@ pre code {
 
 .links [aria-describedby] {
     display: inline-block;
+}
+
+[role="doc-backlink"] {
+    margin-right: 0.5em;
 }
 
 [role="tooltip"] {

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <link rel="stylesheet" href="/assets/eb-garamond/eb-garamond.css">
+      <meta charset="utf-8">
+      <title>wade's garden :: daily driver issues</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link href="/style.css" rel="stylesheet" type="text/css">
+      <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96">
+      <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
+      <link rel="shortcut icon" href="/favicon/favicon.ico">
+      <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+      <meta name="apple-mobile-web-app-title" content="wade's site">
+      <link rel="manifest" href="/favicon/site.webmanifest">
+      <link rel="prefetch" href="https://webneko.net/n20171213.js">
+    </head>
+  <body>
+    
+    <div id="site-container">
+      <nav><a href="/">home</a> <a href="/blog/">blog</a> <a href="/garden/">garden</a></nav>
+      <header>
+        <h1>daily driver issues</h1>
+      </header>
+      <main>
+        <p>My daily driver, Ubuntu 24, has some persisting issues that I don’t quite enjoy. I list them for my and your perusal.</p>
+        <ul>
+          <li>
+            <p>Switching to Wayland broke my conky config somehow.</p>
+          </li>
+          <li>
+            <p>I installed Nix-the-package-manager, and it’s caused issues with R packages trying to compile with compilers from the Nix store, or something? Uh. Oh noes. This isn’t now an issue after some trial-and-error with reinstalling R/Rstudio, but I should get Nix off my system at some point.</p>
+          </li>
+        </ul>
+        <p>Additionally, some issues have been fixed.</p>
+        <ul>
+          <li>
+            <p>My firefox tabs flickered when running my mouse along the top of the screen. I recorded the video below:</p>
+            <video height="50" controls><source src="/assets/tab_flicker.mp4" type="video/mp4"><p>Your browser does not support the video tag. See <a href="/assets/tab_flicker.mp4"></a>.</p></video>
+            <p>I took this video with the printscreen button on Ubuntu. You may notice that the mouse is not available. From Stackoverflow, I changed from Xorg to Wayland, and this fixed that. But hilariously enough, this also fixed the tab flickering issue.</p>
+            <p>This is possibly in a bigger class of problems with Xorg possibly being jank around the edges of the screen?</p>
+          </li>
+        </ul>
+        <p><small><a href="/garden/">back to garden</a></small></p>
+      </main>
+    </div>
+  </body>
+</html>

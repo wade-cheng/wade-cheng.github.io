@@ -38,7 +38,7 @@ Now, how does reloading a web server work? I knew `tower-livereload` injected co
 ```
 b"HTTP/1.1 200 OK\r\n\
   Content-Type: text/event-stream\r\n\
-  Cache-Control: no-cache\r\n
+  Cache-Control: no-cache\r\n\
   Connection: keep-alive\r\n\r\n"
 ```
 

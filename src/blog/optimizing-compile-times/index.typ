@@ -9,7 +9,7 @@
 
 Programming language culture is an interesting thing: while there's nothing technically forcing the average Python code to be duck typed and the average Rust code to prefer invariants via typing, this happens anyways. CLIs, like `cts`, and the simple case study of parsing command-line arguments gives some good examples. In Python, I might default to using stdlib's `argparse` and grab the arguments by getter properties: `if cli.verbose: foo()`---less explicit stuff going on. But in Rust, and in all the tutorial information around CLI building, we seem to prefer using proc-macros to generate code that validates the args into a CLI struct. Something something different philosophies of the average case. I'm sure there's derive validators in python, and you can forgo derive in Rust.
 
-But. One pet peeve I have about Rust, coming from interpreted languages like Python and simpler codebases from coursework, is the relatively long compile time compared to these prior experiences. In the more obnoxious cases, this even bleeds over `cargo check` efficiency, making the Rust LSP less effective.#footnote[Subframe LSP responses are great for coding. Stuff like bevy projects or #link("https://graphite.rs/") contributions can get a little absurd, again, relative to what I'm used to. Mumble mumble metaprogramming is cool but dangerous.] Now, this isn't happening by any means to `cts`, and there are tradeoffs to consider instead of wanton compile-time optimization: massive, slow, libraries are such because they're so feature-filled. It might be strictly easier for me and better for the users to use one library, except for compile times. So let's see what I managed to cull down.
+But. One pet peeve I have about Rust, coming from interpreted languages like Python and simpler codebases from coursework, is the relatively long compile time compared to these prior experiences. In the more obnoxious cases, this even bleeds over `cargo check` efficiency, making the Rust LSP less effective.#footnote[Subframe LSP responses are great for coding. Stuff like bevy projects or #link("https://graphite.rs/") contributions can get a little absurd, again, relative to what I'm used to. Mumble mumble metaprogramming is cool but dangerous.] Now, this isn't happening by any means to `cts`, and there are tradeoffs to consider instead of wanton compile-time optimization: massive, slow, libraries are such because they're so feature-filled. It might be strictly easier for me and better for the users to use one library, except for compile times. So let's see what I had to give up, and what dependencies I could cull.
 
 = Part 1: the entire damn web framework ecosystem
 
@@ -68,6 +68,8 @@ I decided to make the API endpoint for this live reloading `/livereload`, so the
 
 We only ever really listen once before reloading the page cleans up the `EventSource` anyways. We run some cleanup code lest we get red in the browser console on reload.
 
+Overall, even though this lets us get rid of some dependencies, it really does put the onus on us to write correct code closer to the machine and the specs, when it's much easier to be correct by relying on libraries. Who knows how axum will be able to handle mime types, or the random user that decides to send a POST request. Not me! But I trust that it's correct. I don't have to think about it.
+
 = Part 2: serde (and syn)
 
 So, what's our new starting point?
@@ -79,7 +81,7 @@ So, what's our new starting point?
 
 Much better! Now, the low-hanging fruit is that `winnow`/`serde`/`syn` stuff we need to derive deserialization of a file into a struct. I had a little bit of boilerplate anyways, since I wanted to say "it's okay to leave these config entries blank," which led to some `unwrap_or_default`-ing, so I decided to jump the gun and just hack and slash it all out in favor of `nanoserde`. You'll notice that I already used `onlyargs`/`myn` as a light alternative to, say, `clap`. Their developer wrote a neat #link("https://blog.kodewerx.org/2023/04/improving-build-times-for-derive-macros.html")[blog post] on how one might strip features away from `syn` to get faster compile times. They cited `nanoserde` as having a similar underlying model, and indeed it's fast to compile. `nanoserde` is made by #link("https://github.com/not-fl3")[not-fl3] who, though now dormant, was super epic in the realm of short compile times. His \*quads ecosystem for game development felt like Python to use, compile times included.
 
-Unfortunately, the TOML feature of nanoserde doesn't seem to have derive support, or I probably would've used it. Since it's probably fast anyways. Also, its spec compliance is a bit iffy: it at least doesn't support literal strings (single quotes). Hmm.
+Unfortunately, the TOML feature of nanoserde doesn't seem to have derive support, or I probably would've used it. Since it's probably fast anyways. Also, its spec compliance is a bit iffy: it at least doesn't support literal strings (single quotes). Hmm. And of course, we've traded boilerplate for boilerplate.
 
 = Final product
 

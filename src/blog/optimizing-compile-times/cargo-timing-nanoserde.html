@@ -1,0 +1,2002 @@
+
+<html>
+<head>
+  <title>Cargo Build Timings — compile-typst-site 2.0.3</title>
+  <meta charset="utf-8">
+<style type="text/css">
+:root {
+  --error-text: #e80000;
+  --text: #000;
+  --background: #fff;
+  --h1-border-bottom: #c0c0c0;
+  --table-box-shadow: rgba(0, 0, 0, 0.1);
+  --table-th: #d5dde5;
+  --table-th-background: #1b1e24;
+  --table-th-border-bottom: #9ea7af;
+  --table-th-border-right: #343a45;
+  --table-tr-border-top: #c1c3d1;
+  --table-tr-border-bottom: #c1c3d1;
+  --table-tr-odd-background: #ebebeb;
+  --table-td-background: #ffffff;
+  --table-td-border-right: #C1C3D1;
+  --canvas-background: #f7f7f7;
+  --canvas-axes: #303030;
+  --canvas-grid: #e6e6e6;
+  --canvas-codegen: #aa95e8;
+  --canvas-link: #95e8aa;
+  --canvas-other: #e895aa;
+  --canvas-custom-build: #f0b165;
+  --canvas-not-custom-build: #95cce8;
+  --canvas-dep-line: #ddd;
+  --canvas-dep-line-highlighted: #000;
+  --canvas-cpu: rgba(250, 119, 0, 0.2);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --error-text: #e80000;
+    --text: #fff;
+    --background: #121212;
+    --h1-border-bottom: #444;
+    --table-box-shadow: rgba(255, 255, 255, 0.1);
+    --table-th: #a0a0a0;
+    --table-th-background: #2c2c2c;
+    --table-th-border-bottom: #555;
+    --table-th-border-right: #444;
+    --table-tr-border-top: #333;
+    --table-tr-border-bottom: #333;
+    --table-tr-odd-background: #1e1e1e;
+    --table-td-background: #262626;
+    --table-td-border-right: #333;
+    --canvas-background: #1a1a1a;
+    --canvas-axes: #b0b0b0;
+    --canvas-grid: #333;
+    --canvas-block: #aa95e8;
+    --canvas-custom-build: #f0b165;
+    --canvas-not-custom-build: #95cce8;
+    --canvas-dep-line: #444;
+    --canvas-dep-line-highlighted: #fff;
+    --canvas-cpu: rgba(250, 119, 0, 0.2);
+  }
+}
+
+html {
+  font-family: sans-serif;
+  color: var(--text);
+  background: var(--background);
+}
+
+.canvas-container {
+  position: relative;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+h1 {
+  border-bottom: 1px solid var(--h1-border-bottom);
+}
+
+.graph {
+  display: block;
+}
+
+.my-table {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-collapse: collapse;
+  box-shadow: 0 5px 10px var(--table-box-shadow);
+}
+
+.my-table th {
+  color: var(--table-th);
+  background: var(--table-th-background);
+  border-bottom: 4px solid var(--table-th-border-bottom);
+  border-right: 1px solid var(--table-th-border-right);
+  font-size: 18px;
+  font-weight: 100;
+  padding: 12px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.my-table th:first-child {
+  border-top-left-radius: 3px;
+}
+
+.my-table th:last-child {
+  border-top-right-radius: 3px;
+  border-right:none;
+}
+
+.my-table tr {
+  border-top: 1px solid var(--table-tr-border-top);
+  border-bottom: 1px solid var(--table-tr-border-bottom);
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.my-table tr:first-child {
+  border-top:none;
+}
+
+.my-table tr:last-child {
+  border-bottom:none;
+}
+
+.my-table tr:nth-child(odd) td {
+  background: var(--table-tr-odd-background);
+}
+
+.my-table tr:last-child td:first-child {
+  border-bottom-left-radius:3px;
+}
+
+.my-table tr:last-child td:last-child {
+  border-bottom-right-radius:3px;
+}
+
+.my-table td {
+  background: var(--table-td-background);
+  padding: 10px;
+  text-align: left;
+  vertical-align: middle;
+  font-weight: 300;
+  font-size: 14px;
+  border-right: 1px solid var(--table-td-border-right);
+}
+
+.my-table td:last-child {
+  border-right: 0px;
+}
+
+.summary-table td:first-child {
+  vertical-align: top;
+  text-align: right;
+}
+
+.input-table td {
+  text-align: center;
+}
+
+.error-text {
+  color: var(--error-text);
+}
+
+</style>
+</head>
+<body>
+
+<h1>Cargo Build Timings</h1>
+See <a href="https://doc.rust-lang.org/nightly/cargo/reference/timings.html">Documentation</a>
+
+<table class="my-table summary-table">
+  <tr>
+    <td>Targets:</td><td>compile-typst-site 2.0.3 (lib, bin "compile-typst-site")</td>
+  </tr>
+  <tr>
+    <td>Profile:</td><td>release</td>
+  </tr>
+  <tr>
+    <td>Fresh units:</td><td>0</td>
+  </tr>
+  <tr>
+    <td>Dirty units:</td><td>28</td>
+  </tr>
+  <tr>
+    <td>Total units:</td><td>28</td>
+  </tr>
+  <tr>
+    <td>Max concurrency:</td><td>14 (jobs=20 ncpu=20)</td>
+  </tr>
+  <tr>
+    <td>Build start:</td><td>2025-11-26T19:28:53.238524253Z</td>
+  </tr>
+  <tr>
+    <td>Total time:</td><td>2.0s</td>
+  </tr>
+  <tr>
+    <td>rustc:</td><td>rustc 1.91.1 (ed61e7d7e 2025-11-07)<br>Host: x86_64-unknown-linux-gnu<br>Target: x86_64-unknown-linux-gnu</td>
+  </tr>
+
+</table>
+
+<table class="input-table">
+  <tr>
+    <td><label for="min-unit-time">Min unit time:</label></td>
+    <td title="Scale corresponds to a number of pixels per second. It is automatically initialized based on your viewport width.">
+      <label for="scale">Scale:</label>
+    </td>
+  </tr>
+  <tr>
+    <td><input type="range" min="0" max="30" step="0.1" value="0" id="min-unit-time"></td>
+    <!--
+        The scale corresponds to some number of "pixels per second".
+        Its min, max, and initial values are automatically set by JavaScript on page load,
+        based on the client viewport.
+    -->
+    <td><input type="range" min="1" max="100" value="50" id="scale"></td>
+  </tr>
+  <tr>
+    <td><output for="min-unit-time" id="min-unit-time-output"></output></td>
+    <td><output for="scale" id="scale-output"></output></td>
+  </tr>
+</table>
+
+<div id="pipeline-container" class="canvas-container">
+ <canvas id="pipeline-graph" class="graph" style="position: absolute; left: 0; top: 0; z-index: 0;"></canvas>
+ <canvas id="pipeline-graph-lines" style="position: absolute; left: 0; top: 0; z-index: 1; pointer-events:none;"></canvas>
+</div>
+<div class="canvas-container">
+  <canvas id="timing-graph" class="graph"></canvas>
+</div>
+
+<table class="my-table">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Unit</th>
+      <th>Total</th>
+      <th>Frontend</th>
+<th>Codegen</th>
+      <th>Features</th>
+    </tr>
+  </thead>
+  <tbody>
+
+<tr>
+  <td>1.</td>
+  <td>notify v8.2.0</td>
+  <td>0.8s</td>
+  <td>0.1s (18%)</td>
+<td>0.7s (82%)</td>
+  <td>default, fsevent-sys, macos_fsevent</td>
+</tr>
+
+<tr>
+  <td>2.</td>
+  <td>compile-typst-site v2.0.3</td>
+  <td>0.8s</td>
+  <td>0.3s (35%)</td>
+<td>0.5s (65%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>3.</td>
+  <td>json v0.12.4</td>
+  <td>0.6s</td>
+  <td>0.3s (54%)</td>
+<td>0.3s (46%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>4.</td>
+  <td>libc v0.2.177</td>
+  <td>0.5s</td>
+  <td>0.5s (96%)</td>
+<td>0.0s (4%)</td>
+  <td>default, std</td>
+</tr>
+
+<tr>
+  <td>5.</td>
+  <td>nanoserde v0.2.1</td>
+  <td>0.5s</td>
+  <td>0.1s (21%)</td>
+<td>0.4s (79%)</td>
+  <td>std, toml</td>
+</tr>
+
+<tr>
+  <td>6.</td>
+  <td>glob v0.3.3</td>
+  <td>0.4s</td>
+  <td>0.1s (27%)</td>
+<td>0.3s (73%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>7.</td>
+  <td>notify-debouncer-full v0.6.0</td>
+  <td>0.4s</td>
+  <td>0.2s (42%)</td>
+<td>0.2s (58%)</td>
+  <td>default, macos_fsevent</td>
+</tr>
+
+<tr>
+  <td>8.</td>
+  <td>colored v3.0.0</td>
+  <td>0.3s</td>
+  <td>0.2s (56%)</td>
+<td>0.1s (44%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>9.</td>
+  <td>onlyargs_derive v0.2.0</td>
+  <td>0.3s</td>
+  <td></td>
+<td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>10.</td>
+  <td>walkdir v2.5.0</td>
+  <td>0.3s</td>
+  <td>0.1s (34%)</td>
+<td>0.2s (66%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>11.</td>
+  <td>anyhow v1.0.100</td>
+  <td>0.3s</td>
+  <td>0.1s (54%)</td>
+<td>0.1s (46%)</td>
+  <td>default, std</td>
+</tr>
+
+<tr>
+  <td>12.</td>
+  <td>simple_logger v5.1.0</td>
+  <td>0.3s</td>
+  <td>0.1s (28%)</td>
+<td>0.2s (72%)</td>
+  <td>colored, colors</td>
+</tr>
+
+<tr>
+  <td>13.</td>
+  <td>bitflags v2.10.0</td>
+  <td>0.2s</td>
+  <td>0.1s (39%)</td>
+<td>0.1s (61%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>14.</td>
+  <td>inotify v0.11.0</td>
+  <td>0.2s</td>
+  <td>0.1s (56%)</td>
+<td>0.1s (44%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>15.</td>
+  <td>notify-types v2.0.0</td>
+  <td>0.2s</td>
+  <td>0.1s (41%)</td>
+<td>0.1s (59%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>16.</td>
+  <td>log v0.4.28</td>
+  <td>0.2s</td>
+  <td>0.1s (64%)</td>
+<td>0.1s (36%)</td>
+  <td>std</td>
+</tr>
+
+<tr>
+  <td>17.</td>
+  <td>mio v1.1.0</td>
+  <td>0.1s</td>
+  <td>0.1s (65%)</td>
+<td>0.0s (35%)</td>
+  <td>default, log, os-ext, os-poll</td>
+</tr>
+
+<tr>
+  <td>18.</td>
+  <td>libc v0.2.177 build script</td>
+  <td>0.1s</td>
+  <td></td>
+<td></td>
+  <td>default, std</td>
+</tr>
+
+<tr>
+  <td>19.</td>
+  <td>anyhow v1.0.100 build script</td>
+  <td>0.1s</td>
+  <td></td>
+<td></td>
+  <td>default, std</td>
+</tr>
+
+<tr>
+  <td>20.</td>
+  <td>myn v0.2.2</td>
+  <td>0.1s</td>
+  <td>0.1s (68%)</td>
+<td>0.0s (32%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>21.</td>
+  <td>onlyargs v0.2.0</td>
+  <td>0.1s</td>
+  <td>0.1s (77%)</td>
+<td>0.0s (23%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>22.</td>
+  <td>compile-typst-site v2.0.3 bin "compile-typst-site"</td>
+  <td>0.1s</td>
+  <td></td>
+<td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>23.</td>
+  <td>same-file v1.0.6</td>
+  <td>0.1s</td>
+  <td>0.0s (58%)</td>
+<td>0.0s (42%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>24.</td>
+  <td>onlyargs v0.2.0</td>
+  <td>0.1s</td>
+  <td>0.0s (81%)</td>
+<td>0.0s (19%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>25.</td>
+  <td>file-id v0.2.3</td>
+  <td>0.0s</td>
+  <td>0.0s (77%)</td>
+<td>0.0s (23%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>26.</td>
+  <td>anyhow v1.0.100 build script (run)</td>
+  <td>0.0s</td>
+  <td></td>
+<td></td>
+  <td>default, std</td>
+</tr>
+
+<tr>
+  <td>27.</td>
+  <td>inotify-sys v0.1.5</td>
+  <td>0.0s</td>
+  <td>0.0s (82%)</td>
+<td>0.0s (18%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>28.</td>
+  <td>libc v0.2.177 build script (run)</td>
+  <td>0.0s</td>
+  <td></td>
+<td></td>
+  <td>default, std</td>
+</tr>
+</tbody>
+</table>
+<script>
+DURATION = 3;
+const UNIT_DATA = [
+  {
+    "i": 0,
+    "name": "log",
+    "version": "0.4.28",
+    "mode": "todo",
+    "target": "",
+    "start": 0.04,
+    "duration": 0.17,
+    "rmeta_time": 0.11,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": [],
+    "sections": null
+  },
+  {
+    "i": 1,
+    "name": "libc",
+    "version": "0.2.177",
+    "mode": "todo",
+    "target": " build script",
+    "start": 0.04,
+    "duration": 0.12,
+    "rmeta_time": null,
+    "unlocked_units": [
+      17
+    ],
+    "unlocked_rmeta_units": [],
+    "sections": null
+  },
+  {
+    "i": 2,
+    "name": "same-file",
+    "version": "1.0.6",
+    "mode": "todo",
+    "target": "",
+    "start": 0.04,
+    "duration": 0.07,
+    "rmeta_time": 0.04,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": [
+      14
+    ],
+    "sections": null
+  },
+  {
+    "i": 3,
+    "name": "bitflags",
+    "version": "2.10.0",
+    "mode": "todo",
+    "target": "",
+    "start": 0.04,
+    "duration": 0.2,
+    "rmeta_time": 0.08,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": [],
+    "sections": null
+  },
+  {
+    "i": 4,
+    "name": "anyhow",
+    "version": "1.0.100",
+    "mode": "todo",
+    "target": " build script",
+    "start": 0.04,
+    "duration": 0.1,
+    "rmeta_time": null,
+    "unlocked_units": [
+      16
+    ],
+    "unlocked_rmeta_units": [],
+    "sections": null
+  },
+  {
+    "i": 5,
+    "name": "file-id",
+    "version": "0.2.3",
+    "mode": "todo",
+    "target": "",
+    "start": 0.04,
+    "duration": 0.03,
+    "rmeta_time": 0.03,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": [],
+    "sections": null
+  },
+  {
+    "i": 6,
+    "name": "colored",
+    "version": "3.0.0",
+    "mode": "todo",
+    "target": "",
+    "start": 0.04,
+    "duration": 0.29,
+    "rmeta_time": 0.16,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": [
+      20
+    ],
+    "sections": null
+  },
+  {
+    "i": 7,
+    "name": "myn",
+    "version": "0.2.2",
+    "mode": "todo",
+    "target": "",
+    "start": 0.04,
+    "duration": 0.09,
+    "rmeta_time": 0.06,
+    "unlocked_units": [
+      15
+    ],
+    "unlocked_rmeta_units": [],
+    "sections": null
+  },
+  {
+    "i": 8,
+    "name": "onlyargs",
+    "version": "0.2.0",
+    "mode": "todo",
+    "target": "",
+    "start": 0.04,
+    "duration": 0.05,
+    "rmeta_time": 0.04,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": [],
+    "sections": null
+  },
+  {
+    "i": 9,
+    "name": "notify-types",
+    "version": "2.0.0",
+    "mode": "todo",
+    "target": "",
+    "start": 0.04,
+    "duration": 0.18,
+    "rmeta_time": 0.07,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": [],
+    "sections": null
+  },
+  {
+    "i": 10,
+    "name": "nanoserde",
+    "version": "0.2.1",
+    "mode": "todo",
+    "target": "",
+    "start": 0.04,
+    "duration": 0.48,
+    "rmeta_time": 0.1,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": [],
+    "sections": null
+  },
+  {
+    "i": 11,
+    "name": "json",
+    "version": "0.12.4",
+    "mode": "todo",
+    "target": "",
+    "start": 0.04,
+    "duration": 0.59,
+    "rmeta_time": 0.32,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": [],
+    "sections": null
+  },
+  {
+    "i": 12,
+    "name": "glob",
+    "version": "0.3.3",
+    "mode": "todo",
+    "target": "",
+    "start": 0.04,
+    "duration": 0.43,
+    "rmeta_time": 0.12,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": [],
+    "sections": null
+  },
+  {
+    "i": 13,
+    "name": "onlyargs",
+    "version": "0.2.0",
+    "mode": "todo",
+    "target": "",
+    "start": 0.04,
+    "duration": 0.08,
+    "rmeta_time": 0.06,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": [],
+    "sections": null
+  },
+  {
+    "i": 14,
+    "name": "walkdir",
+    "version": "2.5.0",
+    "mode": "todo",
+    "target": "",
+    "start": 0.08,
+    "duration": 0.27,
+    "rmeta_time": 0.09,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": [],
+    "sections": null
+  },
+  {
+    "i": 15,
+    "name": "onlyargs_derive",
+    "version": "0.2.0",
+    "mode": "todo",
+    "target": "",
+    "start": 0.13,
+    "duration": 0.29,
+    "rmeta_time": null,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": [],
+    "sections": null
+  },
+  {
+    "i": 16,
+    "name": "anyhow",
+    "version": "1.0.100",
+    "mode": "run-custom-build",
+    "target": " build script (run)",
+    "start": 0.14,
+    "duration": 0.03,
+    "rmeta_time": null,
+    "unlocked_units": [
+      18
+    ],
+    "unlocked_rmeta_units": [],
+    "sections": null
+  },
+  {
+    "i": 17,
+    "name": "libc",
+    "version": "0.2.177",
+    "mode": "run-custom-build",
+    "target": " build script (run)",
+    "start": 0.16,
+    "duration": 0.01,
+    "rmeta_time": null,
+    "unlocked_units": [
+      19
+    ],
+    "unlocked_rmeta_units": [],
+    "sections": null
+  },
+  {
+    "i": 18,
+    "name": "anyhow",
+    "version": "1.0.100",
+    "mode": "todo",
+    "target": "",
+    "start": 0.17,
+    "duration": 0.27,
+    "rmeta_time": 0.15,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": [],
+    "sections": null
+  },
+  {
+    "i": 19,
+    "name": "libc",
+    "version": "0.2.177",
+    "mode": "todo",
+    "target": "",
+    "start": 0.17,
+    "duration": 0.54,
+    "rmeta_time": 0.52,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": [
+      21,
+      22
+    ],
+    "sections": null
+  },
+  {
+    "i": 20,
+    "name": "simple_logger",
+    "version": "5.1.0",
+    "mode": "todo",
+    "target": "",
+    "start": 0.2,
+    "duration": 0.26,
+    "rmeta_time": 0.07,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": [],
+    "sections": null
+  },
+  {
+    "i": 21,
+    "name": "inotify-sys",
+    "version": "0.1.5",
+    "mode": "todo",
+    "target": "",
+    "start": 0.69,
+    "duration": 0.03,
+    "rmeta_time": 0.02,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": [
+      23
+    ],
+    "sections": null
+  },
+  {
+    "i": 22,
+    "name": "mio",
+    "version": "1.1.0",
+    "mode": "todo",
+    "target": "",
+    "start": 0.69,
+    "duration": 0.13,
+    "rmeta_time": 0.09,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": [],
+    "sections": null
+  },
+  {
+    "i": 23,
+    "name": "inotify",
+    "version": "0.11.0",
+    "mode": "todo",
+    "target": "",
+    "start": 0.72,
+    "duration": 0.18,
+    "rmeta_time": 0.1,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": [
+      24
+    ],
+    "sections": null
+  },
+  {
+    "i": 24,
+    "name": "notify",
+    "version": "8.2.0",
+    "mode": "todo",
+    "target": "",
+    "start": 0.82,
+    "duration": 0.83,
+    "rmeta_time": 0.15,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": [
+      25
+    ],
+    "sections": null
+  },
+  {
+    "i": 25,
+    "name": "notify-debouncer-full",
+    "version": "0.6.0",
+    "mode": "todo",
+    "target": "",
+    "start": 0.97,
+    "duration": 0.37,
+    "rmeta_time": 0.16,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": [
+      26
+    ],
+    "sections": null
+  },
+  {
+    "i": 26,
+    "name": "compile-typst-site",
+    "version": "2.0.3",
+    "mode": "todo",
+    "target": "",
+    "start": 1.12,
+    "duration": 0.8,
+    "rmeta_time": 0.28,
+    "unlocked_units": [
+      27
+    ],
+    "unlocked_rmeta_units": [],
+    "sections": null
+  },
+  {
+    "i": 27,
+    "name": "compile-typst-site",
+    "version": "2.0.3",
+    "mode": "todo",
+    "target": " bin \"compile-typst-site\"",
+    "start": 1.92,
+    "duration": 0.08,
+    "rmeta_time": null,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": [],
+    "sections": null
+  }
+];
+const CONCURRENCY_DATA = [
+  {
+    "t": 0.0404237,
+    "active": 14,
+    "waiting": 0,
+    "inactive": 14
+  },
+  {
+    "t": 0.066565258,
+    "active": 14,
+    "waiting": 0,
+    "inactive": 14
+  },
+  {
+    "t": 0.074247228,
+    "active": 13,
+    "waiting": 0,
+    "inactive": 14
+  },
+  {
+    "t": 0.078954565,
+    "active": 13,
+    "waiting": 1,
+    "inactive": 13
+  },
+  {
+    "t": 0.079200307,
+    "active": 14,
+    "waiting": 0,
+    "inactive": 13
+  },
+  {
+    "t": 0.079260783,
+    "active": 14,
+    "waiting": 0,
+    "inactive": 13
+  },
+  {
+    "t": 0.081493146,
+    "active": 14,
+    "waiting": 0,
+    "inactive": 13
+  },
+  {
+    "t": 0.091063766,
+    "active": 13,
+    "waiting": 0,
+    "inactive": 13
+  },
+  {
+    "t": 0.101801433,
+    "active": 13,
+    "waiting": 0,
+    "inactive": 13
+  },
+  {
+    "t": 0.102183821,
+    "active": 13,
+    "waiting": 0,
+    "inactive": 13
+  },
+  {
+    "t": 0.107427222,
+    "active": 12,
+    "waiting": 0,
+    "inactive": 13
+  },
+  {
+    "t": 0.11270454,
+    "active": 12,
+    "waiting": 0,
+    "inactive": 13
+  },
+  {
+    "t": 0.119288943,
+    "active": 12,
+    "waiting": 0,
+    "inactive": 13
+  },
+  {
+    "t": 0.120040508,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 13
+  },
+  {
+    "t": 0.13166553,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 12
+  },
+  {
+    "t": 0.131720489,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 12
+  },
+  {
+    "t": 0.137735286,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 11
+  },
+  {
+    "t": 0.13786467,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 11
+  },
+  {
+    "t": 0.139470635,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 11
+  },
+  {
+    "t": 0.147033716,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 11
+  },
+  {
+    "t": 0.15693416,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 11
+  },
+  {
+    "t": 0.16296699,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 10
+  },
+  {
+    "t": 0.163010662,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 10
+  },
+  {
+    "t": 0.17087817,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 8
+  },
+  {
+    "t": 0.17095597,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 8
+  },
+  {
+    "t": 0.172635353,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 8
+  },
+  {
+    "t": 0.199950119,
+    "active": 12,
+    "waiting": 0,
+    "inactive": 7
+  },
+  {
+    "t": 0.200688244,
+    "active": 12,
+    "waiting": 0,
+    "inactive": 7
+  },
+  {
+    "t": 0.208331958,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 7
+  },
+  {
+    "t": 0.216400747,
+    "active": 10,
+    "waiting": 0,
+    "inactive": 7
+  },
+  {
+    "t": 0.243795508,
+    "active": 9,
+    "waiting": 0,
+    "inactive": 7
+  },
+  {
+    "t": 0.273563309,
+    "active": 9,
+    "waiting": 0,
+    "inactive": 7
+  },
+  {
+    "t": 0.317098535,
+    "active": 9,
+    "waiting": 0,
+    "inactive": 7
+  },
+  {
+    "t": 0.327503696,
+    "active": 8,
+    "waiting": 0,
+    "inactive": 7
+  },
+  {
+    "t": 0.352531065,
+    "active": 7,
+    "waiting": 0,
+    "inactive": 7
+  },
+  {
+    "t": 0.364354657,
+    "active": 7,
+    "waiting": 0,
+    "inactive": 7
+  },
+  {
+    "t": 0.418161472,
+    "active": 6,
+    "waiting": 0,
+    "inactive": 7
+  },
+  {
+    "t": 0.442491083,
+    "active": 5,
+    "waiting": 0,
+    "inactive": 7
+  },
+  {
+    "t": 0.457081899,
+    "active": 4,
+    "waiting": 0,
+    "inactive": 7
+  },
+  {
+    "t": 0.470961506,
+    "active": 3,
+    "waiting": 0,
+    "inactive": 7
+  },
+  {
+    "t": 0.518553697,
+    "active": 2,
+    "waiting": 0,
+    "inactive": 7
+  },
+  {
+    "t": 0.635132735,
+    "active": 1,
+    "waiting": 0,
+    "inactive": 7
+  },
+  {
+    "t": 0.693381918,
+    "active": 1,
+    "waiting": 2,
+    "inactive": 5
+  },
+  {
+    "t": 0.69360307,
+    "active": 3,
+    "waiting": 0,
+    "inactive": 5
+  },
+  {
+    "t": 0.693686623,
+    "active": 3,
+    "waiting": 0,
+    "inactive": 5
+  },
+  {
+    "t": 0.693840938,
+    "active": 3,
+    "waiting": 0,
+    "inactive": 5
+  },
+  {
+    "t": 0.713956599,
+    "active": 2,
+    "waiting": 0,
+    "inactive": 5
+  },
+  {
+    "t": 0.717279619,
+    "active": 2,
+    "waiting": 1,
+    "inactive": 4
+  },
+  {
+    "t": 0.717330632,
+    "active": 3,
+    "waiting": 0,
+    "inactive": 4
+  },
+  {
+    "t": 0.717430356,
+    "active": 3,
+    "waiting": 0,
+    "inactive": 4
+  },
+  {
+    "t": 0.722472244,
+    "active": 2,
+    "waiting": 0,
+    "inactive": 4
+  },
+  {
+    "t": 0.779966405,
+    "active": 2,
+    "waiting": 0,
+    "inactive": 4
+  },
+  {
+    "t": 0.819555453,
+    "active": 2,
+    "waiting": 1,
+    "inactive": 3
+  },
+  {
+    "t": 0.819618349,
+    "active": 3,
+    "waiting": 0,
+    "inactive": 3
+  },
+  {
+    "t": 0.819676172,
+    "active": 3,
+    "waiting": 0,
+    "inactive": 3
+  },
+  {
+    "t": 0.826337861,
+    "active": 2,
+    "waiting": 0,
+    "inactive": 3
+  },
+  {
+    "t": 0.901091225,
+    "active": 1,
+    "waiting": 0,
+    "inactive": 3
+  },
+  {
+    "t": 0.96746888,
+    "active": 1,
+    "waiting": 1,
+    "inactive": 2
+  },
+  {
+    "t": 0.967639758,
+    "active": 2,
+    "waiting": 0,
+    "inactive": 2
+  },
+  {
+    "t": 0.967759062,
+    "active": 2,
+    "waiting": 0,
+    "inactive": 2
+  },
+  {
+    "t": 1.123919333,
+    "active": 2,
+    "waiting": 1,
+    "inactive": 1
+  },
+  {
+    "t": 1.124089752,
+    "active": 3,
+    "waiting": 0,
+    "inactive": 1
+  },
+  {
+    "t": 1.124233062,
+    "active": 3,
+    "waiting": 0,
+    "inactive": 1
+  },
+  {
+    "t": 1.338354792,
+    "active": 2,
+    "waiting": 0,
+    "inactive": 1
+  },
+  {
+    "t": 1.403662557,
+    "active": 2,
+    "waiting": 0,
+    "inactive": 1
+  },
+  {
+    "t": 1.650955369,
+    "active": 1,
+    "waiting": 0,
+    "inactive": 1
+  },
+  {
+    "t": 1.922346504,
+    "active": 1,
+    "waiting": 0,
+    "inactive": 0
+  },
+  {
+    "t": 1.922466336,
+    "active": 1,
+    "waiting": 0,
+    "inactive": 0
+  },
+  {
+    "t": 2.000243458,
+    "active": 0,
+    "waiting": 0,
+    "inactive": 0
+  }
+];
+const CPU_USAGE = [
+  [
+    0.137753978,
+    77.94117647058823
+  ],
+  [
+    0.243795642,
+    86.25592417061611
+  ],
+  [
+    0.352531269,
+    86.51162790697674
+  ],
+  [
+    0.457082037,
+    76.4423076923077
+  ],
+  [
+    0.635132951,
+    31.35593220338984
+  ],
+  [
+    0.779966552,
+    11.84668989547039
+  ],
+  [
+    0.901091267,
+    20.41666666666667
+  ],
+  [
+    1.123920552,
+    36.56884875846501
+  ],
+  [
+    1.338354906,
+    73.53629976580797
+  ],
+  [
+    1.650955512,
+    46.14147909967846
+  ],
+  [
+    1.922346678,
+    56.007393715341955
+  ]
+];
+// Position of the vertical axis.
+const X_LINE = 50;
+// General-use margin size.
+const MARGIN = 5;
+// Position of the horizontal axis, relative to the bottom.
+const Y_LINE = 35;
+// Minimum distance between time tick labels.
+const MIN_TICK_DIST = 50;
+// Radius for rounded rectangle corners.
+const RADIUS = 3;
+// Height of unit boxes.
+const BOX_HEIGHT = 25;
+// Distance between Y tick marks on the unit graph.
+const Y_TICK_DIST = BOX_HEIGHT + 2;
+// Rects used for mouseover detection.
+// Objects of {x, y, x2, y2, i} where `i` is the index into UNIT_DATA.
+let HIT_BOXES = [];
+// Index into UNIT_DATA of the last unit hovered over by mouse.
+let LAST_HOVER = null;
+// Key is unit index, value is {x, y, width, sections} of the box.
+let UNIT_COORDS = {};
+// Map of unit index to the index it was unlocked by.
+let REVERSE_UNIT_DEPS = {};
+let REVERSE_UNIT_RMETA_DEPS = {};
+
+const MIN_GRAPH_WIDTH = 200;
+const MAX_GRAPH_WIDTH = 4096;
+
+// How many pixels per second is added by each scale value
+const SCALE_PIXELS_PER_SEC = 8;
+
+function scale_to_graph_width(scale) {
+  // The scale corresponds to `SCALE_PIXELS_PER_SEC` pixels per seconds.
+  // We thus multiply it by that, and the total duration, to get the graph width.
+  const width = scale * SCALE_PIXELS_PER_SEC * DURATION;
+
+  // We then cap the size of the graph. It is hard to view if it is too large, and
+  // browsers may not render a large graph because it takes too much memory.
+  // 4096 is still ridiculously large, and probably won't render on mobile
+  // browsers, but should be ok for many desktop environments.
+  // Also use a minimum width of 200.
+  return Math.max(MIN_GRAPH_WIDTH, Math.min(MAX_GRAPH_WIDTH, width));
+}
+
+// This function performs the reverse of `scale_to_graph_width`.
+function width_to_graph_scale(width) {
+  const maxWidth = Math.min(MAX_GRAPH_WIDTH, width);
+  const minWidth = Math.max(MIN_GRAPH_WIDTH, width);
+
+  const trimmedWidth = Math.max(minWidth, Math.min(maxWidth, width));
+
+  const scale = Math.round(trimmedWidth / (DURATION * SCALE_PIXELS_PER_SEC));
+  return Math.max(1, scale);
+}
+
+// Init scale value and limits based on the client's window width and min/max graph width.
+const scaleElement = document.getElementById('scale');
+scaleElement.min = width_to_graph_scale(MIN_GRAPH_WIDTH);
+scaleElement.max = width_to_graph_scale(MAX_GRAPH_WIDTH);
+scaleElement.value = width_to_graph_scale(window.innerWidth * 0.75);
+
+// Colors from css
+const getCssColor = name => getComputedStyle(document.body).getPropertyValue(name);
+const TEXT_COLOR = getCssColor('--text');
+const BG_COLOR = getCssColor('--background');
+const CANVAS_BG = getCssColor('--canvas-background');
+const AXES_COLOR = getCssColor('--canvas-axes');
+const GRID_COLOR = getCssColor('--canvas-grid');
+const CODEGEN_COLOR = getCssColor('--canvas-codegen');
+const LINK_COLOR = getCssColor('--canvas-link');
+// Final leftover section after link
+const OTHER_COLOR = getCssColor('--canvas-other');
+const CUSTOM_BUILD_COLOR = getCssColor('--canvas-custom-build');
+const NOT_CUSTOM_BUILD_COLOR = getCssColor('--canvas-not-custom-build');
+const DEP_LINE_COLOR = getCssColor('--canvas-dep-line');
+const DEP_LINE_HIGHLIGHTED_COLOR = getCssColor('--canvas-dep-line-highlighted');
+const CPU_COLOR = getCssColor('--canvas-cpu');
+
+for (let n=0; n<UNIT_DATA.length; n++) {
+  let unit = UNIT_DATA[n];
+  for (let unlocked of unit.unlocked_units) {
+    REVERSE_UNIT_DEPS[unlocked] = n;
+  }
+  for (let unlocked of unit.unlocked_rmeta_units) {
+    REVERSE_UNIT_RMETA_DEPS[unlocked] = n;
+  }
+}
+
+function render_pipeline_graph() {
+  if (UNIT_DATA.length == 0) {
+    return;
+  }
+  let g = document.getElementById('pipeline-graph');
+  HIT_BOXES.length = 0;
+  g.onmousemove = pipeline_mousemove;
+  const min_time = document.getElementById('min-unit-time').valueAsNumber;
+
+  const units = UNIT_DATA.filter(unit => unit.duration >= min_time);
+
+  const graph_height = Y_TICK_DIST * units.length;
+  const {ctx, graph_width, canvas_width, canvas_height, px_per_sec} = draw_graph_axes('pipeline-graph', graph_height);
+  const container = document.getElementById('pipeline-container');
+  container.style.width = canvas_width;
+  container.style.height = canvas_height;
+
+  // Canvas for hover highlights. This is a separate layer to improve performance.
+  const linectx = setup_canvas('pipeline-graph-lines', canvas_width, canvas_height);
+  linectx.clearRect(0, 0, canvas_width, canvas_height);
+  ctx.strokeStyle = AXES_COLOR;
+  // Draw Y tick marks.
+  for (let n=1; n<units.length; n++) {
+    const y = MARGIN + Y_TICK_DIST * n;
+    ctx.beginPath();
+    ctx.moveTo(X_LINE, y);
+    ctx.lineTo(X_LINE-5, y);
+    ctx.stroke();
+  }
+
+  // Draw Y labels.
+  ctx.textAlign = 'end';
+  ctx.textBaseline = 'middle';
+  ctx.fillStyle = AXES_COLOR;
+  for (let n=0; n<units.length; n++) {
+    let y = MARGIN + Y_TICK_DIST * n + Y_TICK_DIST / 2;
+    ctx.fillText(n+1, X_LINE-4, y);
+  }
+
+  // Draw the graph.
+  ctx.save();
+  ctx.translate(X_LINE, MARGIN);
+
+  // Compute x,y coordinate of each block.
+  // We also populate a map with the count of each unit name to disambiguate if necessary
+  const unitCount = new Map();
+  UNIT_COORDS = {};
+  for (i=0; i<units.length; i++) {
+    let unit = units[i];
+    let y = i * Y_TICK_DIST + 1;
+    let x = px_per_sec * unit.start;
+
+    const sections = [];
+    if (unit.sections !== null) {
+        // We have access to compilation sections
+        for (const section of unit.sections) {
+            const [name, {start, end}] = section;
+            sections.push({
+                name,
+                start: x + px_per_sec * start,
+                width: (end - start) * px_per_sec
+            });
+        }
+    }
+    else if (unit.rmeta_time != null) {
+        // We only know the rmeta time
+        sections.push({
+            name: "codegen",
+            start: x + px_per_sec * unit.rmeta_time,
+            width: (unit.duration - unit.rmeta_time) * px_per_sec
+        });
+    }
+    let width = Math.max(px_per_sec * unit.duration, 1.0);
+    UNIT_COORDS[unit.i] = {x, y, width, sections};
+
+    const count = unitCount.get(unit.name) || 0;
+    unitCount.set(unit.name, count + 1);
+  }
+
+  const presentSections = new Set();
+
+  // Draw the blocks.
+  for (i=0; i<units.length; i++) {
+    let unit = units[i];
+    let {x, y, width, sections} = UNIT_COORDS[unit.i];
+
+    HIT_BOXES.push({x: X_LINE+x, y:MARGIN+y, x2: X_LINE+x+width, y2: MARGIN+y+BOX_HEIGHT, i: unit.i});
+
+    ctx.beginPath();
+    ctx.fillStyle = unit.mode == 'run-custom-build' ? CUSTOM_BUILD_COLOR : NOT_CUSTOM_BUILD_COLOR;
+    roundedRect(ctx, x, y, width, BOX_HEIGHT, RADIUS);
+    ctx.fill();
+
+    for (const section of sections) {
+        ctx.beginPath();
+        ctx.fillStyle = get_section_color(section.name);
+        roundedRect(ctx, section.start, y, section.width, BOX_HEIGHT, RADIUS);
+        ctx.fill();
+        presentSections.add(section.name);
+    }
+    ctx.fillStyle = TEXT_COLOR;
+    ctx.textAlign = 'start';
+    ctx.textBaseline = 'middle';
+    ctx.font = '14px sans-serif';
+
+    const labelName = (unitCount.get(unit.name) || 0) > 1 ? `${unit.name} (v${unit.version})${unit.target}` : `${unit.name}${unit.target}`;
+    const label = `${labelName}: ${unit.duration}s`;
+
+    const text_info = ctx.measureText(label);
+    const label_x = Math.min(x + 5.0, canvas_width - text_info.width - X_LINE);
+    ctx.fillText(label, label_x, y + BOX_HEIGHT / 2);
+    draw_dep_lines(ctx, unit.i, false);
+  }
+  ctx.restore();
+
+  // Draw a legend.
+  ctx.save();
+  ctx.translate(canvas_width - 200, MARGIN);
+
+  const legend_entries = [{
+    name: "Frontend/rest",
+    color: NOT_CUSTOM_BUILD_COLOR,
+    line: false
+  }];
+  if (presentSections.has("codegen")) {
+    legend_entries.push({
+      name: "Codegen",
+      color: CODEGEN_COLOR,
+      line: false
+    });
+  }
+  if (presentSections.has("link")) {
+    legend_entries.push({
+      name: "Linking",
+      color: LINK_COLOR,
+      line: false
+    });
+  }
+  if (presentSections.has("other")) {
+    legend_entries.push({
+      name: "Other",
+      color: OTHER_COLOR,
+      line: false
+    });
+  }
+  draw_legend(ctx, 160, legend_entries);
+  ctx.restore();
+}
+
+// Draw a legend at the current position of the ctx.
+// entries should be an array of objects with the following scheme:
+// {
+//   "name": <name of the legend entry> [string],
+//   "color": <color of the legend entry> [string],
+//   "line": <should the entry be a thin line or a rectangle> [bool]
+// }
+function draw_legend(ctx, width, entries) {
+  const entry_height = 20;
+
+  // Add a bit of margin to the bottom and top
+  const height = entries.length * entry_height + 4;
+
+  // Draw background
+  ctx.fillStyle = BG_COLOR;
+  ctx.strokeStyle = TEXT_COLOR;
+  ctx.lineWidth = 1;
+  ctx.textBaseline = 'middle';
+  ctx.textAlign = 'start';
+  ctx.beginPath();
+  ctx.rect(0, 0, width, height);
+  ctx.stroke();
+  ctx.fill();
+
+  ctx.lineWidth = 2;
+
+  // Dimension of a block
+  const block_height = 15;
+  const block_width = 30;
+
+  // Margin from the left edge
+  const x_start = 5;
+  // Width of the "mark" section (line/block)
+  const mark_width = 45;
+
+  // Draw legend entries
+  let y = 12;
+  for (const entry of entries) {
+    ctx.beginPath();
+
+    if (entry.line) {
+      ctx.strokeStyle = entry.color;
+      ctx.moveTo(x_start, y);
+      ctx.lineTo(x_start + mark_width, y);
+      ctx.stroke();
+    } else {
+      ctx.fillStyle = entry.color;
+      ctx.fillRect(x_start + (mark_width - block_width) / 2, y - (block_height / 2), block_width, block_height);
+    }
+
+    ctx.fillStyle = TEXT_COLOR;
+    ctx.fillText(entry.name, x_start + mark_width + 4, y + 1);
+
+    y += entry_height;
+  }
+}
+
+// Determine the color of a section block based on the section name.
+function get_section_color(name) {
+    if (name === "codegen") {
+        return CODEGEN_COLOR;
+    } else if (name === "link") {
+        return LINK_COLOR;
+    } else if (name === "other") {
+        return OTHER_COLOR;
+    } else {
+        // We do not know what section this is, so just use the default color
+        return NOT_CUSTOM_BUILD_COLOR;
+    }
+}
+
+// Gets the x-coordinate of the codegen section of a unit.
+//
+// This is for drawing rmeta dependency lines.
+function get_codegen_section_x(sections) {
+    const codegen_section = sections.find(s => s.name === "codegen")
+    if (!codegen_section) {
+        // This happens only when type-checking (e.g., `cargo check`)
+        return null;
+    }
+    return codegen_section.start;
+}
+
+// Draws lines from the given unit to the units it unlocks.
+function draw_dep_lines(ctx, unit_idx, highlighted) {
+  const unit = UNIT_DATA[unit_idx];
+  const {x, y, sections} = UNIT_COORDS[unit_idx];
+  ctx.save();
+  for (const unlocked of unit.unlocked_units) {
+    draw_one_dep_line(ctx, x, y, unlocked, highlighted);
+  }
+  for (const unlocked of unit.unlocked_rmeta_units) {
+    const codegen_x = get_codegen_section_x(sections);
+    draw_one_dep_line(ctx, codegen_x, y, unlocked, highlighted);
+  }
+  ctx.restore();
+}
+
+function draw_one_dep_line(ctx, from_x, from_y, to_unit, highlighted) {
+  if (to_unit in UNIT_COORDS) {
+    let {x: u_x, y: u_y} = UNIT_COORDS[to_unit];
+    ctx.strokeStyle = highlighted ? DEP_LINE_HIGHLIGHTED_COLOR: DEP_LINE_COLOR;
+    ctx.setLineDash([2]);
+    ctx.beginPath();
+    ctx.moveTo(from_x, from_y+BOX_HEIGHT/2);
+    ctx.lineTo(from_x-5, from_y+BOX_HEIGHT/2);
+    ctx.lineTo(from_x-5, u_y+BOX_HEIGHT/2);
+    ctx.lineTo(u_x, u_y+BOX_HEIGHT/2);
+    ctx.stroke();
+  }
+}
+
+function render_timing_graph() {
+  if (CONCURRENCY_DATA.length == 0) {
+    return;
+  }
+  const HEIGHT = 400;
+  const AXIS_HEIGHT = HEIGHT - MARGIN - Y_LINE;
+  const TOP_MARGIN = 10;
+  const GRAPH_HEIGHT = AXIS_HEIGHT - TOP_MARGIN;
+
+  const {canvas_width, graph_width, ctx} = draw_graph_axes('timing-graph', AXIS_HEIGHT);
+
+  // Draw Y tick marks and labels.
+  let max_v = 0;
+  for (c of CONCURRENCY_DATA) {
+    max_v = Math.max(max_v, c.active, c.waiting, c.inactive);
+  }
+  const px_per_v = GRAPH_HEIGHT / max_v;
+  const {step, tick_dist, num_ticks} = split_ticks(max_v, px_per_v, GRAPH_HEIGHT);
+  ctx.textAlign = 'end';
+  for (n=0; n<num_ticks; n++) {
+    let y = HEIGHT - Y_LINE - ((n + 1) * tick_dist);
+    ctx.beginPath();
+    ctx.moveTo(X_LINE, y);
+    ctx.lineTo(X_LINE-5, y);
+    ctx.stroke();
+    ctx.fillText((n+1) * step, X_LINE-10, y+5);
+  }
+
+  // Label the Y axis.
+  let label_y = (HEIGHT - Y_LINE) / 2;
+  ctx.save();
+  ctx.translate(15, label_y);
+  ctx.rotate(3*Math.PI/2);
+  ctx.textAlign = 'center';
+  ctx.fillText('# Units', 0, 0);
+  ctx.restore();
+
+  // Draw the graph.
+  ctx.save();
+  ctx.translate(X_LINE, MARGIN);
+
+  function coord(t, v) {
+    return {
+      x: graph_width * (t/DURATION),
+      y: TOP_MARGIN + GRAPH_HEIGHT * (1.0 - (v / max_v))
+    };
+  }
+
+  const cpuFillStyle = CPU_COLOR;
+  if (CPU_USAGE.length > 1) {
+    ctx.beginPath();
+    ctx.fillStyle = cpuFillStyle;
+    let bottomLeft = coord(CPU_USAGE[0][0], 0);
+    ctx.moveTo(bottomLeft.x, bottomLeft.y);
+    for (let i=0; i < CPU_USAGE.length; i++) {
+      let [time, usage] = CPU_USAGE[i];
+      let {x, y} = coord(time, usage / 100.0 * max_v);
+      ctx.lineTo(x, y);
+    }
+    let bottomRight = coord(CPU_USAGE[CPU_USAGE.length - 1][0], 0);
+    ctx.lineTo(bottomRight.x, bottomRight.y);
+    ctx.fill();
+  }
+
+  function draw_line(style, key) {
+    let first = CONCURRENCY_DATA[0];
+    let last = coord(first.t, key(first));
+    ctx.strokeStyle = style;
+    ctx.beginPath();
+    ctx.moveTo(last.x, last.y);
+    for (let i=1; i<CONCURRENCY_DATA.length; i++) {
+      let c = CONCURRENCY_DATA[i];
+      let {x, y} = coord(c.t, key(c));
+      ctx.lineTo(x, last.y);
+      ctx.lineTo(x, y);
+      last = {x, y};
+    }
+    ctx.stroke();
+  }
+
+  draw_line('blue', function(c) {return c.inactive;});
+  draw_line('red', function(c) {return c.waiting;});
+  draw_line('green', function(c) {return c.active;});
+
+  // Draw a legend.
+  ctx.restore();
+  ctx.save();
+  ctx.translate(canvas_width-200, MARGIN);
+  draw_legend(ctx, 150, [{
+    name: "Waiting",
+    color: "red",
+    line: true
+  }, {
+    name: "Inactive",
+    color: "blue",
+    line: true
+  }, {
+    name: "Active",
+    color: "green",
+    line: true
+  }, {
+    name: "CPU Usage",
+    color: cpuFillStyle,
+    line: false
+  }]);
+  ctx.restore();
+}
+
+function setup_canvas(id, width, height) {
+  let g = document.getElementById(id);
+  let dpr = window.devicePixelRatio || 1;
+  g.width = width * dpr;
+  g.height = height * dpr;
+  g.style.width = width;
+  g.style.height = height;
+  let ctx = g.getContext('2d');
+  ctx.scale(dpr, dpr);
+  return ctx;
+}
+
+function draw_graph_axes(id, graph_height) {
+  const scale = document.getElementById('scale').valueAsNumber;
+  const graph_width = scale_to_graph_width(scale);
+  const px_per_sec = graph_width / DURATION;
+  const canvas_width = Math.max(graph_width + X_LINE + 30, X_LINE + 250);
+  const canvas_height = graph_height + MARGIN + Y_LINE;
+  let ctx = setup_canvas(id, canvas_width, canvas_height);
+  ctx.fillStyle = CANVAS_BG;
+  ctx.fillRect(0, 0, canvas_width, canvas_height);
+
+  ctx.lineWidth = 2;
+  ctx.font = '16px sans-serif';
+  ctx.textAlign = 'center';
+  ctx.strokeStyle = AXES_COLOR;
+
+  // Draw main axes.
+  ctx.beginPath();
+  ctx.moveTo(X_LINE, MARGIN);
+  ctx.lineTo(X_LINE, graph_height + MARGIN);
+  ctx.lineTo(X_LINE+graph_width+20, graph_height + MARGIN);
+  ctx.stroke();
+
+  // Draw X tick marks.
+  const {step, tick_dist, num_ticks} = split_ticks(DURATION, px_per_sec, graph_width);
+  ctx.fillStyle = AXES_COLOR;
+  for (let n=0; n<num_ticks; n++) {
+    const x = X_LINE + ((n + 1) * tick_dist);
+    ctx.beginPath();
+    ctx.moveTo(x, canvas_height-Y_LINE);
+    ctx.lineTo(x, canvas_height-Y_LINE+5);
+    ctx.stroke();
+
+    ctx.fillText(`${(n+1) * step}s`, x, canvas_height - Y_LINE + 20);
+  }
+
+  // Draw vertical lines.
+  ctx.strokeStyle = GRID_COLOR;
+  ctx.setLineDash([2, 4]);
+  for (n=0; n<num_ticks; n++) {
+    const x = X_LINE + ((n + 1) * tick_dist);
+    ctx.beginPath();
+    ctx.moveTo(x, MARGIN);
+    ctx.lineTo(x, MARGIN+graph_height);
+    ctx.stroke();
+  }
+  ctx.strokeStyle = TEXT_COLOR;
+  ctx.setLineDash([]);
+  return {canvas_width, canvas_height, graph_width, graph_height, ctx, px_per_sec};
+}
+
+// Determine the spacing and number of ticks along an axis.
+function split_ticks(max_value, px_per_v, max_px) {
+  const max_ticks = Math.floor(max_px / MIN_TICK_DIST);
+  if (max_ticks <= 1) {
+    // Graph is too small for even 1 tick.
+    return {step: max_value, tick_dist: max_px, num_ticks: 1};
+  }
+  let step;
+  if (max_value <= max_ticks) {
+    step = 1;
+  } else if (max_value <= max_ticks * 2) {
+    step = 2;
+  } else if (max_value <= max_ticks * 4) {
+    step = 4;
+  } else if (max_value <= max_ticks * 5) {
+    step = 5;
+  } else {
+    step = 10;
+    let count = 0;
+    while (true) {
+      if (count > 100) {
+        throw Error("tick loop too long");
+      }
+      count += 1;
+      if (max_value <= max_ticks * step) {
+        break;
+      }
+      step += 10;
+    }
+  }
+  const tick_dist = px_per_v * step;
+  const num_ticks = Math.floor(max_value / step);
+  return {step, tick_dist, num_ticks};
+}
+
+function codegen_time(unit) {
+  if (unit.rmeta_time == null) {
+    return null;
+  }
+  let ctime = unit.duration - unit.rmeta_time;
+  return [unit.rmeta_time, ctime];
+}
+
+function roundedRect(ctx, x, y, width, height, r) {
+  r = Math.min(r, width, height);
+  ctx.beginPath();
+  ctx.moveTo(x+r, y);
+  ctx.lineTo(x+width-r, y);
+  ctx.arc(x+width-r, y+r, r, 3*Math.PI/2, 0);
+  ctx.lineTo(x+width, y+height-r);
+  ctx.arc(x+width-r, y+height-r, r, 0, Math.PI/2);
+  ctx.lineTo(x+r, y+height);
+  ctx.arc(x+r, y+height-r, r, Math.PI/2, Math.PI);
+  ctx.lineTo(x, y-r);
+  ctx.arc(x+r, y+r, r, Math.PI, 3*Math.PI/2);
+  ctx.closePath();
+}
+
+function pipeline_mouse_hit(event) {
+  // This brute-force method can be optimized if needed.
+  for (let box of HIT_BOXES) {
+    if (event.offsetX >= box.x && event.offsetX <= box.x2 &&
+        event.offsetY >= box.y && event.offsetY <= box.y2) {
+      return box;
+    }
+  }
+}
+
+function pipeline_mousemove(event) {
+  // Highlight dependency lines on mouse hover.
+  let box = pipeline_mouse_hit(event);
+  if (box) {
+    if (box.i != LAST_HOVER) {
+      LAST_HOVER = box.i;
+      let g = document.getElementById('pipeline-graph-lines');
+      let ctx = g.getContext('2d');
+      ctx.clearRect(0, 0, g.width, g.height);
+      ctx.save();
+      ctx.translate(X_LINE, MARGIN);
+      ctx.lineWidth = 2;
+      draw_dep_lines(ctx, box.i, true);
+
+      if (box.i in REVERSE_UNIT_DEPS) {
+        const dep_unit = REVERSE_UNIT_DEPS[box.i];
+        if (dep_unit in UNIT_COORDS) {
+          const {x, y} = UNIT_COORDS[dep_unit];
+          draw_one_dep_line(ctx, x, y, box.i, true);
+        }
+      }
+      if (box.i in REVERSE_UNIT_RMETA_DEPS) {
+        const dep_unit = REVERSE_UNIT_RMETA_DEPS[box.i];
+        if (dep_unit in UNIT_COORDS) {
+          const {y, sections} = UNIT_COORDS[dep_unit];
+          const codegen_x = get_codegen_section_x(sections);
+          draw_one_dep_line(ctx, codegen_x, y, box.i, true);
+        }
+      }
+      ctx.restore();
+    }
+  }
+}
+
+render_pipeline_graph();
+render_timing_graph();
+
+// Set up and handle controls.
+{
+  const range = document.getElementById('min-unit-time');
+  const time_output = document.getElementById('min-unit-time-output');
+  time_output.innerHTML = `${range.value}s`;
+  range.oninput = event => {
+    time_output.innerHTML = `${range.value}s`;
+    render_pipeline_graph();
+  };
+
+  const scale = document.getElementById('scale');
+  const scale_output = document.getElementById('scale-output');
+  scale_output.innerHTML = `${scale.value}`;
+  scale.oninput = event => {
+    scale_output.innerHTML = `${scale.value}`;
+    render_pipeline_graph();
+    render_timing_graph();
+  };
+}
+
+</script>
+</body>
+</html>

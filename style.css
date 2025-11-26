@@ -230,6 +230,10 @@ pre code {
 }
 
 @media print {
+    body {
+        background-color: white;
+    }
+
     pre code {
         white-space: pre-wrap;
     }

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <link rel="stylesheet" href="/assets/eb-garamond/eb-garamond.css">
+      <meta charset="utf-8">
+      <title>wade's blog :: compile-typst-site: optimizing compile times</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link href="/style.css" rel="stylesheet" type="text/css">
+      <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96">
+      <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
+      <link rel="shortcut icon" href="/favicon/favicon.ico">
+      <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+      <meta name="apple-mobile-web-app-title" content="wade's site">
+      <link rel="manifest" href="/favicon/site.webmanifest">
+      <link rel="prefetch" href="https://webneko.net/n20171213.js">
+    </head>
+  <body>
+    
+    <div id="site-container">
+      <nav><a href="/">home</a> <a href="/blog/">blog</a> <a href="/garden/">garden</a></nav>
+      <header>
+        <h1>compile-typst-site: optimizing compile times</h1>
+        <div class="date">November 26, 2025</div>
+      </header>
+      <main>
+        <p><span style="font-variant-caps: small-caps">This blog</span> is generated with Typst using <a href="https://wade-cheng.com/compile-typst-site/"><code>compile-typst-site</code></a>. It’s written in Rust.</p>
+        <p>Programming language culture is an interesting thing: while there’s nothing technicaly stopping the average Python code from being duck typed and the average Rust code from preferring invariants via typing, this happens anyways. CLIs, like <code>cts</code>, and the simple case study of parsing command-line arguments gives some good examples. In Python, I might default to using argparse and grab the arguments by getter properties: <code>if cli.verbose: foo()</code>—less explicit stuff going on. But in Rust, and in all the tutorial information around CLI building, we seem to prefer using proc-macros to generate code that validates the args into a CLI struct. Something something different philosophies of the average case. I’m sure there’s derive validators in python, and you can forgo derive in Rust.</p>
+        <p>But. One pet peeve I have about Rust, coming from interpreted languages like Python and simpler codebases from coursework, is the relatively long compile time compared to these prior experiences. In the more obnoxious cases, this even bleeds over <code>cargo check</code> efficiency, making the Rust LSP less effective.<a id="loc-1" href="#loc-5" role="doc-noteref"><sup>1</sup></a> Now, this isn’t happening by any means to <code>cts</code>, and there are tradeoffs to consider instead of wanton compile-time optimization: massive, slow, libraries are such because they’re so feature-filled. It might be strictly easier for me and better for the users to use one library, except for compile times. So let’s see what I managed to cull down.</p>
+        <h2>Part 1: the entire damn web framework ecosystem</h2>
+        <p>Some while back, I dusted off the final major feature that I wanted to implement: an automatic-browser-refreshing web server to serve output files.<a id="loc-2" href="#loc-6" role="doc-noteref"><sup>2</sup></a> The feature you know and love from Eleventy, Vite, Django, and other web frameworks galore—we can’t <em>not</em> have it :p</p>
+        <p>Manually reloading the page every time I hit save was getting old, so I took to Google, and threw together some code by newly depending on</p>
+        <ul>
+          <li><code>tower-livereload</code> to implement web page reloading logic,</li>
+          <li><code>axum</code> to run a web server, and</li>
+          <li><code>tokio</code> to appease the async-colored code.</li>
+        </ul>
+        <p>It was pretty cool! But compiling instantly became heavier. Rust lets you profile with the <code>--timings</code> build flag, so let’s see how that looks:</p>
+        <details><summary><a href="./cargo-timing-all-deps.html">./cargo-timing-all-deps.html</a></summary><img src="./all-deps.png"></details>
+        <p>Yikes.</p>
+        <p>You can see a loooong chain of unparallelizable compilations from us implementing live reload by using, uh, an entire web ecosystem. Well, let’s think. What exactly did these dependencies do, anyway? They spun up a web server and reloaded the page when Typst compilation finished.</p>
+        <p>If you aren’t familiar, I refer you to the Rust Book for how a tutorial stepping through a <a href="https://doc.rust-lang.org/book/ch21-00-final-project-a-web-server.html">dead-simple web server</a>. Since <code>cts</code> just serves static assets, I can also just write one myself with manual TCP connections and HTTP messages, and it <em>probably</em> won’t be an issue.<a id="loc-3" href="#loc-7" role="doc-noteref"><sup>3</sup></a></p>
+        <p>Now, how does reloading a web server work? I knew <code>tower-livereload</code> injected code, but a bit of further digging led to <a href="https://emnudge.dev/notes/live-reload/">https://emnudge.dev/notes/live-reload/</a>, which alongside the HTTP spec and the Rust Book web server tutorial, informed the basis of my implementation. As it turns out, we control the web server code, and the web server tells the browser what to render, so we can easily inject any (JavaScript) code we need to run on that front—just insert it right before responding to the client. Conceptually, that code just says “any time I get notified, reload the page.” We wait for notifications via JavaScript’s <a href="https://developer.mozilla.org/en-US/docs/Web/API/EventSource"><code>EventSource</code></a>, which opens a connection to a server and gets pinged every time that server sends a message back. The specific spec says something along the following: when a server receives a request from an <code>EventSource</code>, it should respond <code>OK</code> with the mime-type <code>text/event-stream</code>. I sent the rust byte string:</p>
+        <pre><code>b"HTTP/1.1 200 OK\r\n\<br>  Content-Type: text/event-stream\r\n\<br>  Cache-Control: no-cache\r\n<br>  Connection: keep-alive\r\n\r\n"</code></pre>
+        <p>Then, whenever the server wishes to send a message, it can just do so over the connection. There’s more spec to follow, but I didn’t need to bother with sending data or comments—just any message will do to prod the frontend code. So, when the server gets the signal from <code>cts</code> to reload the page, the server sends another byte string:<a id="loc-4" href="#loc-8" role="doc-noteref"><sup>4</sup></a></p>
+        <pre><code>b"data: reload\r\n\r\n"</code></pre>
+        <p>I decided to make the API endpoint for this live reloading <code>/livereload</code>, so the injected JavaScript was like so:</p>
+        <pre><code>&lt;script><br>    const source = new EventSource('/livereload');<br>    source.onmessage = () => {<br>        source.close(); <br>        location.reload();<br>    }<br>    source.onerror = () => {<br>        source.close();<br>    };<br>    window.onbeforeunload = () => {<br>        source.close();<br>    };<br>&lt;/script></code></pre>
+        <p>We only ever really listen once before reloading the page cleans up the <code>EventSource</code> anyways. We run some cleanup code lest we get red in the browser console on reload.</p>
+        <h2>Part 2: serde (and syn)</h2>
+        <p>So, what’s our new starting point?</p>
+        <details><summary><a href="./cargo-timing-handwritten-http.html">./cargo-timing-handwritten-http.html</a></summary><img src="./handwritten-http.png"></details>
+        <p>Much better! Now, the low-hanging fruit is that <code>winnow</code>/<code>serde</code>/<code>syn</code> stuff we need to derive deserialization of a file into a struct. I had a little bit of boilerplate anyways, since I wanted to say “it’s okay to leave these config entries blank,” which led to some <code>unwrap_or_default</code>-ing, so I decided to jump the gun and just hack and slash it all out in favor of <code>nanoserde</code>. You’ll notice that I already used <code>onlyargs</code>/<code>myn</code> as a light alternative to, say, <code>clap</code>. Their developer wrote a neat <a href="https://blog.kodewerx.org/2023/04/improving-build-times-for-derive-macros.html">blog post</a> on how one might strip features away from <code>syn</code> to get faster compile times. They cited <code>nanoserde</code> as having a similar underlying model, and indeed it’s fast to compile. <code>nanoserde</code> is made by <a href="https://github.com/not-fl3">not-fl3</a> who, though now dormant, was super epic in the realm of short compile times. His *quads ecosystem for game development felt like Python to use, compile times included.</p>
+        <p>Unfortunately, the TOML feature of nanoserde doesn’t seem to have derive support, or I probably would’ve used it. Since it’s probably fast anyways. Also, its spec compliance is a bit iffy: it at least doesn’t support literal strings (single quotes). Hmm.</p>
+        <h2>Final product</h2>
+        <p>Anyways, we’re down to this relatively lean stack of dependencies:</p>
+        <details><summary><a href="./cargo-timing-nanoserde.html">./cargo-timing-nanoserde.html</a></summary><img src="./nanoserde.png"></details>
+        <p>We can see that compiling <code>cts</code> more or less is just the length of compiling <code>notify-debouncer-full</code> now—everything else is parallelized. Maybe some time in the future, I’ll be back with an update where I, in a fit of something or other, decide to rip even that out and write a file watcher from scratch to bring compile times down from two seconds to something like one. But for now, I think I’ll leave this at that.</p>
+        <p><small><a href="/blog/">back to blog</a></small></p>
+            <section role="doc-endnotes">
+        <hr><h2>Notes</h2>
+      <ol style="list-style-type: none">
+        <li id="loc-5"><a href="#loc-1" role="doc-backlink"><sup>1</sup></a>Subframe LSP responses are great for coding. Stuff like bevy projects or <a href="https://graphite.rs/">https://graphite.rs/</a> contributions can get a little absurd, again, relative to what I’m used to. Mumble mumble metaprogramming is cool but dangerous.</li>
+        <li id="loc-6"><a href="#loc-2" role="doc-backlink"><sup>2</sup></a>See the diff at <a href="https://github.com/wade-cheng/compile-typst-site/compare/1c515eef155e35447a2ffea4a52d7d75d637ef90...3354854acadbc7c8d5b81a57ed3d60df84ea1dc6">compile-typst-site/compare/1c515e…335485</a>. Less than two hundred lines of code, ignoring the lockfile.</li>
+        <li id="loc-7"><a href="#loc-3" role="doc-backlink"><sup>3</sup></a>Come <a href="https://github.com/wade-cheng/compile-typst-site/issues">holler</a> at me if it is.</li>
+        <li id="loc-8"><a href="#loc-4" role="doc-backlink"><sup>4</sup></a>Spec says to write <code>data: &lt;PAYLOAD>\r\n\r\n</code> to send data.</li>
+      </ol>
+          </section>
+      </main>
+    </div>
+  </body>
+</html>

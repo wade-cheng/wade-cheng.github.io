@@ -53,6 +53,8 @@
     #html.link(rel: "prefetch", href: "https://webneko.net/n20171213.js")
   ]
 
+  show quote.where(block: true): it => html.div(it, class: "blockquote")
+
   html.div(id: "site-container")[
     #html.nav[
       #html.a(href: "/")[home]

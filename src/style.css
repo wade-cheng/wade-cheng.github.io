@@ -279,9 +279,6 @@ blockquote {
     display: block;
 }
 
-.blockquote .attributed-to {
+.blockquote > p:last-child{
     text-align: right;
-}
-.blockquote .attributed-to::before {
-    content: "—";
 }

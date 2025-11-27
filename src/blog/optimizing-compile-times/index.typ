@@ -1,4 +1,5 @@
 #import "../../../templates/blog_post.typ": conf
+#import "../../../templates/utils.typ": sidenote
 
 #show: conf.with(
   page-title: "compile-typst-site: optimizing compile times",
@@ -9,11 +10,11 @@
 
 Programming language culture is an interesting thing: while there's nothing technically forcing the average Python code to be duck typed and the average Rust code to prefer invariants via typing, this happens anyways. CLIs, like `cts`, and the simple case study of parsing command-line arguments gives some good examples. In Python, I might default to using stdlib's `argparse` and grab the arguments by getter properties: `if cli.verbose: foo()`---less explicit stuff going on. But in Rust, and in all the tutorial information around CLI building, we seem to prefer using proc-macros to generate code that validates the args into a CLI struct. Something something different philosophies of the average case. I'm sure there's derive validators in python, and you can forgo derive in Rust.
 
-But. One pet peeve I have about Rust, coming from interpreted languages like Python and simpler codebases from coursework, is the relatively long compile time compared to these prior experiences. In the more obnoxious cases, this even bleeds over `cargo check` efficiency, making the Rust LSP less effective.#footnote[Subframe LSP responses are great for coding. Stuff like bevy projects or #link("https://graphite.rs/") contributions can get a little absurd, again, relative to what I'm used to. Mumble mumble metaprogramming is cool but dangerous.] Now, this isn't happening by any means to `cts`, and there are tradeoffs to consider instead of wanton compile-time optimization: massive, slow, libraries are such because they're so feature-filled. It might be strictly easier for me and better for the users to use one library, except for compile times. So let's see what I had to give up, and what dependencies I could cull.
+But. One pet peeve I have about Rust, coming from interpreted languages like Python and simpler codebases from coursework, is the relatively long compile time compared to these prior experiences. In the more obnoxious cases, this even bleeds over `cargo check` efficiency, making the Rust LSP less effective.#sidenote[Subframe LSP responses are great for coding. Stuff like bevy projects or #link("https://graphite.rs/") contributions can get a little absurd, again, relative to what I'm used to. Mumble mumble metaprogramming is cool but dangerous.] Now, this isn't happening by any means to `cts`, and there are tradeoffs to consider instead of wanton compile-time optimization: massive, slow, libraries are such because they're so feature-filled. It might be strictly easier for me and better for the users to use one library, except for compile times. So let's see what I had to give up, and what dependencies I could cull.
 
 = Part 1: the entire damn web framework ecosystem
 
-Some while back, I dusted off the final major feature that I wanted to implement: an automatic-browser-refreshing web server to serve output files.#footnote[See the diff at #link("https://github.com/wade-cheng/compile-typst-site/compare/1c515eef155e35447a2ffea4a52d7d75d637ef90...3354854acadbc7c8d5b81a57ed3d60df84ea1dc6")[compile-typst-site/compare/1c515e...335485]. Less than two hundred lines of code, ignoring the lockfile.] The feature you know and love from Eleventy, Vite, Django, and other web frameworks galore---we can't _not_ have it :p
+Some while back, I dusted off the final major feature that I wanted to implement: an automatic-browser-refreshing web server to serve output files.#sidenote[See the diff at #link("https://github.com/wade-cheng/compile-typst-site/compare/1c515eef155e35447a2ffea4a52d7d75d637ef90...3354854acadbc7c8d5b81a57ed3d60df84ea1dc6")[compile-typst-site/compare/1c515e...335485]. Less than two hundred lines of code, ignoring the lockfile.] The feature you know and love from Eleventy, Vite, Django, and other web frameworks galore---we can't _not_ have it :p
 
 Manually reloading the page every time I hit save was getting old, so I took to Google, and threw together some code by newly depending on
 - `tower-livereload` to implement web page reloading logic,
@@ -31,7 +32,7 @@ Yikes.
 
 You can see a loooong chain of unparallelizable compilations from us implementing live reload by using, uh, an entire web ecosystem. Well, let's think. What exactly did these dependencies do, anyway? They spun up a web server and reloaded the page when Typst compilation finished.
 
-If you aren't familiar, I refer you to the Rust Book for a tutorial stepping through a #link("https://doc.rust-lang.org/book/ch21-00-final-project-a-web-server.html")[dead-simple web server]. Since `cts` just serves static assets, I can also just write one myself with manual TCP connections and HTTP messages, and it _probably_ won't be an issue.#footnote[Come #link("https://github.com/wade-cheng/compile-typst-site/issues")[holler] at me if it is.]
+If you aren't familiar, I refer you to the Rust Book for a tutorial stepping through a #link("https://doc.rust-lang.org/book/ch21-00-final-project-a-web-server.html")[dead-simple web server]. Since `cts` just serves static assets, I can also just write one myself with manual TCP connections and HTTP messages, and it _probably_ won't be an issue.#sidenote[Come #link("https://github.com/wade-cheng/compile-typst-site/issues")[holler] at me if it is.]
 
 Now, how does reloading a web server work? I knew `tower-livereload` injected code, but a bit of further digging led to #link("https://emnudge.dev/notes/live-reload/"), which alongside the HTTP spec and the Rust Book web server tutorial, informed the basis of my implementation. As it turns out, we control the web server code, and the web server tells the browser what to render, so we can easily inject any (JavaScript) code we need to run on that front---just insert it right before responding to the client. Conceptually, that code just says "any time I get notified, reload the page." We wait for notifications via JavaScript's #link("https://developer.mozilla.org/en-US/docs/Web/API/EventSource")[`EventSource`], which opens a connection to a server and gets pinged every time that server sends a message back. The specific spec says something along the following: when a server receives a request from an `EventSource`, it should respond `OK` with the mime-type `text/event-stream`. I sent the rust byte string:
 
@@ -42,7 +43,7 @@ b"HTTP/1.1 200 OK\r\n\
   Connection: keep-alive\r\n\r\n"
 ```
 
-Then, whenever the server wishes to send a message, it can just do so over the connection. There's more spec to follow, but I didn't need to bother with sending data or comments---just any message will do to prod the frontend code. So, when the server gets the signal from `cts` to reload the page, the server sends another byte string:#footnote[Spec says to write `data: <PAYLOAD>\\r\\n\\r\\n` to send data.]
+Then, whenever the server wishes to send a message, it can just do so over the connection. There's more spec to follow, but I didn't need to bother with sending data or comments---just any message will do to prod the frontend code. So, when the server gets the signal from `cts` to reload the page, the server sends another byte string:#sidenote[Spec says to write `data: <PAYLOAD>\\r\\n\\r\\n` to send data.]
 
 ```
 b"data: reload\r\n\r\n"

@@ -57,9 +57,10 @@ h6 {
 
 /* 
 Replace default margins with padding to appease gumdrop
+Leave h1 as margin because we want the mobile collapsed toc to have consistent spacing
+between toc and the thing above toc (garden doesn't have a date).
 https://stackoverflow.com/questions/7049952/what-are-the-default-margins-for-the-html-heading-tags-h1-h2-h3-etc
 */
-h1  { margin: 0; padding: .67em 0 }
 h2  { margin: 0; padding: .75em 0 }
 h3  { margin: 0; padding: .83em 0 }
 h4  { margin: 0; padding: 1.12em 0 }

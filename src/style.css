@@ -4,6 +4,7 @@
     --link-after: #7b31c1;
     --link-hover: #eeddff;
     --text: #111;
+    --toc-bar: #d4d2d4;
     --code-bg: #363636;
     --code-text: #e3e3e3;
     --text-spacing: 0.6em;
@@ -15,6 +16,7 @@
         --link-after: #8d5abe;
         --link-hover: #563570;
         --text: #e3d4f5;
+        --toc-bar: #4a3161;
         --code-bg: #eadbf8;
         --code-text: #361a4f;
     }
@@ -103,6 +105,7 @@ section {
     font-weight: normal;
     font-size: 1em;
     padding: 0;
+    padding-left: 1em;
 }
 #toc a {
     text-decoration: none;
@@ -115,6 +118,8 @@ section {
     margin: 0;
     padding: 0;
     list-style-type: none;
+    border-left: 1px solid var(--toc-bar);
+    padding-left: 1em;
 }
 
 h2 a,

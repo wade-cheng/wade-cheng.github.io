@@ -59,7 +59,7 @@ def generate_section_wrappers(html) -> str:
 
         # Split by headings
         parts = re.split(
-            r'(<h[2-6] data-slug="[^"]+">.*?</h[2-6]>)', main_content, flags=re.DOTALL
+            r'(<h[2-6] data-slug=".*?">.*?</h[2-6]>)', main_content, flags=re.DOTALL
         )
 
         result = []
@@ -68,7 +68,7 @@ def generate_section_wrappers(html) -> str:
         for part in parts:
             # Check if this part is a heading
             heading_match = re.match(
-                r'<(h[2-6]) data-slug="([^"]+)">(.*?)</\1>', part, flags=re.DOTALL
+                r'<(h[2-6]) data-slug="(.*?)">(.*?)</\1>', part, flags=re.DOTALL
             )
 
             if heading_match:
@@ -94,7 +94,9 @@ def generate_section_wrappers(html) -> str:
         return "<main>" + "".join(result) + "</main>"
 
     # Process content within <main> tags
-    return re.sub(r"<main>(.*?)</main>", process_main_content, html, flags=re.DOTALL)
+    return re.sub(
+        r"<main>(.*?)</main>", process_main_content, html, flags=re.DOTALL
+    ).replace('<section id="notes">', '<section id="notes" role="doc-endnotes">')
 
 
 def generate_toc(html) -> str:
@@ -104,7 +106,7 @@ def generate_toc(html) -> str:
     """
     # Find all headings with data-slug attribute (before section wrapping)
     headings = re.findall(
-        r'<(h[2-6]) data-slug="([^"]+)"><a(.*?)>(.*?)</a></\1>', html, flags=re.DOTALL
+        r'<(h[2-6]) data-slug="(.*?)"><a(.*?)>(.*?)</a></\1>', html, flags=re.DOTALL
     )
 
     if not headings:
@@ -162,7 +164,7 @@ def fix_endnotes(html) -> str:
         # Replace </main> with the endnotes section inside main
         html = re.sub(
             r"</main>",
-            f'      <section role="doc-endnotes">\n        <hr><h2>Notes</h2>{endnotes_content}      </section>\n      </main>',
+            f"        <hr><h2>Notes</h2>{endnotes_content}      </main>",
             html,
         )
 

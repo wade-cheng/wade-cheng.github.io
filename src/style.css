@@ -82,6 +82,10 @@ section {
     border: 1px solid rgba(0, 0, 0, 0);
 }
 
+#notes {
+    min-height: 100lvh;
+}
+
 #toc {
   position: fixed;
   right: 2rem;

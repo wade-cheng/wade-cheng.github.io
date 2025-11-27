@@ -31,7 +31,7 @@ def slugify(text) -> str:
 def add_heading_anchors(html) -> str:
     """
     Convert heading tags to include anchor link.
-    Example: `<h2>Loose leaf tea</h2>` -> `<h2><a href="#loose-leaf-tea">Loose leaf tea</a></h2>`
+    Example: `<h2>Loose leaf tea</h2>` -> `<h2 id="loose-leaf-tea"><a href="#loose-leaf-tea">Loose leaf tea</a></h2>`
     """
 
     def add_heading_anchor(match) -> str:
@@ -40,7 +40,7 @@ def add_heading_anchors(html) -> str:
 
         slug = slugify(content)
 
-        return f'<{tag} data-slug="{slug}"><a href="#{slug}">{content}</a></{tag}>'
+        return f'<{tag} id="{slug}"><a href="#{slug}">{content}</a></{tag}>'
 
     # Add heading anchors to h2-h6 (including the Notes heading)
     html = re.sub(r"<(h[2-6])>(.*?)</\1>", add_heading_anchor, html, flags=re.DOTALL)
@@ -59,7 +59,7 @@ def generate_section_wrappers(html) -> str:
 
         # Split by headings
         parts = re.split(
-            r'(<h[2-6] data-slug=".*?">.*?</h[2-6]>)', main_content, flags=re.DOTALL
+            r'(<h[2-6] id=".*?">.*?</h[2-6]>)', main_content, flags=re.DOTALL
         )
 
         result = []
@@ -68,7 +68,7 @@ def generate_section_wrappers(html) -> str:
         for part in parts:
             # Check if this part is a heading
             heading_match = re.match(
-                r'<(h[2-6]) data-slug="(.*?)">(.*?)</\1>', part, flags=re.DOTALL
+                r'<(h[2-6]) id="(.*?)">(.*?)</\1>', part, flags=re.DOTALL
             )
 
             if heading_match:
@@ -80,7 +80,7 @@ def generate_section_wrappers(html) -> str:
                 slug = heading_match.group(2)
                 heading_content = heading_match.group(3)
 
-                # Open new section and add heading without data-slug
+                # Open new section and add heading without id
                 result.append(f'<section id="{slug}">\n')
                 result.append(f"<{tag}>{heading_content}</{tag}>")
                 open_section = True
@@ -104,9 +104,9 @@ def generate_toc(html) -> str:
     Generate a table of contents from h2-h6 headings.
     Returns HTML string with navigation list and Gumshoe script.
     """
-    # Find all headings with data-slug attribute (before section wrapping)
+    # Find all headings with id attribute (before section wrapping)
     headings = re.findall(
-        r'<(h[2-6]) data-slug="(.*?)"><a(.*?)>(.*?)</a></\1>', html, flags=re.DOTALL
+        r'<(h[2-6]) id="(.*?)"><a(.*?)>(.*?)</a></\1>', html, flags=re.DOTALL
     )
 
     if not headings:

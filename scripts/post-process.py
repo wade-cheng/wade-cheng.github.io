@@ -182,6 +182,20 @@ def add_toc(html, toc) -> str:
     return html
 
 
+def fix_sidenotes(html) -> str:
+    """
+    At Nov 27 2025 Typst keeps trying to put p tags in for no reason.
+    This breaks semantic stuff or something. Get rid of it.
+    """
+
+    return re.sub(
+        r'<span class="sidenote".*?>(.*?)<p>(.*?)</p>.*?<div class="markendofspan"></div></span.*?>',
+        lambda match: f'<span class="sidenote">{match.group(1)}{match.group(2)}</span>',
+        html,
+        flags=re.DOTALL,
+    )
+
+
 input_data = sys.stdin.buffer.read().decode("utf-8")
 
 replaced = fix_heads(input_data)
@@ -190,6 +204,7 @@ replaced = add_heading_anchors(replaced)
 toc = generate_toc(replaced)
 replaced = generate_section_wrappers(replaced)
 replaced = add_toc(replaced, toc)
+replaced = fix_sidenotes(replaced)
 
 # Add lang attribute to html tag for hyphenation support
 replaced = re.sub(r"<html>", '<html lang="en">', replaced)

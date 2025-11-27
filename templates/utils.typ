@@ -38,6 +38,7 @@
         #html.span(class: "sidenote__content-parenthesis")[(sidenote: ]
         #super[#n]#body#html.span(class: "sidenote__content-parenthesis")[)]
       ]
+      #html.div(class:"markendofspan")
     ]
   }
 }

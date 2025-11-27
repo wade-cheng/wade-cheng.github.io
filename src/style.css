@@ -20,6 +20,16 @@
     }
 }
 
+@media print {
+    body {
+        background-color: white;
+    }
+
+    pre code {
+        white-space: pre-wrap;
+    }
+}
+
 body {
     font-family: "EB Garamond", serif;
     color: var(--text);
@@ -217,16 +227,6 @@ pre code {
     padding: 1em;
     text-align: left;
     hyphens: none;
-}
-
-@media print {
-    body {
-        background-color: white;
-    }
-
-    pre code {
-        white-space: pre-wrap;
-    }
 }
 
 [role="doc-backlink"] {

@@ -87,10 +87,27 @@ section {
 }
 
 #toc {
-  position: fixed;
-  right: 2rem;
-  top: 2rem;
   max-width: 15rem;
+}
+
+/* Float TOC to the right only when there's enough room
+--max-width + toc max-width * 2 + toc right + site-container padding * 2
+*/
+@media (min-width: calc(544px + 15rem * 2 + 2rem + 1.5em * 2)) {
+  #toc {
+    position: fixed;
+    right: 2rem;
+    top: 2rem;
+  }
+}
+
+/* When screen is too narrow, keep TOC in flow within site-container */
+@media (max-width: calc(544px + 15rem * 2 + 2rem + 1.5em * 2 - 1px)) {
+  #toc {
+    /* position: static; */
+    margin-bottom: 2em;
+    margin-top: 2em;
+  }
 }
 #toc h2 {
     font-weight: normal;

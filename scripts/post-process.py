@@ -30,15 +30,95 @@ def slugify(text):
 
 def add_heading_anchor(match):
     """
-    Convert heading tags to include id and anchor link.
-    Example: <h2>Loose leaf tea</h2> -> <h2 id="loose-leaf-tea"><a href="#loose-leaf-tea">Loose leaf tea</a></h2>
+    Convert heading tags to include anchor link.
+    Example: <h2>Loose leaf tea</h2> -> <h2><a href="#loose-leaf-tea">Loose leaf tea</a></h2>
+    Note: The id will be added to the wrapping section later.
     """
     tag = match.group(1)  # h2, h3, etc.
     content = match.group(2)  # The text content
 
     slug = slugify(content)
 
-    return f'<{tag} id="{slug}"><a href="#{slug}">{content}</a></{tag}>'
+    return f'<{tag} data-slug="{slug}"><a href="#{slug}">{content}</a></{tag}>'
+
+
+def wrap_sections(html):
+    """
+    Wrap each h2-h6 heading and its content in a <section> tag with the appropriate id.
+    Sections end when the next heading is encountered or when </main> is reached.
+    """
+
+    def process_main_content(match):
+        main_content = match.group(1)
+
+        # Split by headings
+        parts = re.split(
+            r'(<h[2-6] data-slug="[^"]+">.*?</h[2-6]>)', main_content, flags=re.DOTALL
+        )
+
+        result = []
+        open_section = False
+
+        for part in parts:
+            # Check if this part is a heading
+            heading_match = re.match(
+                r'<(h[2-6]) data-slug="([^"]+)">(.*?)</\1>', part, flags=re.DOTALL
+            )
+
+            if heading_match:
+                # Close previous section if open
+                if open_section:
+                    result.append("</section>\n")
+
+                tag = heading_match.group(1)
+                slug = heading_match.group(2)
+                heading_content = heading_match.group(3)
+
+                # Open new section and add heading without data-slug
+                result.append(f'<section id="{slug}">\n')
+                result.append(f"<{tag}>{heading_content}</{tag}>")
+                open_section = True
+            else:
+                result.append(part)
+
+        # Close final section if open
+        if open_section:
+            result.append("</section>\n")
+
+        return "<main>" + "".join(result) + "</main>"
+
+    # Process content within <main> tags
+    return re.sub(r"<main>(.*?)</main>", process_main_content, html, flags=re.DOTALL)
+
+
+def generate_toc(html):
+    """
+    Generate a table of contents from h2-h6 headings.
+    Returns HTML string with navigation list and Gumshoe script.
+    """
+    # Find all headings with data-slug attribute (before section wrapping)
+    headings = re.findall(
+        r'<(h[2-6]) data-slug="([^"]+)"><a(.*?)>(.*?)</a></\1>', html, flags=re.DOTALL
+    )
+
+    if not headings:
+        return ""
+
+    # Build navigation list
+    toc_items = []
+    for _, slug, _, text in headings:
+        toc_items.append(f'<li><a href="#{slug}">{text}</a></li>')
+
+    toc_html = f"""
+<nav id="toc">
+    <h2 class="smallcaps">on this page</h2>
+    <ul>
+        {"".join(toc_items)}
+    </ul>
+</nav>
+"""
+
+    return toc_html
 
 
 input_data = sys.stdin.buffer.read().decode("utf-8")
@@ -51,15 +131,7 @@ heads = re.findall(r"<head>.*?</head>", input_data, flags=re.DOTALL)
 replaced = input_data.replace(heads[1], "", 1)  # Remove second head
 replaced = replaced.replace(heads[0], heads[1], 1)  # Replace first with second
 
-# Add heading anchors to h2-h6
-replaced = re.sub(
-    r"<(h[2-6])>(.*?)</\1>", add_heading_anchor, replaced, flags=re.DOTALL
-)
-
-# Add lang attribute to html tag for hyphenation support
-replaced = re.sub(r"<html>", '<html lang="en">', replaced)
-
-# Extract the endnotes section content
+# Extract and move the endnotes section (before adding anchors so Notes heading gets processed)
 endnotes_match = re.search(
     r'<section role="doc-endnotes">(.*?)</section>', replaced, re.DOTALL
 )
@@ -78,5 +150,27 @@ if endnotes_match:
         f'      <section role="doc-endnotes">\n        <hr><h2>Notes</h2>{endnotes_content}      </section>\n      </main>',
         replaced,
     )
+
+# Add heading anchors to h2-h6 (including the Notes heading)
+replaced = re.sub(
+    r"<(h[2-6])>(.*?)</\1>", add_heading_anchor, replaced, flags=re.DOTALL
+)
+
+# Generate table of contents (after endnotes are added, before wrapping sections)
+toc = generate_toc(replaced)
+
+# Wrap headings in sections with ids
+replaced = wrap_sections(replaced)
+
+# Insert table of contents after </header>
+if toc:
+    replaced = re.sub(r"(</header>)", rf"\1\n      {toc}", replaced)
+    # Add Gumshoe script before </body>
+    gumshoe_script = """<script src="https://cdn.jsdelivr.net/gh/cferdinandi/gumshoe@4.0/dist/gumshoe.polyfills.min.js"></script>
+<script>document.addEventListener('DOMContentLoaded', function() { var spy = new Gumshoe('#toc a'); });</script>"""
+    replaced = re.sub(r"(</body>)", rf"{gumshoe_script}\n\1", replaced)
+
+# Add lang attribute to html tag for hyphenation support
+replaced = re.sub(r"<html>", '<html lang="en">', replaced)
 
 sys.stdout.buffer.write(replaced.encode("utf-8"))

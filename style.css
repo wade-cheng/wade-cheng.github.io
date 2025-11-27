@@ -20,6 +20,16 @@
     }
 }
 
+@media print {
+    body {
+        background-color: white;
+    }
+
+    pre code {
+        white-space: pre-wrap;
+    }
+}
+
 body {
     font-family: "EB Garamond", serif;
     color: var(--text);
@@ -112,7 +122,7 @@ p {
 #site-container {
     width: var(--max-width);
     margin: 0px;
-    padding: 2em;
+    padding: 1.5em;
 }
 
 img {
@@ -203,15 +213,6 @@ nav a {
     margin-left: -8px;
     margin-right: 8px;
 }
-nav .settings-btn {
-    float: right;
-    margin-right: 10px;
-}
-nav img {
-    image-rendering: pixelated;
-    width: 544px;
-    height: 94px;
-}
 
 pre {
     overflow-x: auto;
@@ -226,55 +227,10 @@ pre code {
     padding: 1em;
     text-align: left;
     hyphens: none;
-    /* min-width: 100%; */
-}
-
-@media print {
-    body {
-        background-color: white;
-    }
-
-    pre code {
-        white-space: pre-wrap;
-    }
-}
-
-.links .platform {
-    display: inline-block;
-    width: 5em;
-    position: relative;
-    display: inline-block;
-}
-
-.links [aria-describedby] {
-    display: inline-block;
 }
 
 [role="doc-backlink"] {
     margin-right: 0.5em;
-}
-
-[role="tooltip"] {
-    visibility: hidden;
-    position: absolute;
-    width: 10em;
-    /* top: 2rem;
-  left: 2rem; */
-    background: rgb(85, 85, 85);
-    color: white;
-    padding: 0.5rem;
-    border-radius: 0.25rem;
-    z-index: 1000;
-    /* Give some time before hiding so mouse can exit the input
-  and enter the tooltip. Not necessary since it's right below it.*/
-    /* transition: visibility 0.5s; */
-}
-
-[aria-describedby]:hover + [role="tooltip"],
-[aria-describedby]:focus + [role="tooltip"],
-[role="tooltip"]:hover,
-[role="tooltip"]:focus {
-    visibility: visible;
 }
 
 blockquote {

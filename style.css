@@ -20,16 +20,6 @@
     }
 }
 
-@media print {
-    body {
-        background-color: white;
-    }
-
-    pre code {
-        white-space: pre-wrap;
-    }
-}
-
 body {
     font-family: "EB Garamond", serif;
     color: var(--text);
@@ -61,6 +51,70 @@ h6 {
     text-align: left;
     scroll-margin-top: 0.5em;
     position: relative;
+}
+
+/* 
+Replace default margins with padding to appease gumdrop
+https://stackoverflow.com/questions/7049952/what-are-the-default-margins-for-the-html-heading-tags-h1-h2-h3-etc
+*/
+h1  { margin: 0; padding: .67em 0 }
+h2  { margin: 0; padding: .75em 0 }
+h3  { margin: 0; padding: .83em 0 }
+h4  { margin: 0; padding: 1.12em 0 }
+h5  { margin: 0; padding: 1.5em 0 }
+h6  { margin: 0; padding: 1.67em 0 }
+
+/* 
+transparent border that magically "closes" the space between sections
+without this, there's a micro area where gumdrop doesn't highlight either section.
+*/
+section {
+    border: 1px solid rgba(0, 0, 0, 0);
+}
+
+#notes {
+    min-height: 100lvh;
+}
+
+#toc {
+  max-width: 15rem;
+}
+
+/* Float TOC to the right only when there's enough room
+--max-width + toc max-width * 2 + toc right + site-container padding * 2
+*/
+@media (min-width: calc(544px + 15rem * 2 + 2rem + 1.5em * 2)) {
+  #toc {
+    position: fixed;
+    right: 2rem;
+    top: 2rem;
+  }
+}
+
+/* When screen is too narrow, keep TOC in flow within site-container */
+@media (max-width: calc(544px + 15rem * 2 + 2rem + 1.5em * 2 - 1px)) {
+  #toc {
+    /* position: static; */
+    margin-bottom: 2em;
+    margin-top: 2em;
+  }
+}
+#toc h2 {
+    font-weight: normal;
+    font-size: 1em;
+    padding: 0;
+}
+#toc a {
+    text-decoration: none;
+    padding-bottom: 0;
+}
+#toc li.active a {
+    font-style: italic;
+}
+#toc ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
 }
 
 h2 a,
@@ -241,4 +295,15 @@ blockquote {
 
 .blockquote > p:last-child{
     text-align: right;
+}
+
+@media print {
+    body {
+        background-color: white;
+        color: black;
+    }
+
+    pre code {
+        white-space: pre-wrap;
+    }
 }

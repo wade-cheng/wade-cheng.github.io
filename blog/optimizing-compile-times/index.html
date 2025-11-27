@@ -22,11 +22,20 @@
         <h1>compile-typst-site: optimizing compile times</h1>
         <div class="date">November 26, 2025</div>
       </header>
+      
+<nav id="toc">
+    <h2 class="smallcaps">on this page</h2>
+    <ul>
+        <li><a href="#part-1-the-entire-damn-web-framework-ecosystem">Part 1: the entire damn web framework ecosystem</a></li><li><a href="#part-2-serde-and-syn">Part 2: serde (and syn)</a></li><li><a href="#final-product">Final product</a></li><li><a href="#notes">Notes</a></li>
+    </ul>
+</nav>
+
       <main>
         <p><span style="font-variant-caps: small-caps">This blog</span> is generated with Typst using <a href="https://wade-cheng.com/compile-typst-site/"><code>compile-typst-site</code></a>. It’s written in Rust.</p>
         <p>Programming language culture is an interesting thing: while there’s nothing technically forcing the average Python code to be duck typed and the average Rust code to prefer invariants via typing, this happens anyways. CLIs, like <code>cts</code>, and the simple case study of parsing command-line arguments gives some good examples. In Python, I might default to using stdlib’s <code>argparse</code> and grab the arguments by getter properties: <code>if cli.verbose: foo()</code>—less explicit stuff going on. But in Rust, and in all the tutorial information around CLI building, we seem to prefer using proc-macros to generate code that validates the args into a CLI struct. Something something different philosophies of the average case. I’m sure there’s derive validators in python, and you can forgo derive in Rust.</p>
         <p>But. One pet peeve I have about Rust, coming from interpreted languages like Python and simpler codebases from coursework, is the relatively long compile time compared to these prior experiences. In the more obnoxious cases, this even bleeds over <code>cargo check</code> efficiency, making the Rust LSP less effective.<a id="loc-1" href="#loc-5" role="doc-noteref"><sup>1</sup></a> Now, this isn’t happening by any means to <code>cts</code>, and there are tradeoffs to consider instead of wanton compile-time optimization: massive, slow, libraries are such because they’re so feature-filled. It might be strictly easier for me and better for the users to use one library, except for compile times. So let’s see what I had to give up, and what dependencies I could cull.</p>
-        <h2>Part 1: the entire damn web framework ecosystem</h2>
+        <section id="part-1-the-entire-damn-web-framework-ecosystem">
+<h2><a href="#part-1-the-entire-damn-web-framework-ecosystem">Part 1: the entire damn web framework ecosystem</a></h2>
         <p>Some while back, I dusted off the final major feature that I wanted to implement: an automatic-browser-refreshing web server to serve output files.<a id="loc-2" href="#loc-6" role="doc-noteref"><sup>2</sup></a> The feature you know and love from Eleventy, Vite, Django, and other web frameworks galore—we can’t <em>not</em> have it :p</p>
         <p>Manually reloading the page every time I hit save was getting old, so I took to Google, and threw together some code by newly depending on</p>
         <ul>
@@ -47,18 +56,23 @@
         <pre><code>&lt;script><br>    const source = new EventSource('/livereload');<br>    source.onmessage = () => {<br>        source.close(); <br>        location.reload();<br>    }<br>    source.onerror = () => {<br>        source.close();<br>    };<br>    window.onbeforeunload = () => {<br>        source.close();<br>    };<br>&lt;/script></code></pre>
         <p>We only ever really listen once before reloading the page cleans up the <code>EventSource</code> anyways. We run some cleanup code lest we get red in the browser console on reload.</p>
         <p>Overall, even though this lets us get rid of some dependencies, it really does put the onus on us to write correct code closer to the machine and the specs, when it’s much easier to be correct by relying on libraries. Who knows how axum will be able to handle mime types, or the random user that decides to send a POST request. Not me! But I trust that it’s correct. I don’t have to think about it.</p>
-        <h2>Part 2: serde (and syn)</h2>
+        </section>
+<section id="part-2-serde-and-syn">
+<h2><a href="#part-2-serde-and-syn">Part 2: serde (and syn)</a></h2>
         <p>So, what’s our new starting point?</p>
         <details><summary><a href="./cargo-timing-handwritten-http.html">./cargo-timing-handwritten-http.html</a></summary><img src="./handwritten-http.png"></details>
         <p>Much better! Now, the low-hanging fruit is that <code>winnow</code>/<code>serde</code>/<code>syn</code> stuff we need to derive deserialization of a file into a struct. I had a little bit of boilerplate anyways, since I wanted to say “it’s okay to leave these config entries blank,” which led to some <code>unwrap_or_default</code>-ing, so I decided to jump the gun and just hack and slash it all out in favor of <code>nanoserde</code>. You’ll notice that I already used <code>onlyargs</code>/<code>myn</code> as a light alternative to, say, <code>clap</code>. Their developer wrote a neat <a href="https://blog.kodewerx.org/2023/04/improving-build-times-for-derive-macros.html">blog post</a> on how one might strip features away from <code>syn</code> to get faster compile times. They cited <code>nanoserde</code> as having a similar underlying model, and indeed it’s fast to compile. <code>nanoserde</code> is made by <a href="https://github.com/not-fl3">not-fl3</a> who, though now dormant, was super epic in the realm of short compile times. His *quads ecosystem for game development felt like Python to use, compile times included.</p>
         <p>Unfortunately, the TOML feature of nanoserde doesn’t seem to have derive support, or I probably would’ve used it. Since it’s probably fast anyways. Also, its spec compliance is a bit iffy: it at least doesn’t support literal strings (single quotes). Hmm. And of course, we’ve traded boilerplate for boilerplate.</p>
-        <h2>Final product</h2>
+        </section>
+<section id="final-product">
+<h2><a href="#final-product">Final product</a></h2>
         <p>Anyways, we’re down to this relatively lean stack of dependencies:</p>
         <details><summary><a href="./cargo-timing-nanoserde.html">./cargo-timing-nanoserde.html</a></summary><img src="./nanoserde.png"></details>
         <p>We can see that compiling <code>cts</code> more or less is just the length of compiling <code>notify-debouncer-full</code> now—everything else is parallelized. Maybe some time in the future, I’ll be back with an update where I, in a fit of something or other, decide to rip even that out and write a file watcher from scratch to bring compile times down from two seconds to something like one. But for now, I think I’ll leave this at that.</p>
         <p><small><a href="/blog/">back to blog</a></small></p>
-            <section role="doc-endnotes">
-        <hr><h2>Notes</h2>
+              <hr></section>
+<section id="notes" role="doc-endnotes">
+<h2><a href="#notes">Notes</a></h2>
       <ol style="list-style-type: none">
         <li id="loc-5"><a href="#loc-1" role="doc-backlink"><sup>1</sup></a>Subframe LSP responses are great for coding. Stuff like bevy projects or <a href="https://graphite.rs/">https://graphite.rs/</a> contributions can get a little absurd, again, relative to what I’m used to. Mumble mumble metaprogramming is cool but dangerous.</li>
         <li id="loc-6"><a href="#loc-2" role="doc-backlink"><sup>2</sup></a>See the diff at <a href="https://github.com/wade-cheng/compile-typst-site/compare/1c515eef155e35447a2ffea4a52d7d75d637ef90...3354854acadbc7c8d5b81a57ed3d60df84ea1dc6">compile-typst-site/compare/1c515e…335485</a>. Less than two hundred lines of code, ignoring the lockfile.</li>
@@ -66,7 +80,9 @@
         <li id="loc-8"><a href="#loc-4" role="doc-backlink"><sup>4</sup></a>Spec says to write <code>data: &lt;PAYLOAD>\r\n\r\n</code> to send data.</li>
       </ol>
           </section>
-      </main>
+</main>
     </div>
-  </body>
+  <script src="https://cdn.jsdelivr.net/gh/cferdinandi/gumshoe@4.0/dist/gumshoe.polyfills.min.js"></script>
+    <script>document.addEventListener('DOMContentLoaded', function() { var spy = new Gumshoe('#toc a'); });</script>
+</body>
 </html>

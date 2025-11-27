@@ -22,6 +22,14 @@
         <h1>typst blog generation</h1>
         <div class="date">November 5, 2025</div>
       </header>
+      
+<nav id="toc">
+    <h2 class="smallcaps">on this page</h2>
+    <ul>
+        <li><a href="#notes">Notes</a></li>
+    </ul>
+</nav>
+
       <main>
         <p><span style="font-variant-caps: small-caps">Alright, I think I’ve figured out how to make this site render with Typst in a reasonably painless way.</span></p>
         <p>Before, I was basically hand-writing HTML (with Nunjucks as a templating language), and it wasn’t really too painful? The only really annoying points were</p>
@@ -33,13 +41,15 @@
         <p>But anyways, eleventy didn’t have a way to incrementally compile properly, so I just wrote my own binary that watches for file changes.</p>
         <p>All it does is call the Typst CLI on every typst file and also pass through files that I specify (like CSS). All templating is done in native typst!</p>
         <p><small><a href="/blog/">back to blog</a></small></p>
-            <section role="doc-endnotes">
-        <hr><h2>Notes</h2>
+              <hr><section id="notes" role="doc-endnotes">
+<h2><a href="#notes">Notes</a></h2>
       <ol style="list-style-type: none">
         <li id="loc-2"><a href="#loc-1" role="doc-backlink"><sup>1</sup></a>But we do have footnotes now!</li>
       </ol>
           </section>
-      </main>
+</main>
     </div>
-  </body>
+  <script src="https://cdn.jsdelivr.net/gh/cferdinandi/gumshoe@4.0/dist/gumshoe.polyfills.min.js"></script>
+    <script>document.addEventListener('DOMContentLoaded', function() { var spy = new Gumshoe('#toc a'); });</script>
+</body>
 </html>

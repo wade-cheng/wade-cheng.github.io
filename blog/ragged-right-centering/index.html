@@ -22,6 +22,14 @@
         <h1>centering items within ragged right text</h1>
         <div class="date">November 14, 2025</div>
       </header>
+      
+<nav id="toc">
+    <h2 class="smallcaps">on this page</h2>
+    <ul>
+        <li><a href="#notes">Notes</a></li>
+    </ul>
+</nav>
+
       <main>
         <p><span style="font-variant-caps: small-caps">When you set text to align flush against the left margin</span>, you get a ragged right margin. This kind of alignment is also called ragged right alignment after the ragged right side.</p>
         <p>This means you have a body with a center mass that isn’t the geographic centner of the body. Since there’s white space created by having a ragged right margin, the center mass of such a paragraph is a bit to the left of the center of the box you would draw around the paragraph.</p>
@@ -29,14 +37,16 @@
         <p>Once I get the effort, I should include some pictures in this post. Or refer you to the many wonderful articles that visually explain the generic phenomena.</p>
         <p>I’m not sure people have a problem with this in practice, but as far as I know, many professionally typeset documents are fully justified and thus don’t suffer this issue.<a id="loc-2" href="#loc-4" role="doc-noteref"><sup>2</sup></a></p>
         <p><small><a href="/blog/">back to blog</a></small></p>
-            <section role="doc-endnotes">
-        <hr><h2>Notes</h2>
+              <hr><section id="notes" role="doc-endnotes">
+<h2><a href="#notes">Notes</a></h2>
       <ol style="list-style-type: none">
         <li id="loc-3"><a href="#loc-1" role="doc-backlink"><sup>1</sup></a>Dinkuses are dividers like the one at the top of this footnote section, often center-aligned, often represented as three asterisks.</li>
         <li id="loc-4"><a href="#loc-2" role="doc-backlink"><sup>2</sup></a>Academic papers, pretty much any book you pick off a library shelf, so on.</li>
       </ol>
           </section>
-      </main>
+</main>
     </div>
-  </body>
+  <script src="https://cdn.jsdelivr.net/gh/cferdinandi/gumshoe@4.0/dist/gumshoe.polyfills.min.js"></script>
+    <script>document.addEventListener('DOMContentLoaded', function() { var spy = new Gumshoe('#toc a'); });</script>
+</body>
 </html>

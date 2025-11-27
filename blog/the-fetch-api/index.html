@@ -22,6 +22,14 @@
         <h1>The Fetch API</h1>
         <div class="date">October 27, 2025</div>
       </header>
+      
+<nav id="toc">
+    <h2 class="smallcaps">on this page</h2>
+    <ul>
+        <li><a href="#why-is-this-helpful">why is this helpful?</a></li>
+    </ul>
+</nav>
+
       <main>
         <p><span style="font-variant-caps: small-caps">Javascript can pull data from remote servers by using something called the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API">Fetch API</a></span>. This has a couple names and concepts associated to it, like fetching, GET requests, or REST APIs. The scope of this blog post will be to</p>
         <ul>
@@ -41,10 +49,14 @@
         <pre><code>~/fetch-example $ python -m http.server<br>Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...</code></pre>
         <p>Now, visiting the link <a href="http://0.0.0.0:8000/">http://0.0.0.0:8000/</a> and clicking on the button logs the numbers from the start of the blog post. It works!</p>
         <img src="./output.png" alt="a screenshot of the button and a panel showing the output of the console log, which matches our chosen numbers from the start of the blog post">
-        <h2>why is this helpful?</h2>
+        <section id="why-is-this-helpful">
+<h2><a href="#why-is-this-helpful">why is this helpful?</a></h2>
         <p>I chose the specific scope of this article because I’m working on a project that plans to roughly follow the above workflow. We control both the client and the server. Some data structure is serialized into binary, and is saved on the server. The client requests it from the server, deserializes it, and uses it to do business logic.</p>
         <p><small><a href="/blog/">back to blog</a></small></p>
-      </main>
+      </section>
+</main>
     </div>
-  </body>
+  <script src="https://cdn.jsdelivr.net/gh/cferdinandi/gumshoe@4.0/dist/gumshoe.polyfills.min.js"></script>
+    <script>document.addEventListener('DOMContentLoaded', function() { var spy = new Gumshoe('#toc a'); });</script>
+</body>
 </html>

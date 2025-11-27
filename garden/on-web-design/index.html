@@ -21,10 +21,19 @@
       <header>
         <h1>on web design</h1>
       </header>
+      
+<nav id="toc">
+    <h2 class="smallcaps">on this page</h2>
+    <ul>
+        <li><a href="#general-accessibility">general accessibility</a></li><li><a href="#web-performance">web performance</a></li><li><a href="#typography">typography</a></li>
+    </ul>
+</nav>
+
       <main>
         <p>I try to make my site both accessible and pretty. Accessiblity is important to me because people should, like, be able to read things. As for my personal stakes, I’m liable to get headaches when things go too “wacko crazy.” Among other things I may have forgotten, I have animations turned off wherever possible, and am peeved by the “astigmatism white on black” thing. People should be able to read things. And pretty is in a typography as well as general design sense. By some definition somewhere, this is also a subset of accessibility.</p>
         <p>The rest of this page is a list of ideas or links with ideas that I’ve looked at, if not implemented.</p>
-        <h2>general accessibility</h2>
+        <section id="general-accessibility">
+<h2><a href="#general-accessibility">general accessibility</a></h2>
         <p>At the very least, I’d like to make this website accessible to</p>
         <ul>
           <li>dark mode users</li>
@@ -61,7 +70,9 @@
             </ul>
           </li>
         </ul>
-        <h2>web performance</h2>
+        </section>
+<section id="web-performance">
+<h2><a href="#web-performance">web performance</a></h2>
         <p>This is yet another subset of accessibility, or something</p>
         <ul>
           <li>
@@ -84,7 +95,9 @@
             </ul>
           </li>
         </ul>
-        <h2>typography</h2>
+        </section>
+<section id="typography">
+<h2><a href="#typography">typography</a></h2>
         <ul>
           <li>
             <p><a href="https://practicaltypography.com/">https://practicaltypography.com/</a></p>
@@ -94,7 +107,10 @@
           </li>
         </ul>
         <p><small><a href="/garden/">back to garden</a></small></p>
-      </main>
+      </section>
+</main>
     </div>
-  </body>
+  <script src="https://cdn.jsdelivr.net/gh/cferdinandi/gumshoe@4.0/dist/gumshoe.polyfills.min.js"></script>
+    <script>document.addEventListener('DOMContentLoaded', function() { var spy = new Gumshoe('#toc a'); });</script>
+</body>
 </html>

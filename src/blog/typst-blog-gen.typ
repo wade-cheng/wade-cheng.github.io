@@ -1,4 +1,5 @@
 #import "../../templates/blog_post.typ": conf
+#import "../../templates/utils.typ": sidenote
 
 #show: conf.with(
     page-title: "typst blog generation",
@@ -11,7 +12,7 @@ Before, I was basically hand-writing HTML (with Nunjucks as a templating languag
 
 - having to type links twice
 - having to type `<p>` manually
-- I never really worked out a solution to footnotes#footnote[But we do have footnotes now!]
+- I never really worked out a solution to footnotes#sidenote[But we do have footnotes now!]
 
 But anyways, eleventy didn't have a way to incrementally compile properly, so I just wrote my own binary that watches for file changes.
 

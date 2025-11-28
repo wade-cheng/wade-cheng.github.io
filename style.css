@@ -1,5 +1,6 @@
 :root {
     --max-width: 544px;
+    --max-width-with-sidebar: calc(var(--max-width) + 320px);
     --bg: #fffff8;
     --link-after: #7b31c1;
     --link-hover: #eeddff;
@@ -79,23 +80,119 @@ section {
     min-height: 100lvh;
 }
 
+/*
+SIDENOTE STUFF *************************************
+*/
+.sidenote {
+  display: inline;
+}
+
+.sidenote__content {
+    margin: 0;
+    size: 0.7em;
+}
+
+.sidenote__checkbox {
+  display: none;
+}
+
+/* Hidden, but accessible to browsers that don't do CSS (e.g. screenreaders, Pocket) */
+.sidenote__content-parenthesis {
+  position: absolute;
+  left: -99999px;
+  top: auto;
+}
+
+/* For narrow viewports, the sidenote is hidden by default and shown when the checkbox is checked. */
+/* --max-width + toc width * 2 + toc right + site-container padding * 2 */
+@media (max-width: calc(544px + 270px * 2 + 2rem + 1.5em * 2 - 1px)) {
+    /* @media screen and (max-width: 1079px) { */
+  .sidenote__checkbox ~ .sidenote__content {
+    /* Hidden, but accessible to browsers that don't do CSS (e.g. screenreaders, Pocket) */
+    position: absolute;
+    left: -99999px;
+    top: auto;
+  }
+
+  .sidenote__checkbox:checked ~ .sidenote__content {
+    /* override hidden-but-accessible */
+    position: relative;
+    left: auto;
+
+    /* Don't break up line containing the sidenote */
+    float: left;
+    min-width: 100%;
+
+    display: block;
+    margin: 0.8rem 0;
+    padding: 0.8rem 1.6rem;
+  }
+
+  .sidenote__button {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  .sidenote__button:not(:hover):focus::after {
+    display: inline;
+    /* display:inline-block causes misalignment between focus ring and background. */
+  }
+
+  .sidenote__checkbox:checked ~ .sidenote__button::after {
+    content: none;
+  }
+}
+
+/* For sufficiently wide viewports. */
+@media (min-width: calc(544px + 270px * 2 + 2rem + 1.5em * 2)) {
+/* @media screen and (min-width: 1080px) { */
+  .sidenote__button {
+    cursor: text;
+  }
+
+  .sidenote__content {
+    display: block;
+    float: right;
+    clear: both;
+    right: calc(var(--max-width) +2rem);
+    margin-right: -300px; 
+    width: 250px;
+    font-size: 1em;
+    color: var(--text-color);
+  }
+
+  .sidenote__content > sup{
+    margin-right: 0.5em; 
+  }
+
+}
+
+/* 
+END SIDENOTE STUFF ********************
+*/
+
 #toc {
-  max-width: 15rem;
+  /* max-width: 15rem; */
+  text-align: left;
 }
 
 /* Float TOC to the right only when there's enough room
---max-width + toc max-width * 2 + toc right + site-container padding * 2
+--max-width + toc width * 2 + toc right + site-container padding * 2
 */
-@media (min-width: calc(544px + 15rem * 2 + 2rem + 1.5em * 2)) {
+@media (min-width: calc(544px + 270px * 2 + 2rem + 1.5em * 2)) {
   #toc {
     position: fixed;
-    right: 2rem;
     top: 2rem;
+    margin-left: calc(544px + 2rem);
+    width: 270px;
+    background-color: var(--bg);
+    padding-top: 1em;
+    padding-bottom: 1em;
   }
 }
 
 /* When screen is too narrow, keep TOC in flow within site-container */
-@media (max-width: calc(544px + 15rem * 2 + 2rem + 1.5em * 2 - 1px)) {
+@media (max-width: calc(544px + 270px * 2 + 2rem + 1.5em * 2 - 1px)) {
   #toc {
     /* position: static; */
     margin-bottom: 2em;
@@ -180,9 +277,13 @@ p {
 }
 
 #site-container {
-    width: var(--max-width);
+    max-width: var(--max-width-with-sidebar);
     margin: 0px;
     padding: 1.5em;
+}
+
+#site-container > * {
+    max-width: var(--max-width);
 }
 
 img {

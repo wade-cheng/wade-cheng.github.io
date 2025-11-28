@@ -1,0 +1,19 @@
+#import "../../templates/blog_post.typ": conf
+#import "../../templates/utils.typ": sidenote
+
+#show: conf.with(
+  page-title: "one-time-i-dreamt: visiting old friends",
+  date: "2025-11-28",
+)
+
+#quote(block: true, attribution: [Will Magnus, G.I. Robot])[
+  "But, if you, theorically, had no directive, what is it that you desire?"
+  
+  "... Someday, I'd like to be reunited and see my boys. The boys of Easy Company, sir. And kill Nazis with them. Have you seen them?"
+]
+
+#smallcaps[G.I. Robot of the D.C. Universe] is a sentient automaton built to fight with the Americans in World War II. Very specifically programmed, apparently, to kill Nazis. I recently watched a video editing together many of his scenes from the animated Creature Commandos show, and it was a pretty heart-twisty time. The trope of having lost things in the past is one that sucker punches me pretty effectively, and "age-unencumbered being and impermanent relationships" is a tried and true way to express that. The guy doesn't even seem to know that it isn't possible anymore, what with it being at least seventy four years in the future,#sidenote[This is according to some other quote of his, which places such a gap between the last time he killed Nazis and the present.] so the feels are shouldered even more on the watcher: there is some kind of hope rattling around in silicon neurons, but we know it can never be fulfilled. Maybe it's more sad than seeing someone who knows they've lost things and in knowing, has been able to move on.
+
+I had a pretty crazy dream last night, even if only for coherence of plot, fidelity of memory. I got to visit my high school marching band again, flute in hand. Played with them again in the stands of a baseball game---I suppose we never played at baseball games. But I saw the faces of old friends, ones I've drifted apart from after graduating, and got to do an activity I don't participate in here at uni.#sidenote[My high school marching band competed with proper shows, and I cherish memories of speedrunning uniforms in the band bus, the road trips, milling around in chilly weather with friends and hot chocolate from concession stands. I associate the bite of only-slightly-too-cold ambient air and a dark sky with past friendships now, and if I'm passing by a school at night, I can just imagine bands with call times appoaching trailing single file toward the stadium, of sections circling around to warm up where someone during the day might be be killing time between passing periods waiting for the door to Spanish class to open. So that's something that lives in me now I guess. We spend so much time around each other in these kinds of sports, and work to build really really cool shows which come with really cool memories of the process, but my university band (at a nerd school) strips away the difficulty and commitment of it in favor of ease-of access. This is objectively the good choice, but it means I'm less inclined to join because it just makes me miss my previous band, where things just seemed to matter more.] There was a whole thing where most of the section went off with the band, presumably to perform the halftime show, leaving some freshman who I guess hadn't learned the drill, and me. We fell off the back of the stadium via a gust of wind and promptly got lost---we had to wander around the amusement park-like campus a bit before we figured out how to discreetly scale some playstructure-like obstacles to climb back into the stadium. Call that a hero's journey.
+
+And yeah, waking up, that reminded me of that G.I. Robot edit, and the "past relationships" trope or something.

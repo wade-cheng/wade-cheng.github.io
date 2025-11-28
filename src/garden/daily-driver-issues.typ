@@ -8,7 +8,12 @@ My daily driver, Ubuntu 24, has some persisting issues that I don't quite enjoy.
 
 - Shell tab autocompletion doesn't work on some things. System packages seem fine, but externally downloaded ones are borked. `just` and `cargo`, for example.
 
-- Switching to Wayland broke my conky config somehow.
+- Switching to Wayland 
+
+  - broke my conky config somehow.
+
+  - ah, go figure, not being on X stops me from using Xkill
+
 
 - I installed Nix-the-package-manager, and it's caused issues with R packages trying to compile with compilers from the Nix store, or something? Uh. Oh noes. This isn't now an issue after some trial-and-error with reinstalling R/Rstudio, but I should get Nix off my system at some point.
 

@@ -69,3 +69,11 @@ This is yet another subset of accessibility, or something
 - #link("https://practicaltypography.com/")
 
 - I think #link("https://en.wikipedia.org/wiki/Serif#Old-style")[old-style] fonts are really attractive. At writing, this uses EB Garamond, in part because it's free. Someone suggested Sabon.
+
+= side/foot notes
+
+A collection of ideas:
+
+- #link("https://scottstuff.net/posts/2024/12/17/more-notes-on-notes/")
+- #link("https://www.kooslooijesteijn.net/blog/sidenotes-without-js")
+- #link("https://gwern.net/sidenote")

@@ -93,7 +93,7 @@ SIDENOTE STUFF *************************************
 }
 
 .sidenote__checkbox {
-  /* display: none; */
+  display: none;
 }
 
 /* Hidden, but accessible to browsers that don't do CSS (e.g. screenreaders, Pocket) */
@@ -112,7 +112,6 @@ SIDENOTE STUFF *************************************
     position: absolute;
     left: -99999px;
     top: auto;
-    font-size: 10em;
   }
 
   .sidenote__checkbox:checked ~ .sidenote__content {
@@ -156,7 +155,6 @@ SIDENOTE STUFF *************************************
     float: right;
     clear: both;
     right: calc(var(--max-width) +2rem);
-    margin-block-start: -2em;
     margin-right: -300px; 
     width: 250px;
     font-size: 1em;

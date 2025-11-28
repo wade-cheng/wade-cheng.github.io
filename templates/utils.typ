@@ -15,31 +15,25 @@
   context {
     let n = counter(footnote).get().first()
 
-    html.span(class: "sidenote")[
-      #html.input(
+    html.span(class: "sidenote")[#html.input(
         aria-label: "Show sidenote",
         type: "checkbox",
         id: "sidenote__checkbox--" + str(n),
         class: "sidenote__checkbox",
-      )
-      #html.elem("label", attrs: (
+      )#html.elem("label", attrs: (
         tabindex: "0",
         // title: str(body),
         aria-describedby: "sidenote-" + str(n),
         "for": "sidenote__checkbox--" + str(n),
         class: "sidenote__button",
-      ))[
-        #super[#n]
-      ]
-      #html.small(
+      ))[#super[#n]]#html.small(
         id: "sidenote-" + str(n),
         class: "sidenote__content sidenote__content--number-" + str(n),
-      )[
-        #html.span(class: "sidenote__content-parenthesis")[(sidenote: ]
-        #super[#n]#body#html.span(class: "sidenote__content-parenthesis")[)]
-      ]
-      #html.div(class:"markendofspan")
-    ]
+      )[#html.span(
+          class: "sidenote__content-parenthesis",
+        )[(sidenote: ]#super[#n]#body#html.span(class: "sidenote__content-parenthesis")[)]]#html.div(
+        class: "markendofspan",
+      )]
   }
 }
 

@@ -1,0 +1,1 @@
+compile-ty s test suite literally providing value day one lol,  added --path and it broke my user-mode code because I hadn't accounted for paths being different. But users have no way of doing so, so I added $PROJECT_ROOT

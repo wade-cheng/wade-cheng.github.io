@@ -22,34 +22,18 @@
         <h1>typst blog generation</h1>
         <div class="date">November 5, 2025</div>
       </header>
-      
-<nav id="toc">
-    <h2 class="smallcaps">on this page</h2>
-    <ul>
-        <li><a href="#notes">Notes</a></li>
-    </ul>
-</nav>
-
       <main>
         <p><span style="font-variant-caps: small-caps">Alright, I think I’ve figured out how to make this site render with Typst in a reasonably painless way.</span></p>
         <p>Before, I was basically hand-writing HTML (with Nunjucks as a templating language), and it wasn’t really too painful? The only really annoying points were</p>
         <ul>
           <li>having to type links twice</li>
           <li>having to type <code>&lt;p></code> manually</li>
-          <li>I never really worked out a solution to footnotes<a id="loc-1" href="#loc-2" role="doc-noteref"><sup>1</sup></a></li>
+          <li>I never really worked out a solution to footnotes<span class="sidenote"><input aria-label="Show sidenote" type="checkbox" id="sidenote__checkbox--1" class="sidenote__checkbox"><label tabindex="0" aria-describedby="sidenote-1" for="sidenote__checkbox--1" class="sidenote__button"><sup>1</sup></label><small id="sidenote-1" class="sidenote__content sidenote__content--number-1"><span class="sidenote__content-parenthesis">(sidenote:</span><sup>1</sup>But we do have footnotes now!<span class="sidenote__content-parenthesis">)</span></small></span></li>
         </ul>
         <p>But anyways, eleventy didn’t have a way to incrementally compile properly, so I just wrote my own binary that watches for file changes.</p>
         <p>All it does is call the Typst CLI on every typst file and also pass through files that I specify (like CSS). All templating is done in native typst!</p>
         <p><small><a href="/blog/">back to blog</a></small></p>
-              <hr><section id="notes" role="doc-endnotes">
-<h2><a href="#notes">Notes</a></h2>
-      <ol style="list-style-type: none">
-        <li id="loc-2"><a href="#loc-1" role="doc-backlink"><sup>1</sup></a>But we do have footnotes now!</li>
-      </ol>
-          </section>
-</main>
+      </main>
     </div>
-  <script src="https://cdn.jsdelivr.net/gh/cferdinandi/gumshoe@4.0/dist/gumshoe.polyfills.min.js"></script>
-    <script>document.addEventListener('DOMContentLoaded', function() { var spy = new Gumshoe('#toc a'); });</script>
-</body>
+  </body>
 </html>

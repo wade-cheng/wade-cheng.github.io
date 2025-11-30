@@ -12,9 +12,9 @@ Yum! I got a small sampler pack from #link("https://verdanttea.com"). They have 
 
 I'll fill this out as I, y'know, sample them. In chronological order or tasting:
 
-+ He Family Laoshan Green Tea 5g Sample: harvested "Autumn," consumed in November. Really nice! I guess green tea is the kind Chinese restaurants use. Warm and nostalgic in that regard. I like the "warm fuzzy" flavors more than the sweet ones, as you might gather from this page, so I'm very excited at the idea of more tea going forward.
++ He Family Laoshan Green Tea 5g Sample: harvested "Autumn," consumed in November, since apparently their blog says green tea keeps the shortest. Really nice! I guess green tea is the kind Chinese restaurants use. Warm and nostalgic in that regard. I like the "warm fuzzy" flavors more than the sweet ones, as you might gather from this page, so I'm very excited at the idea of more tea going forward.
 
-+ He Family Laoshan Black Tea 5g Sample
++ He Family Laoshan Black Tea 5g Sample: I got the dragon pearl something or other from the pack, and imagine my surprise when the tea was literally a ball of packed black tea. That was pretty cool. Tasted good, I have to say I know what the descriptor "dark" means for taste now. Yeah, I don't really know how to describe it except yeah it tastes "darker" than the generic Chinese restaurant complientary tea.
 
 + Qianjiazhai Wild Arbor Tea 5g Sample
 

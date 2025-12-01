@@ -1,21 +1,30 @@
 #import "../../templates/garden_planter.typ": conf
+#import "../../templates/utils.typ": sidenote
 
 #show: conf.with(
   page-title: "daily driver issues",
 )
 
-My daily driver, Ubuntu 24, has some persisting issues that I don't quite enjoy. I list them for my and your perusal.
+My daily driver is a Wayland Ubuntu 24 ThinkPad.
+
+= Current issues
+
+It has some persisting issues that I don't quite enjoy. I list them for my and your perusal.
+
+- The terminal in snap-installed VSCode occasionally has path issues related to snap sandboxing.#sidenote[E.g., trying to do venv or tool stuff with `uv` can get weird, like tools only installing into the snap sandbox?] I fixed it by switching to the deb version, but at some point my Tinymist Typst preview got really slow and we've determined it's from svg rendering. We know it's because VSCode isn't using my GPU#sidenote[I'm on a laptop, so the default graphics is integrated i.e. with CPU]. I know firefox snap somehow has GPU turned on so maybe snaps automatically enable it? idk. Either way, I also have to figure out how to open vscode with the GPU by default now.#sidenote[Right clicking on the menu entry and hitting Launch using Discrete Graphics Card works, but I never open it that way---I use `zoxide` to jump to the dir i need and just hit a `code .`] Tried overriding the launch thing by putting one in the `~/.local` whatever, but it didn't work. Someone said this is the best way, so I guess I'll have to try again.
 
 - Shell tab autocompletion doesn't work on some things. System packages seem fine, but externally downloaded ones are borked. `just` and `cargo`, for example.
 
 - Switching to Wayland 
 
-  - broke my conky config somehow.
+  - broke my conky config somehow. It's "fine," just shifted upwards partially off the screen.
 
   - ah, go figure, not being on X stops me from using Xkill
 
 
 - I installed Nix-the-package-manager, and it's caused issues with R packages trying to compile with compilers from the Nix store, or something? Uh. Oh noes. This isn't now an issue after some trial-and-error with reinstalling R/Rstudio, but I should get Nix off my system at some point.
+
+= Past issues
 
 Additionally, some issues have been fixed.
 

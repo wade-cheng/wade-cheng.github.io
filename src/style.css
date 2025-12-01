@@ -92,6 +92,9 @@ SIDENOTE STUFF *************************************
     size: 0.7em;
 }
 
+.sidenote__content > sup{
+  margin-right: 0.5em; 
+}
 .sidenote__checkbox {
   display: none;
 }
@@ -159,10 +162,6 @@ SIDENOTE STUFF *************************************
     width: 250px;
     font-size: 1em;
     color: var(--text-color);
-  }
-
-  .sidenote__content > sup{
-    margin-right: 0.5em; 
   }
 
 }

@@ -21,9 +21,23 @@
       <header>
         <h1>daily driver issues</h1>
       </header>
+      
+<nav id="toc">
+    <h2 class="smallcaps">on this page</h2>
+    <ul>
+        <li><a href="#current-issues">Current issues</a></li><li><a href="#past-issues">Past issues</a></li>
+    </ul>
+</nav>
+
       <main>
-        <p>My daily driver, Ubuntu 24, has some persisting issues that I don’t quite enjoy. I list them for my and your perusal.</p>
+        <p>My daily driver is a Wayland Ubuntu 24 ThinkPad.</p>
+        <section id="current-issues">
+<h2><a href="#current-issues">Current issues</a></h2>
+        <p>It has some persisting issues that I don’t quite enjoy. I list them for my and your perusal.</p>
         <ul>
+          <li>
+            <p>The terminal in snap-installed VSCode occasionally has path issues related to snap sandboxing.<span class="sidenote"><input aria-label="Show sidenote" type="checkbox" id="sidenote__checkbox--1" class="sidenote__checkbox"><label tabindex="0" aria-describedby="sidenote-1" for="sidenote__checkbox--1" class="sidenote__button"><sup>1</sup></label><small id="sidenote-1" class="sidenote__content sidenote__content--number-1"><span class="sidenote__content-parenthesis">(sidenote:</span><sup>1</sup>E.g., trying to do venv or tool stuff with <code>uv</code> can get weird, like tools only installing into the snap sandbox?<span class="sidenote__content-parenthesis">)</span></small></span><span style="white-space: pre-wrap">&#x20;</span>I fixed it by switching to the deb version, but at some point my Tinymist Typst preview got really slow and we’ve determined it’s from svg rendering. We know it’s because VSCode isn’t using my GPU<span class="sidenote"><input aria-label="Show sidenote" type="checkbox" id="sidenote__checkbox--2" class="sidenote__checkbox"><label tabindex="0" aria-describedby="sidenote-2" for="sidenote__checkbox--2" class="sidenote__button"><sup>2</sup></label><small id="sidenote-2" class="sidenote__content sidenote__content--number-2"><span class="sidenote__content-parenthesis">(sidenote:</span><sup>2</sup>I’m on a laptop, so the default graphics is integrated i.e. with CPU<span class="sidenote__content-parenthesis">)</span></small></span>. I know firefox snap somehow has GPU turned on so maybe snaps automatically enable it? idk. Either way, I also have to figure out how to open vscode with the GPU by default now.<span class="sidenote"><input aria-label="Show sidenote" type="checkbox" id="sidenote__checkbox--3" class="sidenote__checkbox"><label tabindex="0" aria-describedby="sidenote-3" for="sidenote__checkbox--3" class="sidenote__button"><sup>3</sup></label><small id="sidenote-3" class="sidenote__content sidenote__content--number-3"><span class="sidenote__content-parenthesis">(sidenote:</span><sup>3</sup>Right clicking on the menu entry and hitting Launch using Discrete Graphics Card works, but I never open it that way—I use <code>zoxide</code> to jump to the dir i need and just hit a <code>code .</code><span class="sidenote__content-parenthesis">)</span></small></span><span style="white-space: pre-wrap">&#x20;</span>Tried overriding the launch thing by putting one in the <code>~/.local</code> whatever, but it didn’t work. Someone said this is the best way, so I guess I’ll have to try again.</p>
+          </li>
           <li>
             <p>Shell tab autocompletion doesn’t work on some things. System packages seem fine, but externally downloaded ones are borked. <code>just</code> and <code>cargo</code>, for example.</p>
           </li>
@@ -31,7 +45,7 @@
             <p>Switching to Wayland</p>
             <ul>
               <li>
-                <p>broke my conky config somehow.</p>
+                <p>broke my conky config somehow. It’s “fine,” just shifted upwards partially off the screen.</p>
               </li>
               <li>
                 <p>ah, go figure, not being on X stops me from using Xkill</p>
@@ -42,6 +56,9 @@
             <p>I installed Nix-the-package-manager, and it’s caused issues with R packages trying to compile with compilers from the Nix store, or something? Uh. Oh noes. This isn’t now an issue after some trial-and-error with reinstalling R/Rstudio, but I should get Nix off my system at some point.</p>
           </li>
         </ul>
+        </section>
+<section id="past-issues">
+<h2><a href="#past-issues">Past issues</a></h2>
         <p>Additionally, some issues have been fixed.</p>
         <ul>
           <li>
@@ -52,7 +69,10 @@
           </li>
         </ul>
         <p><small><a href="/garden/">back to garden</a></small></p>
-      </main>
+      </section>
+</main>
     </div>
-  </body>
+  <script src="https://cdn.jsdelivr.net/gh/cferdinandi/gumshoe@4.0/dist/gumshoe.polyfills.min.js"></script>
+    <script>document.addEventListener('DOMContentLoaded', function() { var spy = new Gumshoe('#toc a'); });</script>
+</body>
 </html>

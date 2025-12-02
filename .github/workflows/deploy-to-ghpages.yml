@@ -14,6 +14,7 @@ jobs:
       group: ${{ github.workflow }}-${{ github.ref }}
     steps:
       - uses: actions/checkout@v3
+      - uses: typst-community/setup-typst@v4
 
       - name: Install cargo-binstall
         uses: cargo-bins/cargo-binstall@v1.15.10
@@ -22,7 +23,6 @@ jobs:
         run: |
           cargo binstall --no-confirm compile-typst-site@2.0.3
           cargo binstall --no-confirm just
-          cargo binstall --no-confirm typst-cli
 
       - name: Build
         run: just build

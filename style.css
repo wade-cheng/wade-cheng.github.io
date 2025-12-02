@@ -53,12 +53,12 @@ h5,
 h6 {
     text-align: left;
     scroll-margin-top: 0.5em;
-    position: relative;
+    position: relative; /* needed for anchor # visual */
 }
 
 /* 
 Replace default margins with padding to appease gumdrop
-Leave h1 as margin because we want the mobile collapsed toc to have consistent spacing
+Leave h1 as margin because we want the collapsed toc on mobile to have consistent spacing
 between toc and the thing above toc (garden doesn't have a date).
 https://stackoverflow.com/questions/7049952/what-are-the-default-margins-for-the-html-heading-tags-h1-h2-h3-etc
 */

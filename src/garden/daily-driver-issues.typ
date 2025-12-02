@@ -17,7 +17,7 @@ It has some persisting issues that I don't quite enjoy. I list them for my and y
 
 - Switching to Wayland 
 
-  - broke my conky config somehow. It's "fine," just shifted upwards partially off the screen.
+  - broke my conky config somehow. It's "fine," just shifted upwards partially off the screen. Ah welp, it may not be fine actually, after either a new update or me logging in and out...
 
   - ah, go figure, not being on X stops me from using Xkill
 

@@ -18,3 +18,12 @@ export DEFAULT_BLOG_POST := '''
 blog:
 	printf '%s' "$DEFAULT_BLOG_POST" > src/blog/NEW_BLOG_POST.typ
 	code src/blog/NEW_BLOG_POST.typ
+
+# I assume linkedin blocks scraping
+[working-directory: '_site']
+check-links:
+    lychee . -v --offline --exclude ".*linkedin.*" --root-dir $(pwd)
+
+[working-directory: '_site']
+check-links-full:
+    lychee . -v --exclude ".*linkedin.*" --root-dir $(pwd)

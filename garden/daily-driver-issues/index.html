@@ -62,6 +62,9 @@
         <p>Additionally, some issues have been fixed.</p>
         <ul>
           <li>
+            <p>I had to manually reenable some ghostscript extension for imagemagick to get conversion to images to work, even though the insecure version of ghostscript wasn’t on my machine.</p>
+          </li>
+          <li>
             <p>My firefox tabs flickered when running my mouse along the top of the screen. I recorded the video below:</p>
             <video height="50" controls><source src="/assets/tab_flicker.mp4" type="video/mp4"><p>Your browser does not support the video tag. See <a href="/assets/tab_flicker.mp4"></a>.</p></video>
             <p>I took this video with the printscreen button on Ubuntu. You may notice that the mouse is not available. From Stackoverflow, I changed from Xorg to Wayland, and this fixed that. But hilariously enough, this also fixed the tab flickering issue.</p>

@@ -1,0 +1,9 @@
+#import "../../templates/blog_post.typ": conf
+#import "../../templates/utils.typ": sidenote
+
+#show: conf.with(
+  page-title: "micropost: wardrobe",
+  date: "2025-12-01",
+)
+
+talk about the putting on the red sleeves because wanted color and it was kinda meh but yknow, it's like the crit hit indicator for a boss so whatever ill cope and pretends it looks nice against two dark pieces, but oh my tshirt has a really colorful graphic on it so it actually turned out to look not bad

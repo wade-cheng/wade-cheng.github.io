@@ -1,0 +1,6 @@
+#import "../../templates/blog_post.typ": conf
+
+#show: conf.with(
+  page-title: "todo",
+  date: "2025-12-01",
+)

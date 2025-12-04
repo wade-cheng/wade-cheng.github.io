@@ -28,6 +28,8 @@ It has some persisting issues that I don't quite enjoy. I list them for my and y
 
 Additionally, some issues have been fixed.
 
+- I had to manually reenable some ghostscript extension for imagemagick to get conversion to images to work, even though the insecure version of ghostscript wasn't on my machine.
+
 - My firefox tabs flickered when running my mouse along the top of the screen. I recorded the video below:
 
   #html.video(height: 50, controls: true)[

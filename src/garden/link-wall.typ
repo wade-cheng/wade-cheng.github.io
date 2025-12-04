@@ -6,17 +6,23 @@
 
 Here's just a bunch of links to things I think are cool.
 
-Inspiration for the layout of this website:
+= Icons
+
+- #link("https://phosphoricons.com/")
+
+- #link("https://feathericons.com/")
+
+= Inspiration for the layout of this website
 
 - #link("https://practicaltypography.com/")
 
 - #link("https://www.teamten.com/lawrence/writings/")
 
-What's with that cat in the garden?
+= What's with that cat in the garden?
 
 - #link("https://nekothecat.neocities.org/")
 
-Misc:
+= Misc
 
 - #link("https://qntm.org/scp")[There Is No Antimemetics Division by qntm] is a VERY good book that you should read.
 

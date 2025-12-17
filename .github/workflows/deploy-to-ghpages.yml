@@ -21,7 +21,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          cargo binstall --no-confirm compile-typst-site --version ">=0.0.0-0"
+          cargo binstall --no-confirm compile-typst-site
           cargo binstall --no-confirm just
 
       - name: Build

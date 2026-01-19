@@ -1,6 +1,7 @@
 passthrough_copy = [
     "*.css",
     "**/*.png",
+    "**/*.jpg",
     "**/*.html",
     "assets/**/*",
     "favicon/*",

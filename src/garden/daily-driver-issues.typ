@@ -11,6 +11,10 @@ My daily driver is a Wayland Ubuntu 24 ThinkPad.
 
 It has some persisting issues that I don't quite enjoy. I list them for my and your perusal.
 
+- Huh, well this is random. I used to have a bug/unimplemented feature in where if I hit save, eg just ctrl-s on some browser tab, the "rename saved file output" box wasn't focused until I alt tabbed and alt tabbed back. (Or click on it, but what are we, mouse-using plebians? I said ctrl-s, didn't I? /s /j) Or technically, that entire save dialogue window wasn't focused.
+
+  But now I can hit save and immediately start typing to rename the file, like in any respectable OS UI. Random software update I guess. So weird.
+
 - The terminal in snap-installed VSCode occasionally has path issues related to snap sandboxing.#sidenote[E.g., trying to do venv or tool stuff with `uv` can get weird, like tools only installing into the snap sandbox?] I fixed it by switching to the deb version, but at some point my Tinymist Typst preview got really slow and we've determined it's from svg rendering. We know it's because VSCode isn't using my GPU#sidenote[I'm on a laptop, so the default graphics is integrated i.e. with CPU]. I know firefox snap somehow has GPU turned on so maybe snaps automatically enable it? idk. Either way, I also have to figure out how to open vscode with the GPU by default now.#sidenote[Right clicking on the menu entry and hitting Launch using Discrete Graphics Card works, but I never open it that way---I use `zoxide` to jump to the dir i need and just hit a `code .`] Tried overriding the launch thing by putting one in the `~/.local` whatever, but it didn't work. Someone said this is the best way, so I guess I'll have to try again.
 
 - Shell tab autocompletion doesn't work on some things. System packages seem fine, but externally downloaded ones are borked. `just` and `cargo`, for example.

@@ -177,6 +177,10 @@ SIDENOTE STUFF *************************************
 END SIDENOTE STUFF ********************
 */
 
+#toc h2 {
+    font-style: normal;
+}
+
 #toc {
   /* max-width: 15rem; */
   text-align: left;

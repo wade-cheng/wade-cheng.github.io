@@ -41,7 +41,7 @@ body {
 }
 
 h1 {
-    font-weight: normal;
+    font-style: normal !important;
     font-size: 3em;
 }
 
@@ -51,6 +51,8 @@ h3,
 h4,
 h5,
 h6 {
+    font-style: italic;
+    font-weight: normal;
     text-align: left;
     scroll-margin-top: 0.5em;
     position: relative; /* needed for anchor # visual */

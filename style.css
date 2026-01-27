@@ -58,6 +58,11 @@ h6 {
     position: relative; /* needed for anchor # visual */
 }
 
+summary:hover {
+    cursor: pointer;
+}
+
+
 /* 
 Replace default margins with padding to appease gumdrop
 Leave h1 as margin because we want the collapsed toc on mobile to have consistent spacing

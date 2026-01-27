@@ -59,7 +59,9 @@ I also went to a concert of Owen's and I think he said the song, to him, was abo
 
 I like this song, I like midwest emo. This song is tied to my university freshman experience, temporally and in a feelings sense, and it holds a special place in my heart, or whatever. So this is pretty cool.
 
-As an addendum or appendix, here's a moodboard of sorts of what this song is like to me:
+= Appendix: a moodboard
+
+As an addendum or appendix, I'm including a moodboard of sorts of what this song is like to me. It's not accurate at all to what I explained above, only adjacent in feels. But here goes:
 
 #html.details[
   #html.summary[

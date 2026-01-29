@@ -11,6 +11,8 @@ My daily driver is a Wayland Ubuntu 24 ThinkPad.
 
 It has some persisting issues that I don't quite enjoy. I list them for my and your perusal.
 
+- I've yet to figure out a good way to navigate around many UIs, eg nautilus the file manager, without the mouse. Alt tab order is... tedious... Maybe there's a trick like in Discord where f6 jumps your tab selection to the next logical section instead of the next tab item, but I haven't actually bothered to go looking. So basically, this one might be a skill issue.
+
 - Printing works and then breaks again and then works again and then...
 
 - Huh, well this is random. I used to have a bug/unimplemented feature in where if I hit save, eg just ctrl-s on some browser tab, the "rename saved file output" box wasn't focused until I alt tabbed and alt tabbed back. (Or click on it, but what are we, mouse-using plebians? I said ctrl-s, didn't I? /s /j) Or technically, that entire save dialogue window wasn't focused.

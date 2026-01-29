@@ -44,7 +44,7 @@ We sing that maybe we are forgetting some things as time places distance between
 Anyways, the actual stanza is this:
 
 #quote(block: true)[
-  and I never looked back for the baseball cap \\ \
+  and I never looked back for the baseball bat \\ \
   The bowling alley at midnight, shit beer on tap \\ \
   And you are a lithograph, sketching my history \\ \
   Under the floodlights, you look more like God to me \\ \

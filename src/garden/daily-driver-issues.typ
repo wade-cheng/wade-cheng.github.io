@@ -11,6 +11,8 @@ My daily driver is a Wayland Ubuntu 24 ThinkPad.
 
 It has some persisting issues that I don't quite enjoy. I list them for my and your perusal.
 
+- Printing works and then breaks again and then works again and then...
+
 - Huh, well this is random. I used to have a bug/unimplemented feature in where if I hit save, eg just ctrl-s on some browser tab, the "rename saved file output" box wasn't focused until I alt tabbed and alt tabbed back. (Or click on it, but what are we, mouse-using plebians? I said ctrl-s, didn't I? /s /j) Or technically, that entire save dialogue window wasn't focused.
 
   But now I can hit save and immediately start typing to rename the file, like in any respectable OS UI. Random software update I guess. So weird.

@@ -43,6 +43,7 @@ body {
 h1 {
     font-style: normal !important;
     font-size: 3em;
+    hyphens: none;
 }
 
 h1,

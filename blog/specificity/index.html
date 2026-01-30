@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <link rel="stylesheet" href="/assets/eb-garamond/eb-garamond.css">
+      <meta charset="utf-8">
+      <title>wade's blog :: Case studies in specificity: API docs and boolean choices</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link href="/style.css" rel="stylesheet" type="text/css">
+      <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96">
+      <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
+      <link rel="shortcut icon" href="/favicon/favicon.ico">
+      <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+      <meta name="apple-mobile-web-app-title" content="wade's site">
+      <link rel="manifest" href="/favicon/site.webmanifest">
+      <link rel="prefetch" href="https://webneko.net/n20171213.js">
+    </head>
+  <body>
+    
+    <div id="site-container">
+      <nav><a href="/">home</a> <a href="/blog/">blog</a> <a href="/garden/">garden</a></nav>
+      <header>
+        <h1>Case studies in specificity: API docs and boolean choices</h1>
+        <div class="date">January 30, 2026</div>
+      </header>
+      <main>
+        <p>I was doing a coding assignment recently, and noticed the provided package’s <code>unique</code> function didn’t specify whether it kept only the first item in every consecutive region of equal items. Instilled with a healthy wariness of Undefined Behavior<span class="sidenote"><input aria-label="Show sidenote" type="checkbox" id="sidenote__checkbox--1" class="sidenote__checkbox"><label tabindex="0" aria-describedby="sidenote-1" for="sidenote__checkbox--1" class="sidenote__button"><sup>1</sup></label><small id="sidenote-1" class="sidenote__content sidenote__content--number-1"><span class="sidenote__content-parenthesis">(sidenote:</span><sup>1</sup>nasal demons!!<span class="sidenote__content-parenthesis">)</span></small></span>, I didn’t want to assume it did so, even though that’s the usual interpretation of that function. It was even more eye-raising because this was a library for parallel operations, so there could have presumably been some weird out-of-order shenanigans going on<span class="sidenote"><input aria-label="Show sidenote" type="checkbox" id="sidenote__checkbox--2" class="sidenote__checkbox"><label tabindex="0" aria-describedby="sidenote-2" for="sidenote__checkbox--2" class="sidenote__button"><sup>2</sup></label><small id="sidenote-2" class="sidenote__content sidenote__content--number-2"><span class="sidenote__content-parenthesis">(sidenote:</span><sup>2</sup>Divide and conquer doesn’t consider items sequentially.<span class="sidenote__content-parenthesis">)</span></small></span><span style="white-space: pre-wrap">&#x20;</span>that cause it to take arbitrary items in every consecutive region. Equality is associative, after all—maybe something could cook wrt that?</p>
+        <p>After some tests and double checking the source code, it turned out to keep the first, anyway. Neat.</p>
+        <p>I remembered this being a problem when I browsed the corresponding Rust documentation before. So, since I’m getting nerd sniped, here’s a lit review:</p>
+        <ul>
+          <li>C++: specified (<a href="https://en.cppreference.com/w/cpp/algorithm/unique.html"><code>std::unique</code></a>)</li>
+          <li>Rust: not specified<span class="sidenote"><input aria-label="Show sidenote" type="checkbox" id="sidenote__checkbox--3" class="sidenote__checkbox"><label tabindex="0" aria-describedby="sidenote-3" for="sidenote__checkbox--3" class="sidenote__button"><sup>3</sup></label><small id="sidenote-3" class="sidenote__content sidenote__content--number-3"><span class="sidenote__content-parenthesis">(sidenote:</span><sup>3</sup>This sent me forum hunting/testing at least once before<span class="sidenote__content-parenthesis">)</span></small></span><span style="white-space: pre-wrap">&#x20;</span>(<a href="https://doc.rust-lang.org/std/vec/struct.Vec.html#method.dedup"><code>Vec::dedup</code></a>)</li>
+          <li>R: doesn’t specify the default behavior, but has a parameter that lets it keep the rightmost item instead, which implies the default is to keep the leftmost, LMAO, hilarious secret third option (<a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/unique"><code>base::unique</code></a>)</li>
+          <li>Python (and a few others): doesn’t… seem to exist? The internet keeps saying “roll your own”</li>
+        </ul>
+        <p>The R specificity issue in particular reminded me of a hot take blog post I read on never using checkboxes: <a href="https://www.teamten.com/lawrence/programming/checkboxes/">https://www.teamten.com/lawrence/programming/checkboxes/</a>. It’s pretty good. I recommend reading it.<span class="sidenote"><input aria-label="Show sidenote" type="checkbox" id="sidenote__checkbox--4" class="sidenote__checkbox"><label tabindex="0" aria-describedby="sidenote-4" for="sidenote__checkbox--4" class="sidenote__button"><sup>4</sup></label><small id="sidenote-4" class="sidenote__content sidenote__content--number-4"><span class="sidenote__content-parenthesis">(sidenote:</span><sup>4</sup>I ran into this myself when using an <a href="https://momijizukamori.github.io/bookbinder-js/">imposer</a> and got confused by a “Alternate Page Rotation (AKA Flip on Long Side)” checkbox. Applying the post’s principles, I would’ve been theoretically less confusing if it was phrased as “printer page rotation: ☐ Flip on short side (standard page rotation) ☐ Flip on long side (alternating page rotation)”<span class="sidenote__content-parenthesis">)</span></small></span></p>
+        <p>While trying to find the article again, I also found this similar post on toggle buttons: <a href="https://axesslab.com/toggles-suck/">https://axesslab.com/toggles-suck/</a>. Toggles and checkboxes both represent boolean states, but toggles might worse, it seems.</p>
+        <p><small><a href="/blog/">back to blog</a></small></p>
+      </main>
+    </div>
+  </body>
+</html>

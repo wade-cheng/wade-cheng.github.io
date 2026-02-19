@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <link rel="stylesheet" href="/assets/eb-garamond/eb-garamond.css">
+      <meta charset="utf-8">
+      <title>wade's blog :: my tab management scheme is a bump allocator</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link href="/style.css" rel="stylesheet" type="text/css">
+      <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96">
+      <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
+      <link rel="shortcut icon" href="/favicon/favicon.ico">
+      <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+      <meta name="apple-mobile-web-app-title" content="wade's site">
+      <link rel="manifest" href="/favicon/site.webmanifest">
+      <link rel="prefetch" href="https://webneko.net/n20171213.js">
+    </head>
+  <body>
+    
+    <div id="site-container">
+      <nav><a href="/">home</a> <a href="/blog/">blog</a> <a href="/garden/">garden</a></nav>
+      <header>
+        <h1>my tab management scheme is a bump allocator</h1>
+        <div class="date">February 19, 2026</div>
+      </header>
+      <main>
+        <p>So, if you squint real hard, my browser tab management scheme is a <a href="https://en.wikipedia.org/wiki/Region-based_memory_management">bump allocator</a>.<span class="sidenote"><input aria-label="Show sidenote" type="checkbox" id="sidenote__checkbox--1" class="sidenote__checkbox"><label tabindex="0" aria-describedby="sidenote-1" for="sidenote__checkbox--1" class="sidenote__button"><sup>1</sup></label><small id="sidenote-1" class="sidenote__content sidenote__content--number-1"><span class="sidenote__content-parenthesis">(sidenote:</span><sup>1</sup>Man, non-general-case mallocation schemes are so cool. The general case is just “yeah let’s try to get some memory for you chief, do whatever with it, we’ll clean it up,” but non-general-case implies you <em>know</em> things about your access patterns. Maybe I just do a bunch of stuff and then you can clean it all up after. And we find out this can be faster than managing free lists and coalescing and etc etc. Cool.<span class="sidenote__content-parenthesis">)</span></small></span><span style="white-space: pre-wrap">&#x20;</span>I open up my project, need to keep a bunch of things open, I start getting so many tabs that it’s hard to find tabs I’ve already opened, so I just create new ones, but of course I want to keep the previous tabs just in case I need them, and suddenly I’m over here at the finish line, test cases passing, with Firefox prompting me, kindly but perhaps with some concern, on whether I’d really like to close those 134 tabs.</p>
+        <p>Overall, it’s pretty cool how good code abstractions often end up mirroring real organic behavior.</p>
+        <div style="text-align: left">
+          <ul>
+            <li>I’m reminded of some sorting algorithms. I think. Maybe.</li>
+            <li>
+              <p>I’m reminded of how much of the history of machine learning follows human brain stuff. What with explicit coding of decision trees that follow how humans think, into neural nets that can be (at a high level) conceptualized as neurons doing shenanigans.</p>
+              <ul>
+                <li>see the feature engineering v.s. feature learning plot, neat 2d space: <a href="https://www.cs.cmu.edu/~mgormley/courses/10601-f25//slides/lecture10-reg-ink.pdf">https://www.cs.cmu.edu/~mgormley/courses/10601-f25//slides/lecture10-reg-ink.pdf</a></li>
+              </ul>
+            </li>
+            <li>
+              <p>Lots of historical and contemp. chess algorithm building blocks are like this</p>
+              <ul>
+                <li><a href="https://www.chessprogramming.org/Quiescence_Search">“Keep on thinking about a line until there’s nothing more to think about”</a>)</li>
+                <li>this entire page: <a href="https://www.chessprogramming.org/Evaluation">https://www.chessprogramming.org/Evaluation</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <p><small><a href="/blog/">back to blog</a></small></p>
+      </main>
+    </div>
+  </body>
+</html>

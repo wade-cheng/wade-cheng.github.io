@@ -13,6 +13,7 @@ of one-off blog posts.
 
 #html.div(class: "left-align")[
   #for (path, queried) in files.pairs() [
+    #let path = path.replace("\\", "/") // make it windows-friendly
     #if queried.len() > 0 and path.contains("/garden/") {
       let path = (path.split("/garden/").at(-1).replace(regex("/index\\.typ$"), "/").replace(regex("\\.typ$"), "/"))
       let page = queried.at(0).at("value")

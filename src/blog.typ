@@ -46,6 +46,7 @@ I would've really liked just doing laundry and taxes with you.
 
 #html.div(class: "left-align")[
   #for (path, queried) in files [
+    #let path = path.replace("\\", "/") // make it windows-friendly
     #if queried.len() > 0 and path.contains("/blog/") {
       let path = (path.split("/blog/").at(-1).replace(regex("/index\\.typ$"), "/").replace(regex("\\.typ$"), "/"))
       let page = queried.at(0).at("value")

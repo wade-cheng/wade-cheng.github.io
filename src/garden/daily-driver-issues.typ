@@ -48,3 +48,7 @@ Additionally, some issues have been fixed.
   I took this video with the printscreen button on Ubuntu. You may notice that the mouse is not available. From Stackoverflow, I changed from Xorg to Wayland, and this fixed that. But hilariously enough, this also fixed the tab flickering issue.
 
   This is possibly in a bigger class of problems with Xorg possibly being jank around the edges of the screen?
+
+= Appendix
+
+Annoyed. Writing a little update in my blog via github's editor, hit ctrl r instead of ctrl t which is right next to it, and got all my work deleted. So. I've been dailying Windows. Gaming is still non-perfect on Linux, so that was unfortunately a dealbreaker for me. To continue dailying Linux would have been to have non-perfect gaming, or have to boot back and forth repeatedly. But now issue again. Windows. RAM leak somewhere. Spills into swapfile. Enough that there's no more space on disk. OOM killer. Crashed a PEAK#sidenote[PEAK has a very cool wiki. Very pretty. And its search tab does exactly it's meant to. Awesome. Been a while since searching things was easy, says someone who likes coding.] game that was very stressful, deteriorating, but salvageable. Darn. 

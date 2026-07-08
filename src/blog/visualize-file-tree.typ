@@ -1,7 +1,7 @@
 #import "../../templates/blog_post.typ": conf
 
 #show: conf.with(
-  page-title: "https://tree.nathanfriend.com",
+  page-title: "visualize a file tree",
   date: "2026-07-06",
 )
 

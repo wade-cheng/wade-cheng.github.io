@@ -193,11 +193,11 @@ END SIDENOTE STUFF ********************
 @media (min-width: calc(544px + 270px * 2 + 2rem + 1.5em * 2)) {
   #toc {
     position: fixed;
-    top: 2rem;
+    top: 0em;
     margin-left: calc(544px + 2rem);
     width: 270px;
     background-color: var(--bg);
-    padding-top: 1em;
+    padding-top: 3em;
     padding-bottom: 1em;
   }
 }

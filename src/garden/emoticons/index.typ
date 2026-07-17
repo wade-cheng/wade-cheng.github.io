@@ -23,6 +23,7 @@ Here's a list of emoticons I feel the most attached to, and what I mean when I u
 / #":3": The cat face modifier. Whenever a nya fits the occasion.
 / #":)": I am up to no good, but hiding it. This is a less overt version of >:) or >:3
 / #":-)": I am such a good natured old fellow! Ho ho ho!
+/ #"^^": This is a smiling emoji! I am expressing joy ^^ :D There's a Tumblr post somewhere out there about smiling with your eyes and this being a more common smiley face emoticon in East Asia.
 / #":(": Sad times. Usually when something bad happens in a video game. I am mostly hoping to express a wet cat demeanor which might snap my teammates out of whatever inting is to occur. Can't make the cat more sad!
 / #":0": woah!!!! (Lowercase w. If I need to express much excitement I will vocalize, possibly with capslock and/or other modifiers, instead of only using an emoticon)
 / #":/": Siigh. This sucks man.

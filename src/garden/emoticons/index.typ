@@ -26,7 +26,8 @@ Here's a list of emoticons I feel the most attached to, and what I mean when I u
 / #"^^": This is a smiling emoji! I am expressing joy ^^ :D There's a Tumblr post somewhere out there about smiling with your eyes and this being a more common smiley face emoticon in East Asia.
 / #":(": Sad times. Usually when something bad happens in a video game. I am mostly hoping to express a wet cat demeanor which might snap my teammates out of whatever inting is to occur. Can't make the cat more sad!
 / #":0": woah!!!! (Lowercase w. If I need to express much excitement I will vocalize, possibly with capslock and/or other modifiers, instead of only using an emoticon)
-/ #":/": Siigh. This sucks man.
+/ #";-;": Siigh. This sucks man. This one has an air of, perhaps, empathy.
+/ #":/": Siigh. This sucks man. This one is more used when something bad happened to me. Or I'm being judgemental. Someone just did something inadvisable, at a detriment to the team, in a video game.
 / #":D": yay!! (Lowercase.)
 / #"D:": waughhhhhh D: (Lowercase.)
 / #"[|87": Sometimes I pull this out when I feel like showing off a party trick. It's a plague doctor! Got this one from tumblr. Alternatively, this style of hat is cool:  #sym.Sigma|87 (thanks #link("https://www.reddit.com/r/tumblr/comments/13zj6l6/cant_unsee_it_now/")[reddit])
